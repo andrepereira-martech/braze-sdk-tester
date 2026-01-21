@@ -871,8 +871,8 @@ function updateContentCardsStatus(message, type = 'info') {
 async function registerServiceWorker() {
     if ('serviceWorker' in navigator) {
         try {
-            const registration = await navigator.serviceWorker.register('/service-worker.js', {
-                scope: '/'
+            const registration = await navigator.serviceWorker.register('./service-worker.js', {
+                scope: './'
             });
             
             console.log('[Push Debug] Service Worker registered:', {
