@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Braze Web SDK Test Application</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="importmap">
+    {
+        "imports": {
+            "@braze/web-sdk": "/node_modules/@braze/web-sdk/src/index.js"
+        }
+    }
+    </script>
+</head>
+<body data-page-name="home">
+    <div class="container">
+        <header>
+            <h1>🚀 Braze Web SDK Test Application</h1>
+            <p>Test and observe data flow into your Braze workspace</p>
+        </header>
+
+        <!-- Configuration Section -->
+        <section class="section">
+            <h2>Configuration</h2>
+            <p class="help-text" style="margin-bottom: 15px; font-style: italic;">
+                Configuration is loaded from <code>.env</code> file. 
+                To update, edit <code>.env</code> and run: <code>npm run load-env</code>
+            </p>
+            <form id="config-form">
+                <div class="form-group">
+                    <label for="api-key-input">Braze API Key</label>
+                    <input type="text" id="api-key-input" placeholder="Braze API Key" required 
+                           maxlength="200" aria-describedby="api-key-error" aria-required="true">
+                    <div id="api-key-error" class="sr-only" role="alert"></div>
+                </div>
+                <div class="form-group">
+                    <label for="endpoint-input">SDK Endpoint URL</label>
+                    <input type="url" id="endpoint-input" placeholder="SDK Endpoint URL" required 
+                           maxlength="500" aria-describedby="endpoint-error" aria-required="true">
+                    <div id="endpoint-error" class="sr-only" role="alert"></div>
+                </div>
+                <button type="submit" id="init-btn" aria-label="Initialize Braze SDK">Initialize SDK</button>
+            </form>
+            <div id="init-status" class="status-message" role="status" aria-live="polite" aria-atomic="true"></div>
+            <button type="button" id="retry-init-btn" class="retry-btn" style="display: none; margin-top: 10px;">Retry Initialization</button>
+        </section>
+
+        <!-- User Management Section -->
+        <section class="section">
+            <h2>User Management</h2>
+            <div class="form-group">
+                <label for="user-id-input">User ID</label>
+                <input type="text" id="user-id-input" placeholder="User ID (leave empty for anonymous)" 
+                       maxlength="200" aria-describedby="user-id-help">
+                <small id="user-id-help" class="help-text">Leave empty to use anonymous tracking</small>
+            </div>
+            <div class="button-group">
+                <button type="button" id="set-user-btn" aria-label="Set user ID">Set User ID</button>
+                <button type="button" id="clear-user-btn" aria-label="Clear user and use anonymous">Clear User (Anonymous)</button>
+                <button type="button" id="set-standard-attributes-btn" aria-label="Set standard user attributes">Set Standard Attributes</button>
+            </div>
+            <div id="current-user-display" class="status-message" role="status" aria-live="polite">Current User: Anonymous</div>
+        </section>
+
+        <!-- Standard User Attributes Modal -->
+        <div id="standard-attributes-modal" class="modal" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="modal-title">Set Standard User Attributes</h2>
+                    <button type="button" class="modal-close" id="close-modal-btn" aria-label="Close modal">&times;</button>
+                </div>
+                <form id="standard-attributes-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="first-name-input">First Name</label>
+                            <input type="text" id="first-name-input" placeholder="First Name" maxlength="255">
+                        </div>
+                        <div class="form-group">
+                            <label for="last-name-input">Last Name</label>
+                            <input type="text" id="last-name-input" placeholder="Last Name" maxlength="255">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email-input">Email</label>
+                        <input type="email" id="email-input" placeholder="email@example.com" maxlength="255">
+                        <small class="help-text">Valid email address</small>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="country-input">Country</label>
+                            <input type="text" id="country-input" placeholder="Country" maxlength="255">
+                        </div>
+                        <div class="form-group">
+                            <label for="home-city-input">Home City</label>
+                            <input type="text" id="home-city-input" placeholder="Home City" maxlength="255">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="dob-year-input">Date of Birth</label>
+                            <div class="date-input-group">
+                                <input type="number" id="dob-year-input" placeholder="Year" min="1900" max="2100" style="width: 80px;">
+                                <input type="number" id="dob-month-input" placeholder="Month" min="1" max="12" style="width: 70px;">
+                                <input type="number" id="dob-day-input" placeholder="Day" min="1" max="31" style="width: 70px;">
+                            </div>
+                            <small class="help-text">Year, Month (1-12), Day</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="gender-select">Gender</label>
+                            <select id="gender-select">
+                                <option value="">-- Select --</option>
+                                <option value="m">Male</option>
+                                <option value="f">Female</option>
+                                <option value="o">Other</option>
+                                <option value="p">Prefer not to say</option>
+                                <option value="n">Not applicable</option>
+                                <option value="u">Unknown</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="language-input">Language (ISO-639-1)</label>
+                            <input type="text" id="language-input" placeholder="en" maxlength="2" pattern="[a-z]{2}" style="text-transform: lowercase;">
+                            <small class="help-text">2-letter language code (e.g., en, es, fr)</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone-input">Phone (E.164)</label>
+                            <input type="tel" id="phone-input" placeholder="+1234567890" maxlength="20">
+                            <small class="help-text">Format: +[country code][number] (e.g., +14155551234)</small>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="clear-standard-attributes-btn" class="btn-secondary">Clear All</button>
+                        <button type="button" id="cancel-standard-attributes-btn" class="btn-secondary">Cancel</button>
+                        <button type="submit" id="save-standard-attributes-btn">Save Attributes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Custom Events Section -->
+        <section class="section">
+            <h2>Custom Events</h2>
+            
+            <!-- Predefined Events -->
+            <div class="predefined-events-section">
+                <h3>Predefined Events</h3>
+                <p class="help-text" style="margin-bottom: 15px;">
+                    Click any button below to trigger a predefined event. These events can be used as triggers for push notifications or content cards in Braze campaigns.
+                </p>
+                <div class="predefined-events-grid">
+                    <button type="button" class="predefined-event-btn" data-event="page_view" data-props='{"page": "homepage"}'>
+                        📄 Page View
+                    </button>
+                    <button type="button" class="predefined-event-btn" data-event="button_click" data-props='{"button_name": "cta_button"}'>
+                        🖱️ Button Click
+                    </button>
+                    <button type="button" class="predefined-event-btn" data-event="form_submit" data-props='{"form_type": "contact"}'>
+                        📝 Form Submit
+                    </button>
+                    <button type="button" class="predefined-event-btn" data-event="product_view" data-props='{"product_id": "prod_123", "category": "electronics"}'>
+                        👁️ Product View
+                    </button>
+                    <button type="button" class="predefined-event-btn" data-event="add_to_cart" data-props='{"product_id": "prod_123", "quantity": 1}'>
+                        🛒 Add to Cart
+                    </button>
+                    <button type="button" class="predefined-event-btn" data-event="checkout_started" data-props='{"cart_value": 99.99, "currency": "USD"}'>
+                        💳 Checkout Started
+                    </button>
+                    <button type="button" class="predefined-event-btn" data-event="purchase_completed" data-props='{"order_id": "order_456", "total": 99.99, "currency": "USD"}'>
+                        ✅ Purchase Completed
+                    </button>
+                    <button type="button" class="predefined-event-btn" data-event="newsletter_signup" data-props='{"source": "homepage"}'>
+                        📧 Newsletter Signup
+                    </button>
+                    <button type="button" class="predefined-event-btn" data-event="trial_started" data-props='{"plan": "premium", "trial_days": 14}'>
+                        🎁 Trial Started
+                    </button>
+                    <button type="button" class="predefined-event-btn" data-event="feature_used" data-props='{"feature_name": "advanced_search"}'>
+                        ⚡ Feature Used
+                    </button>
+                    <button type="button" class="predefined-event-btn" data-event="video_watched" data-props='{"video_id": "vid_789", "duration": 120}'>
+                        🎥 Video Watched
+                    </button>
+                    <button type="button" class="predefined-event-btn" data-event="search_performed" data-props='{"query": "laptop", "results_count": 25}'>
+                        🔍 Search Performed
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Custom Event Form -->
+            <div class="custom-event-form-section">
+                <h3>Custom Event</h3>
+                <form id="custom-event-form">
+                    <div class="form-group">
+                        <label for="event-name-input">Event Name</label>
+                        <input type="text" id="event-name-input" placeholder="Event Name" required 
+                               maxlength="100" aria-describedby="event-name-help" aria-required="true">
+                        <small id="event-name-help" class="help-text">Maximum 100 characters</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="event-props-input">Event Properties (JSON, optional)</label>
+                        <textarea id="event-props-input" rows="3" placeholder='{"key": "value"}' 
+                                  maxlength="2000" aria-describedby="event-props-help"></textarea>
+                        <small id="event-props-help" class="help-text">Optional JSON object with event properties</small>
+                    </div>
+                    <button type="submit" id="trigger-event-btn" aria-label="Trigger custom event">Trigger Custom Event</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Purchase Events Section -->
+        <section class="section">
+            <h2>Purchase Events</h2>
+            <form id="purchase-form">
+                <div class="form-group">
+                    <label for="product-id-input">Product ID</label>
+                    <input type="text" id="product-id-input" placeholder="Product ID" required 
+                           maxlength="200" aria-required="true">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="price-input">Price</label>
+                        <input type="number" id="price-input" step="0.01" min="0" placeholder="0.00" required>
+                    </div>
+                <div class="form-group">
+                    <label for="currency-input">Currency</label>
+                    <input type="text" id="currency-input" placeholder="USD" value="USD" required 
+                           maxlength="3" pattern="[A-Z]{3}" aria-describedby="currency-help">
+                    <small id="currency-help" class="help-text">3-letter ISO currency code (e.g., USD, EUR)</small>
+                </div>
+                    <div class="form-group">
+                        <label for="quantity-input">Quantity</label>
+                        <input type="number" id="quantity-input" min="1" value="1" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="purchase-props-input">Purchase Properties (JSON, optional)</label>
+                    <textarea id="purchase-props-input" rows="3" placeholder='{"key": "value"}'></textarea>
+                </div>
+                <button type="submit">Log Purchase Event</button>
+            </form>
+        </section>
+
+        <!-- User Attributes Section -->
+        <section class="section">
+            <h2>User Attributes</h2>
+            <form id="attribute-form">
+                <div class="form-group">
+                    <label for="attr-key-input">Attribute Key</label>
+                    <input type="text" id="attr-key-input" placeholder="Attribute Key" required 
+                           maxlength="100" aria-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="attr-type-select">Attribute Type</label>
+                    <select id="attr-type-select">
+                        <option value="string">String</option>
+                        <option value="number">Number</option>
+                        <option value="boolean">Boolean</option>
+                        <option value="array">Array (JSON)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="attr-value-input">Attribute Value</label>
+                    <input type="text" id="attr-value-input" placeholder="Attribute Value" required>
+                </div>
+                <button type="submit">Set User Attribute</button>
+            </form>
+        </section>
+
+        <!-- Push Notifications Section -->
+        <section class="section">
+            <h2>Push Notifications</h2>
+            <div class="push-controls">
+                <div class="button-group">
+                    <button type="button" id="request-push-permission-btn">Request Push Permission</button>
+                    <button type="button" id="unregister-push-btn">Unregister Push</button>
+                    <button type="button" id="test-notification-btn">Test Notification</button>
+                </div>
+                <div id="push-status" class="status-message"></div>
+            </div>
+            <div class="push-info">
+                <p class="help-text">
+                    <strong>Requirements:</strong><br>
+                    • Site must be served over HTTPS (or localhost)<br>
+                    • Service worker must be registered<br>
+                    • Browser must support Web Push API<br>
+                    • User must grant permission<br>
+                    • Browser notifications must not be blocked (check browser settings)
+                </p>
+                <div id="push-support-info" class="help-text" style="margin-top: 10px;"></div>
+            </div>
+        </section>
+
+        <!-- Content Cards Section -->
+        <section class="section">
+            <h2>Content Cards</h2>
+            <div class="content-cards-controls">
+                <div class="button-group">
+                    <button type="button" id="show-content-cards-btn">Show Cards Feed</button>
+                    <button type="button" id="hide-content-cards-btn">Hide Cards Feed</button>
+                    <button type="button" id="toggle-content-cards-btn">Toggle Cards Feed</button>
+                </div>
+                <button type="button" id="refresh-content-cards-btn">Refresh Cards</button>
+            </div>
+            <div id="content-cards-status" class="status-message"></div>
+            <div id="content-cards-feed-container" class="content-cards-feed-container">
+                <p class="help-text" style="margin-top: 10px;">
+                    Click "Show Cards Feed" to display content cards. The feed will appear in the container below or as a fixed sidebar.
+                </p>
+            </div>
+        </section>
+
+        <!-- Event Log Section -->
+        <section class="section">
+            <h2>Event Log</h2>
+            <div class="log-controls">
+                <button type="button" id="clear-logs-btn">Clear Logs</button>
+            </div>
+            <div id="event-log-container" class="event-log"></div>
+        </section>
+    </div>
+
+    <script type="module" src="app.js?v=2"></script>
+</body>
+</html>

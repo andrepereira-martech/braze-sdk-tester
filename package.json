@@ -1,0 +1,22 @@
+{
+  "name": "braze-test-app",
+  "version": "1.0.0",
+  "description": "Simple website application to test Braze Web SDK integration",
+  "type": "module",
+  "scripts": {
+    "load-env": "node load-env.js",
+    "start": "npx serve .",
+    "prestart": "npm run load-env"
+  },
+  "dependencies": {
+    "@braze/web-sdk": "^4.0.0"
+  },
+  "keywords": [
+    "braze",
+    "sdk",
+    "testing",
+    "analytics"
+  ],
+  "author": "",
+  "license": "MIT"
+}
