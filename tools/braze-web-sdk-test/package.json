@@ -1,5 +1,5 @@
 {
-  "name": "braze-test-app",
+  "name": "braze-web-sdk-test",
   "version": "1.0.0",
   "description": "Simple website application to test Braze Web SDK integration",
   "type": "module",
@@ -17,6 +17,6 @@
     "testing",
     "analytics"
   ],
-  "author": "",
+  "author": "Andre Rodrigues",
   "license": "MIT"
 }
