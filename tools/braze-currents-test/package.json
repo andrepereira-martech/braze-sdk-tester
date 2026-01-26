@@ -1,0 +1,29 @@
+{
+  "name": "braze-currents-test",
+  "version": "1.0.0",
+  "description": "Local testing tool for Braze Currents using MinIO S3-compatible storage",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "load-env": "node load-env.js",
+    "prestart": "npm run load-env"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "minio": "^7.1.3",
+    "dotenv": "^16.3.1",
+    "cors": "^2.8.5"
+  },
+  "keywords": [
+    "braze",
+    "currents",
+    "s3",
+    "minio",
+    "testing",
+    "data-export"
+  ],
+  "author": "Andre Rodrigues",
+  "license": "MIT"
+}
