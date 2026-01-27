@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Braze API Tester - REST API Testing Tool</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 Braze API Tester</h1>
+            <p>Quick API testing and PoC building without SDK integration</p>
+        </header>
+
+        <!-- Configuration Section -->
+        <section class="section">
+            <h2>Configuration</h2>
+            <p class="help-text" style="margin-bottom: 15px; font-style: italic;">
+                Configuration is loaded from <code>.env</code> file. 
+                To update, edit <code>.env</code> and run: <code>npm run load-env</code>
+            </p>
+            <form id="config-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="api-key-input">REST API Key</label>
+                        <input type="password" id="api-key-input" placeholder="REST API Key" 
+                               maxlength="200" aria-describedby="api-key-help">
+                        <small id="api-key-help" class="help-text">From Braze Dashboard > Settings > API Keys</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="endpoint-select">REST Endpoint</label>
+                        <select id="endpoint-select" aria-describedby="endpoint-help">
+                            <option value="https://rest.iad-01.braze.com">US-01 (iad-01)</option>
+                            <option value="https://rest.iad-02.braze.com">US-02 (iad-02)</option>
+                            <option value="https://rest.iad-03.braze.com" selected>US-03 (iad-03)</option>
+                            <option value="https://rest.iad-04.braze.com">US-04 (iad-04)</option>
+                            <option value="https://rest.iad-05.braze.com">US-05 (iad-05)</option>
+                            <option value="https://rest.iad-06.braze.com">US-06 (iad-06)</option>
+                            <option value="https://rest.iad-07.braze.com">US-07 (iad-07)</option>
+                            <option value="https://rest.iad-08.braze.com">US-08 (iad-08)</option>
+                            <option value="https://rest.iad-09.braze.com">US-09 (iad-09)</option>
+                            <option value="https://rest.iad-10.braze.com">US-10 (iad-10)</option>
+                            <option value="https://rest.fra-01.braze.com">EU-01 (fra-01)</option>
+                            <option value="https://rest.fra-02.braze.com">EU-02 (fra-02)</option>
+                            <option value="https://rest.syd-01.braze.com">AU-01 (syd-01)</option>
+                            <option value="https://rest.jak-01.braze.com">ID-01 (jak-01)</option>
+                        </select>
+                        <small id="endpoint-help" class="help-text">Select your Braze instance</small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="button" id="test-connection-btn" class="btn-secondary">Test Connection</button>
+                    <div id="connection-status" class="status-message" role="status" aria-live="polite"></div>
+                </div>
+            </form>
+        </section>
+
+        <!-- Rate Limit Monitor -->
+        <section class="section rate-limit-section">
+            <h2>Rate Limit Status</h2>
+            <div id="rate-limit-display" class="rate-limit-display">
+                <div class="rate-limit-item">
+                    <span class="label">Limit:</span>
+                    <span id="rate-limit-limit" class="value">-</span>
+                </div>
+                <div class="rate-limit-item">
+                    <span class="label">Remaining:</span>
+                    <span id="rate-limit-remaining" class="value">-</span>
+                </div>
+                <div class="rate-limit-item">
+                    <span class="label">Reset:</span>
+                    <span id="rate-limit-reset" class="value">-</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Request Builder Section -->
+        <section class="section">
+            <h2>Request Builder</h2>
+            
+            <!-- Template Selector -->
+            <div class="form-group">
+                <label for="template-select">Pre-built Templates (Phase 1 & 2)</label>
+                <select id="template-select" aria-describedby="template-help">
+                    <option value="">-- Select a template --</option>
+                    <optgroup label="User Data">
+                        <option value="users-track">Track User Event (/users/track)</option>
+                        <option value="users-export-ids">Export Users by IDs (/users/export/ids)</option>
+                        <option value="users-identify">Identify Users (/users/identify)</option>
+                        <option value="users-merge">Merge Users (/users/merge)</option>
+                    </optgroup>
+                    <optgroup label="Campaigns">
+                        <option value="campaigns-trigger-send">Trigger Campaign (/campaigns/trigger/send)</option>
+                        <option value="campaigns-list">List Campaigns (/campaigns/list)</option>
+                    </optgroup>
+                    <optgroup label="Canvases">
+                        <option value="canvas-trigger-send">Trigger Canvas (/canvas/trigger/send)</option>
+                        <option value="canvas-list">List Canvases (/canvas/list)</option>
+                    </optgroup>
+                    <optgroup label="Segments">
+                        <option value="segments-list">List Segments (/segments/list)</option>
+                    </optgroup>
+                    <optgroup label="Messages">
+                        <option value="messages-send">Send Messages (/messages/send)</option>
+                    </optgroup>
+                </select>
+                <small id="template-help" class="help-text">Select a template to pre-fill the request</small>
+            </div>
+
+            <form id="request-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="method-select">HTTP Method</label>
+                        <select id="method-select" required>
+                            <option value="GET">GET</option>
+                            <option value="POST" selected>POST</option>
+                            <option value="PUT">PUT</option>
+                            <option value="PATCH">PATCH</option>
+                            <option value="DELETE">DELETE</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="flex: 2;">
+                        <label for="endpoint-input">Endpoint Path</label>
+                        <input type="text" id="endpoint-input" placeholder="/users/track" required 
+                               maxlength="500" aria-describedby="endpoint-path-help">
+                        <small id="endpoint-path-help" class="help-text">API endpoint path (e.g., /users/track)</small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="request-body-input">Request Body (JSON)</label>
+                    <textarea id="request-body-input" rows="12" placeholder='{"events": [{"external_id": "user123", "name": "purchase", "time": "2024-01-01T00:00:00Z"}]}' 
+                              aria-describedby="request-body-help"></textarea>
+                    <small id="request-body-help" class="help-text">JSON body for POST/PUT/PATCH requests. Leave empty for GET requests.</small>
+                </div>
+
+                <div class="button-group">
+                    <button type="submit" id="send-request-btn" class="btn-primary">Send Request</button>
+                    <button type="button" id="clear-request-btn" class="btn-secondary">Clear</button>
+                    <button type="button" id="format-json-btn" class="btn-secondary">Format JSON</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Response Section -->
+        <section class="section">
+            <h2>Response</h2>
+            <div class="response-header">
+                <div class="response-status">
+                    <span class="label">Status:</span>
+                    <span id="response-status-code" class="status-code">-</span>
+                    <span id="response-status-text" class="status-text"></span>
+                </div>
+                <div class="response-meta">
+                    <span id="response-time" class="response-time"></span>
+                    <button type="button" id="copy-response-btn" class="btn-small">Copy Response</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="response-body-input">Response Body</label>
+                <textarea id="response-body-input" rows="15" readonly 
+                          placeholder="Response will appear here..."></textarea>
+            </div>
+        </section>
+
+        <!-- Request History Section -->
+        <section class="section">
+            <div class="section-header">
+                <h2>Request History</h2>
+                <div class="button-group">
+                    <button type="button" id="refresh-history-btn" class="btn-small">Refresh</button>
+                    <button type="button" id="clear-history-btn" class="btn-small btn-danger">Clear</button>
+                </div>
+            </div>
+            <div id="history-container" class="history-container">
+                <p class="help-text">No requests yet. Send a request to see history.</p>
+            </div>
+        </section>
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
