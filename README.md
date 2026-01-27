@@ -10,6 +10,7 @@ This repository is organized as a monorepo, with each tool or application in its
 mks-tools/
 ├── tools/
 │   ├── braze-web-sdk-test/     # Braze Web SDK testing application
+│   ├── braze-api-tester/       # Braze REST API testing tool
 │   └── [future-tool]/          # Additional tools can be added here
 ├── README.md                    # This file
 └── .gitignore                   # Shared gitignore
@@ -27,6 +28,19 @@ A comprehensive testing application for Braze Web SDK integration. Features incl
 - Real-time event logging
 
 See the [tool's README](./tools/braze-web-sdk-test/README.md) for detailed documentation.
+
+### [Braze API Tester](./tools/braze-api-tester/)
+
+A REST API testing tool for Braze - enabling quick API testing and PoC building without SDK integration. Features include:
+- Pre-built templates for 10 endpoints (Phase 1 & 2)
+- Request builder with JSON editor and syntax validation
+- Response viewer with formatted JSON and status codes
+- Request history with replay functionality
+- Rate limit monitoring with real-time updates
+- Multi-instance support (US, EU, AU, ID)
+- Express backend proxy to eliminate CORS issues
+
+See the [tool's README](./tools/braze-api-tester/README.md) for detailed documentation.
 
 ## Adding New Tools
 

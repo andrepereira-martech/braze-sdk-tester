@@ -13,6 +13,7 @@ Each tool should be in its own subdirectory with:
 ## Current Tools
 
 - **[braze-web-sdk-test](./braze-web-sdk-test/)** - Braze Web SDK testing application
+- **[braze-api-tester](./braze-api-tester/)** - Braze REST API testing tool with pre-built templates and request builder
 
 ## Adding a New Tool
 
