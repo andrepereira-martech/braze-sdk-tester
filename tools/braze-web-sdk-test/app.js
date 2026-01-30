@@ -19,6 +19,22 @@ function hasValidEnvConfig() {
 // DOM Elements (will be initialized on load)
 let elements = {};
 
+// Dashboard: show panel by id (config, user, events, etc.)
+function showPanel(panelId) {
+    const panel = document.getElementById('panel-' + panelId);
+    const navLink = document.querySelector('.nav-link[data-panel="' + panelId + '"]');
+    if (!panel || !navLink) return;
+    document.querySelectorAll('.panel').forEach((p) => p.classList.remove('active'));
+    document.querySelectorAll('.nav-link').forEach((l) => l.classList.remove('active'));
+    panel.classList.add('active');
+    navLink.classList.add('active');
+    navLink.setAttribute('aria-current', 'page');
+    document.querySelectorAll('.nav-link:not([data-panel="' + panelId + '"])').forEach((l) => l.removeAttribute('aria-current'));
+    if (history.replaceState) {
+        history.replaceState(null, '', '#' + panelId);
+    }
+}
+
 // Initialize DOM element references
 function initDOMElements() {
     elements = {
@@ -100,7 +116,12 @@ function initDOMElements() {
         liveChatArea: document.getElementById('live-chat-area'),
         startLiveChatBtn: document.getElementById('start-live-chat-btn'),
         featureFlagsStatus: document.getElementById('feature-flags-status'),
-        refreshFeatureFlagsBtn: document.getElementById('refresh-feature-flags-btn')
+        refreshFeatureFlagsBtn: document.getElementById('refresh-feature-flags-btn'),
+
+        // Dashboard layout
+        sidebarSdkStatus: document.getElementById('sidebar-sdk-status'),
+        collapseLogBtn: document.getElementById('collapse-log-btn'),
+        eventLogStrip: document.getElementById('event-log-strip')
     };
 }
 
@@ -281,6 +302,15 @@ function updateInitStatus(message, type = 'info') {
             }, 100);
         }
     }
+    updateSidebarStatus(message, type);
+}
+
+// Update sidebar SDK status (dashboard layout)
+function updateSidebarStatus(message, type = 'info') {
+    if (!elements.sidebarSdkStatus) return;
+    const short = type === 'success' ? 'SDK: ready' : type === 'error' ? 'SDK: error' : message.includes('ready') ? 'SDK: ready' : message.includes('Initializ') ? 'SDK: initializing…' : 'SDK: not initialized';
+    elements.sidebarSdkStatus.textContent = short;
+    elements.sidebarSdkStatus.className = 'sidebar-status' + (type === 'success' || short === 'SDK: ready' ? ' ready' : type === 'error' ? ' error' : '');
 }
 
 // Set Braze user
@@ -1865,8 +1895,11 @@ function logToDisplay(eventType, eventData) {
         entries[0].remove();
     }
     
-    // Auto-scroll to bottom
-    elements.eventLogContainer.scrollTop = elements.eventLogContainer.scrollHeight;
+    // Auto-scroll to bottom so new messages are visible (inner scroll is on #event-log-container)
+    requestAnimationFrame(() => {
+        const el = elements.eventLogContainer;
+        if (el) el.scrollTop = el.scrollHeight;
+    });
     
     // Also log to console
     console.log(`[${timestamp}] [${eventType.toUpperCase()}]`, eventData);
@@ -1959,6 +1992,31 @@ document.addEventListener('DOMContentLoaded', async () => {
     
     initDOMElements();
     updateButtonStates();
+
+    // Dashboard: sidebar navigation
+    document.querySelectorAll('.nav-link[data-panel]').forEach((link) => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const panelId = link.getAttribute('data-panel');
+            if (panelId) showPanel(panelId);
+        });
+    });
+    // Initial panel from hash (e.g. #events)
+    const hash = window.location.hash.slice(1);
+    if (hash && document.getElementById('panel-' + hash)) {
+        showPanel(hash);
+    }
+
+    // Dashboard: Event Log collapse/expand
+    if (elements.collapseLogBtn && elements.eventLogStrip) {
+        elements.collapseLogBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const collapsed = elements.eventLogStrip.classList.toggle('collapsed');
+            elements.collapseLogBtn.setAttribute('aria-expanded', String(!collapsed));
+            elements.collapseLogBtn.textContent = collapsed ? '▲ Expand' : '▼ Collapse';
+        });
+    }
     
     // Load config from environment variables (config.js)
     // Check if config values are set (not the default placeholder values)

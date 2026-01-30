@@ -11,8 +11,19 @@ A simple website application to test Braze Web SDK integration by simulating use
 - ✅ **Purchase Events**: Simulate purchase events with product data
 - ✅ **User Attributes**: Set custom user attributes (string, number, boolean, array)
 - ✅ **Feature Flags**: Remotely control promo link and live chat visibility (see [Feature Flags](#feature-flags) and [Braze setup](#braze-feature-flag-setup))
-- ✅ **Event Logging**: Real-time event log display with timestamps
+- ✅ **Event Logging**: Real-time event log display with timestamps (always visible, auto-scrolls)
 - ✅ **Environment Configuration**: Secure configuration via `.env` file
+- ✅ **Dashboard layout**: Sidebar navigation, single-screen panels, persistent Event Log strip
+
+## Interface (Dashboard layout)
+
+The app uses a **dashboard-style layout** so features stay visible in one screen:
+
+- **Sidebar (left)**: Navigation to switch between Configuration, User, Events, Purchases, Attributes, Feature Flags, Push, Content Cards, and In-App. SDK status is shown at the bottom of the sidebar.
+- **Main area**: One panel at a time; the URL hash updates (e.g. `#events`) so you can bookmark or refresh and stay on the same section.
+- **Event Log (bottom)**: Always visible in a strip. Use **Clear** to clear logs and **▼ Collapse** / **▲ Expand** to show or hide the log body. The log automatically scrolls to show new messages as they appear.
+
+On small screens, the sidebar wraps to a horizontal nav at the top.
 
 ## Prerequisites
 
@@ -154,7 +165,8 @@ After creating the flags in Braze (see [Braze Feature Flag Setup](#braze-feature
 
 ### 8. View Event Log
 
-- All events are displayed in real-time in the Event Log section
+- The Event Log is **always visible** at the bottom of the screen (dashboard layout).
+- All events are displayed in real-time; the log **auto-scrolls** to show new messages as they appear.
 - Each entry shows:
   - Timestamp (ISO format)
   - Event type

@@ -21,11 +21,13 @@ mks-tools/
 ### [Braze Web SDK Test](./tools/braze-web-sdk-test/)
 
 A comprehensive testing application for Braze Web SDK integration. Features include:
+- **Dashboard layout** with sidebar navigation and persistent Event Log
 - Push notifications testing
 - Content cards display
 - Custom events and purchase tracking
 - User attribute management
-- Real-time event logging
+- Feature flags (remotely control promo link and live chat)
+- Real-time event logging with auto-scroll
 
 See the [tool's README](./tools/braze-web-sdk-test/README.md) for detailed documentation.
 

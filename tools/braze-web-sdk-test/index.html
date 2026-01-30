@@ -14,56 +14,245 @@
     </script>
 </head>
 <body data-page-name="home">
-    <div class="container">
-        <header>
-            <h1>🚀 Braze Web SDK Test Application</h1>
-            <p>Test and observe data flow into your Braze workspace</p>
-        </header>
-
-        <!-- Configuration Section -->
-        <section class="section">
-            <h2>Configuration</h2>
-            <p class="help-text" style="margin-bottom: 15px; font-style: italic;">
-                Configuration is loaded from <code>.env</code> file. 
-                To update, edit <code>.env</code> and run: <code>npm run load-env</code>
-            </p>
-            <form id="config-form">
-                <div class="form-group">
-                    <label for="api-key-input">Braze API Key</label>
-                    <input type="text" id="api-key-input" placeholder="Braze API Key" required 
-                           maxlength="200" aria-describedby="api-key-error" aria-required="true">
-                    <div id="api-key-error" class="sr-only" role="alert"></div>
-                </div>
-                <div class="form-group">
-                    <label for="endpoint-input">SDK Endpoint URL</label>
-                    <input type="url" id="endpoint-input" placeholder="SDK Endpoint URL" required 
-                           maxlength="500" aria-describedby="endpoint-error" aria-required="true">
-                    <div id="endpoint-error" class="sr-only" role="alert"></div>
-                </div>
-                <button type="submit" id="init-btn" aria-label="Initialize Braze SDK">Initialize SDK</button>
-            </form>
-            <div id="init-status" class="status-message" role="status" aria-live="polite" aria-atomic="true"></div>
-            <button type="button" id="retry-init-btn" class="retry-btn" style="display: none; margin-top: 10px;">Retry Initialization</button>
-        </section>
-
-        <!-- User Management Section -->
-        <section class="section">
-            <h2>User Management</h2>
-            <div class="form-group">
-                <label for="user-id-input">User ID</label>
-                <input type="text" id="user-id-input" placeholder="User ID (leave empty for anonymous)" 
-                       maxlength="200" aria-describedby="user-id-help">
-                <small id="user-id-help" class="help-text">Leave empty to use anonymous tracking</small>
+    <div class="app-layout">
+        <!-- Sidebar navigation -->
+        <aside class="dashboard-sidebar" role="navigation" aria-label="Main navigation">
+            <div class="sidebar-brand">
+                <img src="https://www.telusdigital.com/_next/static/media/telus-digital-rebrand-logo-en.3de0e2d7.svg" alt="TELUS Digital" class="sidebar-logo">
+                <p class="sidebar-subtitle">Braze SDK test app</p>
             </div>
-            <div class="button-group">
-                <button type="button" id="set-user-btn" aria-label="Set user ID">Set User ID</button>
-                <button type="button" id="clear-user-btn" aria-label="Clear user and use anonymous">Clear User (Anonymous)</button>
-                <button type="button" id="set-standard-attributes-btn" aria-label="Set standard user attributes">Set Standard Attributes</button>
-            </div>
-            <div id="current-user-display" class="status-message" role="status" aria-live="polite">Current User: Anonymous</div>
-        </section>
+            <nav class="sidebar-nav">
+                <a href="#config" class="nav-link active" data-panel="config" aria-current="page">⚙️ Configuration</a>
+                <a href="#user" class="nav-link" data-panel="user">👤 User</a>
+                <a href="#events" class="nav-link" data-panel="events">📊 Events</a>
+                <a href="#purchases" class="nav-link" data-panel="purchases">💳 Purchases</a>
+                <a href="#attributes" class="nav-link" data-panel="attributes">📋 Attributes</a>
+                <a href="#feature-flags" class="nav-link" data-panel="feature-flags">🚩 Feature Flags</a>
+                <a href="#push" class="nav-link" data-panel="push">🔔 Push</a>
+                <a href="#content-cards" class="nav-link" data-panel="content-cards">📇 Content Cards</a>
+                <a href="#inapp" class="nav-link" data-panel="inapp">💬 In-App</a>
+            </nav>
+            <div class="sidebar-status" id="sidebar-sdk-status" aria-live="polite">SDK: not initialized</div>
+        </aside>
 
-        <!-- Standard User Attributes Modal -->
+        <!-- Main content: one panel visible at a time -->
+        <main class="dashboard-main" role="main">
+            <div class="dashboard-panels">
+                <!-- Panel: Configuration -->
+                <section id="panel-config" class="panel active" role="region" aria-labelledby="panel-config-heading">
+                    <h2 id="panel-config-heading" class="panel-heading">Configuration</h2>
+                    <p class="help-text" style="margin-bottom: 15px; font-style: italic;">
+                        Configuration is loaded from <code>.env</code> file. To update, edit <code>.env</code> and run: <code>npm run load-env</code>
+                    </p>
+                    <form id="config-form">
+                        <div class="form-group">
+                            <label for="api-key-input">Braze API Key</label>
+                            <input type="text" id="api-key-input" placeholder="Braze API Key" required maxlength="200" aria-describedby="api-key-error" aria-required="true">
+                            <div id="api-key-error" class="sr-only" role="alert"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="endpoint-input">SDK Endpoint URL</label>
+                            <input type="url" id="endpoint-input" placeholder="SDK Endpoint URL" required maxlength="500" aria-describedby="endpoint-error" aria-required="true">
+                            <div id="endpoint-error" class="sr-only" role="alert"></div>
+                        </div>
+                        <button type="submit" id="init-btn" aria-label="Initialize Braze SDK">Initialize SDK</button>
+                    </form>
+                    <div id="init-status" class="status-message" role="status" aria-live="polite" aria-atomic="true"></div>
+                    <button type="button" id="retry-init-btn" class="retry-btn" style="display: none; margin-top: 10px;">Retry Initialization</button>
+                </section>
+
+                <!-- Panel: User -->
+                <section id="panel-user" class="panel" role="region" aria-labelledby="panel-user-heading">
+                    <h2 id="panel-user-heading" class="panel-heading">User Management</h2>
+                    <div class="form-group">
+                        <label for="user-id-input">User ID</label>
+                        <input type="text" id="user-id-input" placeholder="User ID (leave empty for anonymous)" maxlength="200" aria-describedby="user-id-help">
+                        <small id="user-id-help" class="help-text">Leave empty to use anonymous tracking</small>
+                    </div>
+                    <div class="button-group">
+                        <button type="button" id="set-user-btn" aria-label="Set user ID">Set User ID</button>
+                        <button type="button" id="clear-user-btn" aria-label="Clear user and use anonymous">Clear User (Anonymous)</button>
+                        <button type="button" id="set-standard-attributes-btn" aria-label="Set standard user attributes">Set Standard Attributes</button>
+                    </div>
+                    <div id="current-user-display" class="status-message" role="status" aria-live="polite">Current User: Anonymous</div>
+                </section>
+
+                <!-- Panel: Events -->
+                <section id="panel-events" class="panel" role="region" aria-labelledby="panel-events-heading">
+                    <h2 id="panel-events-heading" class="panel-heading">Custom Events</h2>
+                    <div class="predefined-events-section">
+                        <h3>Predefined Events</h3>
+                        <p class="help-text" style="margin-bottom: 15px;">Click any button to trigger a predefined event for Braze campaigns.</p>
+                        <div class="predefined-events-grid">
+                            <button type="button" class="predefined-event-btn" data-event="page_view" data-props='{"page": "homepage"}'>📄 Page View</button>
+                            <button type="button" class="predefined-event-btn" data-event="button_click" data-props='{"button_name": "cta_button"}'>🖱️ Button Click</button>
+                            <button type="button" class="predefined-event-btn" data-event="form_submit" data-props='{"form_type": "contact"}'>📝 Form Submit</button>
+                            <button type="button" class="predefined-event-btn" data-event="product_view" data-props='{"product_id": "prod_123", "category": "electronics"}'>👁️ Product View</button>
+                            <button type="button" class="predefined-event-btn" data-event="add_to_cart" data-props='{"product_id": "prod_123", "quantity": 1}'>🛒 Add to Cart</button>
+                            <button type="button" class="predefined-event-btn" data-event="checkout_started" data-props='{"cart_value": 99.99, "currency": "USD"}'>💳 Checkout Started</button>
+                            <button type="button" class="predefined-event-btn" data-event="purchase_completed" data-props='{"order_id": "order_456", "total": 99.99, "currency": "USD"}'>✅ Purchase Completed</button>
+                            <button type="button" class="predefined-event-btn" data-event="newsletter_signup" data-props='{"source": "homepage"}'>📧 Newsletter Signup</button>
+                            <button type="button" class="predefined-event-btn" data-event="trial_started" data-props='{"plan": "premium", "trial_days": 14}'>🎁 Trial Started</button>
+                            <button type="button" class="predefined-event-btn" data-event="feature_used" data-props='{"feature_name": "advanced_search"}'>⚡ Feature Used</button>
+                            <button type="button" class="predefined-event-btn" data-event="video_watched" data-props='{"video_id": "vid_789", "duration": 120}'>🎥 Video Watched</button>
+                            <button type="button" class="predefined-event-btn" data-event="search_performed" data-props='{"query": "laptop", "results_count": 25}'>🔍 Search Performed</button>
+                        </div>
+                    </div>
+                    <div class="custom-event-form-section">
+                        <h3>Custom Event</h3>
+                        <form id="custom-event-form">
+                            <div class="form-group">
+                                <label for="event-name-input">Event Name</label>
+                                <input type="text" id="event-name-input" placeholder="Event Name" required maxlength="100" aria-describedby="event-name-help" aria-required="true">
+                                <small id="event-name-help" class="help-text">Maximum 100 characters</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="event-props-input">Event Properties (JSON, optional)</label>
+                                <textarea id="event-props-input" rows="3" placeholder='{"key": "value"}' maxlength="2000" aria-describedby="event-props-help"></textarea>
+                                <small id="event-props-help" class="help-text">Optional JSON object</small>
+                            </div>
+                            <button type="submit" id="trigger-event-btn" aria-label="Trigger custom event">Trigger Custom Event</button>
+                        </form>
+                    </div>
+                </section>
+
+                <!-- Panel: Purchases -->
+                <section id="panel-purchases" class="panel" role="region" aria-labelledby="panel-purchases-heading">
+                    <h2 id="panel-purchases-heading" class="panel-heading">Purchase Events</h2>
+                    <form id="purchase-form">
+                        <div class="form-group">
+                            <label for="product-id-input">Product ID</label>
+                            <input type="text" id="product-id-input" placeholder="Product ID" required maxlength="200" aria-required="true">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="price-input">Price</label>
+                                <input type="number" id="price-input" step="0.01" min="0" placeholder="0.00" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="currency-input">Currency</label>
+                                <input type="text" id="currency-input" placeholder="USD" value="USD" required maxlength="3" pattern="[A-Z]{3}" aria-describedby="currency-help">
+                                <small id="currency-help" class="help-text">3-letter ISO (e.g. USD, EUR)</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="quantity-input">Quantity</label>
+                                <input type="number" id="quantity-input" min="1" value="1" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="purchase-props-input">Purchase Properties (JSON, optional)</label>
+                            <textarea id="purchase-props-input" rows="3" placeholder='{"key": "value"}'></textarea>
+                        </div>
+                        <button type="submit">Log Purchase Event</button>
+                    </form>
+                </section>
+
+                <!-- Panel: Attributes -->
+                <section id="panel-attributes" class="panel" role="region" aria-labelledby="panel-attributes-heading">
+                    <h2 id="panel-attributes-heading" class="panel-heading">User Attributes</h2>
+                    <form id="attribute-form">
+                        <div class="form-group">
+                            <label for="attr-key-input">Attribute Key</label>
+                            <input type="text" id="attr-key-input" placeholder="Attribute Key" required maxlength="100" aria-required="true">
+                        </div>
+                        <div class="form-group">
+                            <label for="attr-type-select">Attribute Type</label>
+                            <select id="attr-type-select">
+                                <option value="string">String</option>
+                                <option value="number">Number</option>
+                                <option value="boolean">Boolean</option>
+                                <option value="array">Array (JSON)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="attr-value-input">Attribute Value</label>
+                            <input type="text" id="attr-value-input" placeholder="Attribute Value" required>
+                        </div>
+                        <button type="submit">Set User Attribute</button>
+                    </form>
+                </section>
+
+                <!-- Panel: Feature Flags -->
+                <section id="panel-feature-flags" class="panel" role="region" aria-labelledby="panel-feature-flags-heading">
+                    <h2 id="panel-feature-flags-heading" class="panel-heading">Feature Flags</h2>
+                    <p class="help-text" style="margin-bottom: 15px;">Controlled by Braze feature flags. See README for setup.</p>
+                    <div id="feature-flags-demo" class="feature-flags-demo">
+                        <div id="promo-banner" class="promo-banner" style="display: none;" role="region" aria-label="Promotional link">
+                            <span class="promo-label">Promo:</span>
+                            <a id="promo-link" href="#" class="promo-link" target="_blank" rel="noopener noreferrer"></a>
+                        </div>
+                        <div id="live-chat-area" class="live-chat-area" style="display: none;">
+                            <button type="button" id="start-live-chat-btn" class="live-chat-btn" aria-label="Start Live Chat">💬 Start Live Chat</button>
+                        </div>
+                    </div>
+                    <div id="feature-flags-status" class="feature-flags-status help-text" aria-live="polite"></div>
+                    <div class="button-group" style="margin-top: 15px;">
+                        <button type="button" id="refresh-feature-flags-btn" aria-label="Refresh feature flags from Braze">Refresh Feature Flags</button>
+                    </div>
+                </section>
+
+                <!-- Panel: Push -->
+                <section id="panel-push" class="panel" role="region" aria-labelledby="panel-push-heading">
+                    <h2 id="panel-push-heading" class="panel-heading">Push Notifications</h2>
+                    <div class="push-controls">
+                        <div class="button-group">
+                            <button type="button" id="request-push-permission-btn">Request Push Permission</button>
+                            <button type="button" id="unregister-push-btn">Unregister Push</button>
+                            <button type="button" id="test-notification-btn">Test Notification</button>
+                        </div>
+                        <div id="push-status" class="status-message"></div>
+                    </div>
+                    <div class="push-info">
+                        <p class="help-text">
+                            <strong>Requirements:</strong> HTTPS (or localhost), service worker, Web Push API, user permission.
+                        </p>
+                        <div id="push-support-info" class="help-text" style="margin-top: 10px;"></div>
+                    </div>
+                </section>
+
+                <!-- Panel: Content Cards -->
+                <section id="panel-content-cards" class="panel" role="region" aria-labelledby="panel-content-cards-heading">
+                    <h2 id="panel-content-cards-heading" class="panel-heading">Content Cards</h2>
+                    <div class="content-cards-controls">
+                        <div class="button-group">
+                            <button type="button" id="show-content-cards-btn">Show Cards Feed</button>
+                            <button type="button" id="hide-content-cards-btn">Hide Cards Feed</button>
+                            <button type="button" id="toggle-content-cards-btn">Toggle Cards Feed</button>
+                        </div>
+                        <button type="button" id="refresh-content-cards-btn">Refresh Cards</button>
+                    </div>
+                    <div id="content-cards-status" class="status-message"></div>
+                    <div id="content-cards-feed-container" class="content-cards-feed-container">
+                        <p class="help-text" style="margin-top: 10px;">Click "Show Cards Feed" to display content cards.</p>
+                    </div>
+                </section>
+
+                <!-- Panel: In-App -->
+                <section id="panel-inapp" class="panel" role="region" aria-labelledby="panel-inapp-heading">
+                    <h2 id="panel-inapp-heading" class="panel-heading">In-App Messages (Modal)</h2>
+                    <p class="help-text" style="margin-bottom: 15px;">
+                        In-app messages show as modals when triggered by a Braze campaign. Set trigger to <strong>Custom Event</strong> (e.g. <code>button_click</code>), choose <strong>Modal</strong>, then trigger that event in Events.
+                    </p>
+                    <p class="help-text">Check the Event Log for "In-app message received" when a message is triggered.</p>
+                </section>
+            </div>
+
+            <!-- Persistent Event Log (always visible, collapsible) -->
+            <div class="event-log-strip" id="event-log-strip">
+                <div class="event-log-strip-header">
+                    <h3 class="event-log-strip-title">Event Log</h3>
+                    <div class="event-log-strip-actions">
+                        <button type="button" id="clear-logs-btn" aria-label="Clear logs">Clear</button>
+                        <button type="button" id="collapse-log-btn" aria-label="Collapse event log" aria-expanded="true">▼ Collapse</button>
+                    </div>
+                </div>
+                <div class="event-log-strip-body">
+                    <div id="event-log-container" class="event-log"></div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Standard User Attributes Modal (global) -->
         <div id="standard-attributes-modal" class="modal" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
             <div class="modal-content">
                 <div class="modal-header">
@@ -123,12 +312,12 @@
                         <div class="form-group">
                             <label for="language-input">Language (ISO-639-1)</label>
                             <input type="text" id="language-input" placeholder="en" maxlength="2" pattern="[a-z]{2}" style="text-transform: lowercase;">
-                            <small class="help-text">2-letter language code (e.g., en, es, fr)</small>
+                            <small class="help-text">2-letter code (e.g. en, es)</small>
                         </div>
                         <div class="form-group">
                             <label for="phone-input">Phone (E.164)</label>
                             <input type="tel" id="phone-input" placeholder="+1234567890" maxlength="20">
-                            <small class="help-text">Format: +[country code][number] (e.g., +14155551234)</small>
+                            <small class="help-text">Format: +[country][number]</small>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -139,224 +328,8 @@
                 </form>
             </div>
         </div>
-
-        <!-- Custom Events Section -->
-        <section class="section">
-            <h2>Custom Events</h2>
-            
-            <!-- Predefined Events -->
-            <div class="predefined-events-section">
-                <h3>Predefined Events</h3>
-                <p class="help-text" style="margin-bottom: 15px;">
-                    Click any button below to trigger a predefined event. These events can be used as triggers for push notifications or content cards in Braze campaigns.
-                </p>
-                <div class="predefined-events-grid">
-                    <button type="button" class="predefined-event-btn" data-event="page_view" data-props='{"page": "homepage"}'>
-                        📄 Page View
-                    </button>
-                    <button type="button" class="predefined-event-btn" data-event="button_click" data-props='{"button_name": "cta_button"}'>
-                        🖱️ Button Click
-                    </button>
-                    <button type="button" class="predefined-event-btn" data-event="form_submit" data-props='{"form_type": "contact"}'>
-                        📝 Form Submit
-                    </button>
-                    <button type="button" class="predefined-event-btn" data-event="product_view" data-props='{"product_id": "prod_123", "category": "electronics"}'>
-                        👁️ Product View
-                    </button>
-                    <button type="button" class="predefined-event-btn" data-event="add_to_cart" data-props='{"product_id": "prod_123", "quantity": 1}'>
-                        🛒 Add to Cart
-                    </button>
-                    <button type="button" class="predefined-event-btn" data-event="checkout_started" data-props='{"cart_value": 99.99, "currency": "USD"}'>
-                        💳 Checkout Started
-                    </button>
-                    <button type="button" class="predefined-event-btn" data-event="purchase_completed" data-props='{"order_id": "order_456", "total": 99.99, "currency": "USD"}'>
-                        ✅ Purchase Completed
-                    </button>
-                    <button type="button" class="predefined-event-btn" data-event="newsletter_signup" data-props='{"source": "homepage"}'>
-                        📧 Newsletter Signup
-                    </button>
-                    <button type="button" class="predefined-event-btn" data-event="trial_started" data-props='{"plan": "premium", "trial_days": 14}'>
-                        🎁 Trial Started
-                    </button>
-                    <button type="button" class="predefined-event-btn" data-event="feature_used" data-props='{"feature_name": "advanced_search"}'>
-                        ⚡ Feature Used
-                    </button>
-                    <button type="button" class="predefined-event-btn" data-event="video_watched" data-props='{"video_id": "vid_789", "duration": 120}'>
-                        🎥 Video Watched
-                    </button>
-                    <button type="button" class="predefined-event-btn" data-event="search_performed" data-props='{"query": "laptop", "results_count": 25}'>
-                        🔍 Search Performed
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Custom Event Form -->
-            <div class="custom-event-form-section">
-                <h3>Custom Event</h3>
-                <form id="custom-event-form">
-                    <div class="form-group">
-                        <label for="event-name-input">Event Name</label>
-                        <input type="text" id="event-name-input" placeholder="Event Name" required 
-                               maxlength="100" aria-describedby="event-name-help" aria-required="true">
-                        <small id="event-name-help" class="help-text">Maximum 100 characters</small>
-                    </div>
-                    <div class="form-group">
-                        <label for="event-props-input">Event Properties (JSON, optional)</label>
-                        <textarea id="event-props-input" rows="3" placeholder='{"key": "value"}' 
-                                  maxlength="2000" aria-describedby="event-props-help"></textarea>
-                        <small id="event-props-help" class="help-text">Optional JSON object with event properties</small>
-                    </div>
-                    <button type="submit" id="trigger-event-btn" aria-label="Trigger custom event">Trigger Custom Event</button>
-                </form>
-            </div>
-        </section>
-
-        <!-- Purchase Events Section -->
-        <section class="section">
-            <h2>Purchase Events</h2>
-            <form id="purchase-form">
-                <div class="form-group">
-                    <label for="product-id-input">Product ID</label>
-                    <input type="text" id="product-id-input" placeholder="Product ID" required 
-                           maxlength="200" aria-required="true">
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="price-input">Price</label>
-                        <input type="number" id="price-input" step="0.01" min="0" placeholder="0.00" required>
-                    </div>
-                <div class="form-group">
-                    <label for="currency-input">Currency</label>
-                    <input type="text" id="currency-input" placeholder="USD" value="USD" required 
-                           maxlength="3" pattern="[A-Z]{3}" aria-describedby="currency-help">
-                    <small id="currency-help" class="help-text">3-letter ISO currency code (e.g., USD, EUR)</small>
-                </div>
-                    <div class="form-group">
-                        <label for="quantity-input">Quantity</label>
-                        <input type="number" id="quantity-input" min="1" value="1" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="purchase-props-input">Purchase Properties (JSON, optional)</label>
-                    <textarea id="purchase-props-input" rows="3" placeholder='{"key": "value"}'></textarea>
-                </div>
-                <button type="submit">Log Purchase Event</button>
-            </form>
-        </section>
-
-        <!-- User Attributes Section -->
-        <section class="section">
-            <h2>User Attributes</h2>
-            <form id="attribute-form">
-                <div class="form-group">
-                    <label for="attr-key-input">Attribute Key</label>
-                    <input type="text" id="attr-key-input" placeholder="Attribute Key" required 
-                           maxlength="100" aria-required="true">
-                </div>
-                <div class="form-group">
-                    <label for="attr-type-select">Attribute Type</label>
-                    <select id="attr-type-select">
-                        <option value="string">String</option>
-                        <option value="number">Number</option>
-                        <option value="boolean">Boolean</option>
-                        <option value="array">Array (JSON)</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="attr-value-input">Attribute Value</label>
-                    <input type="text" id="attr-value-input" placeholder="Attribute Value" required>
-                </div>
-                <button type="submit">Set User Attribute</button>
-            </form>
-        </section>
-
-        <!-- Push Notifications Section -->
-        <section class="section">
-            <h2>Push Notifications</h2>
-            <div class="push-controls">
-                <div class="button-group">
-                    <button type="button" id="request-push-permission-btn">Request Push Permission</button>
-                    <button type="button" id="unregister-push-btn">Unregister Push</button>
-                    <button type="button" id="test-notification-btn">Test Notification</button>
-                </div>
-                <div id="push-status" class="status-message"></div>
-            </div>
-            <div class="push-info">
-                <p class="help-text">
-                    <strong>Requirements:</strong><br>
-                    • Site must be served over HTTPS (or localhost)<br>
-                    • Service worker must be registered<br>
-                    • Browser must support Web Push API<br>
-                    • User must grant permission<br>
-                    • Browser notifications must not be blocked (check browser settings)
-                </p>
-                <div id="push-support-info" class="help-text" style="margin-top: 10px;"></div>
-            </div>
-        </section>
-
-        <!-- In-App Messages Section -->
-        <section class="section">
-            <h2>In-App Messages (Modal)</h2>
-            <p class="help-text" style="margin-bottom: 15px;">
-                In-app messages are shown as modals when triggered by a Braze campaign. Create a campaign in Braze with trigger <strong>Custom Event</strong> (e.g. <code>button_click</code>, <code>add_to_cart</code>), choose <strong>Modal</strong> as the message type, then trigger that event above to see the modal.
-            </p>
-            <p class="help-text">
-                After initializing the SDK, any in-app message delivered by Braze (e.g. from a custom event or campaign) will open automatically as a modal. Check the Event Log below for &quot;In-app message received&quot; when a message is triggered.
-            </p>
-        </section>
-
-        <!-- Feature Flags Section -->
-        <section class="section">
-            <h2>Feature Flags</h2>
-            <p class="help-text" style="margin-bottom: 15px;">
-                These UI elements are controlled by Braze feature flags. Enable the flags and set properties in your Braze dashboard to see them here. See README for setup details.
-            </p>
-            <div id="feature-flags-demo" class="feature-flags-demo">
-                <!-- Promo link (navigation_promo_link): remotely control link text and URL -->
-                <div id="promo-banner" class="promo-banner" style="display: none;" role="region" aria-label="Promotional link">
-                    <span class="promo-label">Promo:</span>
-                    <a id="promo-link" href="#" class="promo-link" target="_blank" rel="noopener noreferrer"></a>
-                </div>
-                <!-- Live chat (enable_live_chat): on/off for gradual rollout -->
-                <div id="live-chat-area" class="live-chat-area" style="display: none;">
-                    <button type="button" id="start-live-chat-btn" class="live-chat-btn" aria-label="Start Live Chat">💬 Start Live Chat</button>
-                </div>
-            </div>
-            <div id="feature-flags-status" class="feature-flags-status help-text" aria-live="polite"></div>
-            <div class="button-group" style="margin-top: 15px;">
-                <button type="button" id="refresh-feature-flags-btn" aria-label="Refresh feature flags from Braze">Refresh Feature Flags</button>
-            </div>
-        </section>
-
-        <!-- Content Cards Section -->
-        <section class="section">
-            <h2>Content Cards</h2>
-            <div class="content-cards-controls">
-                <div class="button-group">
-                    <button type="button" id="show-content-cards-btn">Show Cards Feed</button>
-                    <button type="button" id="hide-content-cards-btn">Hide Cards Feed</button>
-                    <button type="button" id="toggle-content-cards-btn">Toggle Cards Feed</button>
-                </div>
-                <button type="button" id="refresh-content-cards-btn">Refresh Cards</button>
-            </div>
-            <div id="content-cards-status" class="status-message"></div>
-            <div id="content-cards-feed-container" class="content-cards-feed-container">
-                <p class="help-text" style="margin-top: 10px;">
-                    Click "Show Cards Feed" to display content cards. The feed will appear in the container below or as a fixed sidebar.
-                </p>
-            </div>
-        </section>
-
-        <!-- Event Log Section -->
-        <section class="section">
-            <h2>Event Log</h2>
-            <div class="log-controls">
-                <button type="button" id="clear-logs-btn">Clear Logs</button>
-            </div>
-            <div id="event-log-container" class="event-log"></div>
-        </section>
     </div>
 
-    <script type="module" src="app.js?v=3"></script>
+    <script type="module" src="app.js?v=4"></script>
 </body>
 </html>
