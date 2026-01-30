@@ -641,6 +641,64 @@ button:disabled {
     white-space: pre-wrap;
 }
 
+/* Feature Flags section */
+.feature-flags-demo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.promo-banner {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    background: linear-gradient(135deg, #e8f4fd 0%, #d0e8fa 100%);
+    border: 1px solid var(--secondary-color);
+    border-radius: 8px;
+}
+
+.promo-label {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.promo-link {
+    color: var(--primary-color);
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+.promo-link:hover {
+    text-decoration: none;
+}
+
+.live-chat-area {
+    display: inline-block;
+}
+
+.live-chat-btn {
+    padding: 10px 18px;
+    background: var(--success-color);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.live-chat-btn:hover:not(:disabled) {
+    background: #218838;
+}
+
+.feature-flags-status {
+    margin-top: 10px;
+    padding: 8px 0;
+    min-height: 1.5em;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     body {

@@ -294,6 +294,40 @@
             </div>
         </section>
 
+        <!-- In-App Messages Section -->
+        <section class="section">
+            <h2>In-App Messages (Modal)</h2>
+            <p class="help-text" style="margin-bottom: 15px;">
+                In-app messages are shown as modals when triggered by a Braze campaign. Create a campaign in Braze with trigger <strong>Custom Event</strong> (e.g. <code>button_click</code>, <code>add_to_cart</code>), choose <strong>Modal</strong> as the message type, then trigger that event above to see the modal.
+            </p>
+            <p class="help-text">
+                After initializing the SDK, any in-app message delivered by Braze (e.g. from a custom event or campaign) will open automatically as a modal. Check the Event Log below for &quot;In-app message received&quot; when a message is triggered.
+            </p>
+        </section>
+
+        <!-- Feature Flags Section -->
+        <section class="section">
+            <h2>Feature Flags</h2>
+            <p class="help-text" style="margin-bottom: 15px;">
+                These UI elements are controlled by Braze feature flags. Enable the flags and set properties in your Braze dashboard to see them here. See README for setup details.
+            </p>
+            <div id="feature-flags-demo" class="feature-flags-demo">
+                <!-- Promo link (navigation_promo_link): remotely control link text and URL -->
+                <div id="promo-banner" class="promo-banner" style="display: none;" role="region" aria-label="Promotional link">
+                    <span class="promo-label">Promo:</span>
+                    <a id="promo-link" href="#" class="promo-link" target="_blank" rel="noopener noreferrer"></a>
+                </div>
+                <!-- Live chat (enable_live_chat): on/off for gradual rollout -->
+                <div id="live-chat-area" class="live-chat-area" style="display: none;">
+                    <button type="button" id="start-live-chat-btn" class="live-chat-btn" aria-label="Start Live Chat">💬 Start Live Chat</button>
+                </div>
+            </div>
+            <div id="feature-flags-status" class="feature-flags-status help-text" aria-live="polite"></div>
+            <div class="button-group" style="margin-top: 15px;">
+                <button type="button" id="refresh-feature-flags-btn" aria-label="Refresh feature flags from Braze">Refresh Feature Flags</button>
+            </div>
+        </section>
+
         <!-- Content Cards Section -->
         <section class="section">
             <h2>Content Cards</h2>

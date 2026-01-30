@@ -6,9 +6,11 @@ A simple website application to test Braze Web SDK integration by simulating use
 
 - ✅ **SDK Configuration**: Easy setup with API key and endpoint
 - ✅ **User Management**: Support for both anonymous and identified user tracking
+- ✅ **In-App Messages (Modal)**: Display Braze in-app messages as modals, triggered by custom events and campaigns
 - ✅ **Custom Events**: Trigger custom events with optional properties
 - ✅ **Purchase Events**: Simulate purchase events with product data
 - ✅ **User Attributes**: Set custom user attributes (string, number, boolean, array)
+- ✅ **Feature Flags**: Remotely control promo link and live chat visibility (see [Feature Flags](#feature-flags) and [Braze setup](#braze-feature-flag-setup))
 - ✅ **Event Logging**: Real-time event log display with timestamps
 - ✅ **Environment Configuration**: Secure configuration via `.env` file
 
@@ -99,14 +101,26 @@ The SDK is automatically configured from your `.env` file when you run `npm star
 - **Identified User**: Enter a User ID and click "Set User ID"
 - **Clear User**: Click "Clear User (Anonymous)" to reset to anonymous
 
-### 3. Trigger Custom Events
+### 3. In-App Messages (Modal)
+
+In-app messages from Braze are shown as modals when a campaign is triggered by a custom event:
+
+1. In Braze Dashboard, create a **Campaign** or **Canvas** with an in-app message.
+2. Set the **trigger** to **Custom Event** (e.g. `button_click`, `add_to_cart`).
+3. Choose **Modal** as the message type and design your message.
+4. In this app, trigger the same custom event (e.g. click "Button Click" under Custom Events).
+5. The modal will appear when Braze delivers the message. Check the Event Log for "In-app message received".
+
+The SDK subscribes to in-app messages before opening a session and displays them via `showInAppMessage`, so no extra code is required after initialization.
+
+### 4. Trigger Custom Events
 
 1. Enter an event name (e.g., "button_clicked")
 2. Optionally add event properties as JSON (e.g., `{"button_id": "submit", "page": "home"}`)
 3. Click "Trigger Custom Event"
 4. Check the Event Log to see the event was sent
 
-### 4. Log Purchase Events
+### 5. Log Purchase Events
 
 1. Fill in the purchase form:
    - **Product ID**: Unique identifier for the product
@@ -117,7 +131,7 @@ The SDK is automatically configured from your `.env` file when you run `npm star
 2. Click "Log Purchase Event"
 3. Check the Event Log to verify
 
-### 5. Set User Attributes
+### 6. Set User Attributes
 
 1. Enter an attribute key (e.g., "favorite_color")
 2. Select the attribute type:
@@ -129,7 +143,16 @@ The SDK is automatically configured from your `.env` file when you run `npm star
 4. Click "Set User Attribute"
 5. Check the Event Log to verify
 
-### 6. View Event Log
+### 7. Feature Flags
+
+Two feature flags are wired in this app so you can test [Braze feature flags](https://www.braze.com/docs/developer_guide/feature_flags/#remotely-control-app-variables) without redeploying:
+
+1. **Navigation promo link** (`navigation_promo_link`) – Remotely control a promo link’s text and URL (e.g. “Black Friday” → `/sales`). When the flag is enabled and has `text` and `link` properties, the app shows the link in the Feature Flags section.
+2. **Live chat** (`enable_live_chat`) – Simple on/off for a “Start Live Chat” button. Use it to test gradual rollouts (e.g. 10% of users).
+
+After creating the flags in Braze (see [Braze Feature Flag Setup](#braze-feature-flag-setup)), initialize the SDK, optionally set a User ID, then click **Refresh Feature Flags**. The promo link and/or live chat button appear when the flags are enabled for the current user.
+
+### 8. View Event Log
 
 - All events are displayed in real-time in the Event Log section
 - Each entry shows:
@@ -152,6 +175,49 @@ The SDK is automatically configured from your `.env` file when you run `npm star
 - Check the browser console for errors
 - Verify your API key and endpoint are correct
 - Check the Network tab in browser DevTools for API calls to Braze
+
+## Braze Feature Flag Setup
+
+To use the Feature Flags section in this app, create the following feature flags in your Braze workspace. Feature flags require **Web SDK 4.6.0+** and are available in Braze under **Feature Flags** (or **Engagement** → **Feature Flags** depending on your Braze version).
+
+### 1. Navigation promo link (remotely control link text and URL)
+
+| Field | Value |
+|-------|--------|
+| **Name** | Navigation Promo Link (or any name) |
+| **Feature Flag ID** | `navigation_promo_link` **(must match exactly)** |
+| **Rollout** | Set to a percentage (e.g. 100% for all users, or 10% for testing) |
+
+**Initial properties** (add in the feature flag’s property list):
+
+| Property key | Type | Example value |
+|-------------|------|----------------|
+| `text` | String | `Black Friday Deals` |
+| `link` | String | `https://yoursite.com/sales` or `/sales` |
+
+- When **enabled** and both `text` and `link` are set, the app shows a promo link in the Feature Flags section.
+- Change `text` and `link` in the Braze dashboard anytime; after you click **Refresh Feature Flags** in the app (or on next session), the new values appear.
+
+### 2. Live chat (on/off for gradual rollout)
+
+| Field | Value |
+|-------|--------|
+| **Name** | Enable Live Chat (or any name) |
+| **Feature Flag ID** | `enable_live_chat` **(must match exactly)** |
+| **Rollout** | Set to a percentage (e.g. 100% or 10% for a gradual rollout) |
+
+- No properties are required. When the flag is **enabled**, the app shows a “Start Live Chat” button; when **disabled**, the button is hidden.
+- Use Braze segments or rollout % to control who sees the button.
+
+### Quick checklist
+
+1. In Braze: **Feature Flags** (or **Engagement** → **Feature Flags**) → **Create Feature Flag**.
+2. Create **navigation_promo_link**: add properties `text` (string) and `link` (string), set rollout %.
+3. Create **enable_live_chat**: no properties, set rollout %.
+4. In the test app: initialize the SDK, optionally set a User ID, then click **Refresh Feature Flags**.
+5. Confirm the status line under the Feature Flags section shows “Promo: …” and/or “Live Chat: on/off”.
+
+Feature flag limits depend on your Braze plan (e.g. free tier: 10 active feature flags per workspace). See [Braze Feature Flags](https://www.braze.com/docs/developer_guide/feature_flags/#remotely-control-app-variables) for details.
 
 ## Troubleshooting
 

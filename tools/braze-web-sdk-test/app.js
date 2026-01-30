@@ -92,7 +92,15 @@ function initDOMElements() {
         dobDayInput: document.getElementById('dob-day-input'),
         genderSelect: document.getElementById('gender-select'),
         languageInput: document.getElementById('language-input'),
-        phoneInput: document.getElementById('phone-input')
+        phoneInput: document.getElementById('phone-input'),
+
+        // Feature Flags
+        promoBanner: document.getElementById('promo-banner'),
+        promoLink: document.getElementById('promo-link'),
+        liveChatArea: document.getElementById('live-chat-area'),
+        startLiveChatBtn: document.getElementById('start-live-chat-btn'),
+        featureFlagsStatus: document.getElementById('feature-flags-status'),
+        refreshFeatureFlagsBtn: document.getElementById('refresh-feature-flags-btn')
     };
 }
 
@@ -115,6 +123,13 @@ async function initializeBraze(apiKey, endpoint) {
             throw new Error('SDK initialization returned false');
         }
         
+        // Subscribe to in-app messages BEFORE openSession (required by Braze).
+        // When a campaign is triggered (e.g. by a custom event), the message is displayed as a modal via showInAppMessage.
+        subscribeToInAppMessages();
+
+        // Subscribe to feature flag updates BEFORE openSession (required by Braze).
+        subscribeToFeatureFlags();
+
         logToDisplay('system', { message: 'SDK initialized, opening session...' });
         
         // Open session immediately after initialization
@@ -137,6 +152,9 @@ async function initializeBraze(apiKey, endpoint) {
             // Subscribe to content cards updates (but don't request refresh yet if user is anonymous)
             // Content cards are typically only available for identified users
             subscribeToContentCards();
+
+            // Apply initial feature flag state from cache
+            applyFeatureFlagsState();
             
             // Flush initial data to ensure connection is working
             if (braze.requestImmediateDataFlush) {
@@ -740,6 +758,159 @@ function closeStandardAttributesModal() {
         elements.standardAttributesModal.classList.remove('show');
         elements.standardAttributesModal.setAttribute('aria-hidden', 'true');
     }
+}
+
+// Subscribe to in-app messages from Braze (triggered by custom events / campaigns).
+// Messages are displayed as modals via showInAppMessage. Must be called before openSession.
+function subscribeToInAppMessages() {
+    if (typeof braze.subscribeToInAppMessage !== 'function') {
+        logToDisplay('system', { message: 'In-app messages: subscribeToInAppMessage not available in this SDK build' });
+        return;
+    }
+    const subscriptionId = braze.subscribeToInAppMessage((inAppMessage) => {
+        const messageType = inAppMessage?.constructor?.name || 'InAppMessage';
+        const header = (inAppMessage && 'header' in inAppMessage) ? inAppMessage.header : '';
+        const message = (inAppMessage && 'message' in inAppMessage) ? inAppMessage.message : '';
+        logToDisplay('system', {
+            message: 'In-app message received from Braze',
+            details: {
+                type: messageType,
+                header: header || '(no header)',
+                body: message ? message.substring(0, 80) + (message.length > 80 ? '…' : '') : '(no body)',
+                triggerId: inAppMessage?.triggerId
+            }
+        });
+        if (typeof braze.showInAppMessage === 'function') {
+            const shown = braze.showInAppMessage(inAppMessage, null, () => {
+                logToDisplay('system', { message: 'In-app message displayed (modal)' });
+            });
+            if (!shown) {
+                logToDisplay('error', { message: 'In-app message could not be displayed' });
+            }
+        } else {
+            logToDisplay('error', { message: 'showInAppMessage not available in this SDK build' });
+        }
+    });
+    if (subscriptionId) {
+        logToDisplay('system', { message: 'In-app messages: subscribed (modal display on custom event / campaign)' });
+    }
+}
+
+// Feature flag IDs used in this app (must match Braze dashboard)
+const FEATURE_FLAG_IDS = {
+    NAVIGATION_PROMO_LINK: 'navigation_promo_link',
+    ENABLE_LIVE_CHAT: 'enable_live_chat'
+};
+
+// Subscribe to feature flag updates. Must be called before openSession.
+function subscribeToFeatureFlags() {
+    if (typeof braze.subscribeToFeatureFlagsUpdates !== 'function') {
+        logToDisplay('system', { message: 'Feature flags: subscribeToFeatureFlagsUpdates not available in this SDK build' });
+        return;
+    }
+    const subscriptionId = braze.subscribeToFeatureFlagsUpdates(() => {
+        applyFeatureFlagsState();
+    });
+    if (subscriptionId) {
+        logToDisplay('system', { message: 'Feature flags: subscribed to updates' });
+    }
+}
+
+// Read feature flags from Braze and update the UI (promo link, live chat).
+function applyFeatureFlagsState() {
+    if (!isSDKReady || typeof braze.getFeatureFlag !== 'function') {
+        return;
+    }
+
+    const statusParts = [];
+
+    // 1. Navigation promo link (remotely control link text and URL)
+    const promoFlag = braze.getFeatureFlag(FEATURE_FLAG_IDS.NAVIGATION_PROMO_LINK);
+    if (elements.promoBanner && elements.promoLink) {
+        const promoEnabled = promoFlag && promoFlag.enabled;
+        const promoText = promoFlag ? (promoFlag.getStringProperty('text') || 'Promo') : '';
+        const promoUrl = promoFlag ? (promoFlag.getStringProperty('link') || '#') : '#';
+
+        if (promoEnabled && promoText && promoUrl) {
+            elements.promoLink.textContent = promoText;
+            elements.promoLink.href = promoUrl;
+            elements.promoBanner.style.display = '';
+            statusParts.push(`Promo: "${promoText}" → ${promoUrl}`);
+            if (typeof braze.logFeatureFlagImpression === 'function') {
+                braze.logFeatureFlagImpression(FEATURE_FLAG_IDS.NAVIGATION_PROMO_LINK);
+            }
+        } else {
+            elements.promoBanner.style.display = 'none';
+            if (!promoEnabled) statusParts.push('Promo: off');
+            else statusParts.push('Promo: on but missing text/link');
+        }
+    }
+
+    // 2. Live chat (on/off for gradual rollout)
+    const liveChatFlag = braze.getFeatureFlag(FEATURE_FLAG_IDS.ENABLE_LIVE_CHAT);
+    if (elements.liveChatArea) {
+        const liveChatEnabled = liveChatFlag && liveChatFlag.enabled;
+        if (liveChatEnabled) {
+            elements.liveChatArea.style.display = '';
+            statusParts.push('Live Chat: on');
+            if (typeof braze.logFeatureFlagImpression === 'function') {
+                braze.logFeatureFlagImpression(FEATURE_FLAG_IDS.ENABLE_LIVE_CHAT);
+            }
+        } else {
+            elements.liveChatArea.style.display = 'none';
+            statusParts.push('Live Chat: off');
+        }
+    }
+
+    if (elements.featureFlagsStatus) {
+        elements.featureFlagsStatus.textContent = statusParts.length
+            ? statusParts.join(' | ')
+            : 'No feature flags received yet. Create flags in Braze and refresh.';
+    }
+
+    logToDisplay('system', {
+        message: 'Feature flags applied',
+        navigation_promo_link: promoFlag ? { enabled: promoFlag.enabled, text: promoFlag.getStringProperty?.('text'), link: promoFlag.getStringProperty?.('link') } : null,
+        enable_live_chat: liveChatFlag ? { enabled: liveChatFlag.enabled } : null
+    });
+}
+
+// Request feature flags refresh from Braze (e.g. after changing flags in dashboard).
+function refreshFeatureFlags() {
+    if (!isSDKReady) {
+        showError('SDK not initialized. Please configure and initialize first.');
+        return;
+    }
+    if (typeof braze.refreshFeatureFlags !== 'function') {
+        logToDisplay('system', { message: 'refreshFeatureFlags not available in this SDK build' });
+        return;
+    }
+    logToDisplay('system', { message: 'Refreshing feature flags from Braze...' });
+    braze.refreshFeatureFlags(
+        () => {
+            try {
+                applyFeatureFlagsState();
+                logToDisplay('system', { message: 'Feature flags refreshed successfully' });
+            } catch (err) {
+                console.error('Feature flags apply error:', err);
+                logToDisplay('error', {
+                    message: 'Feature flags apply failed after refresh',
+                    error: err && err.message ? err.message : String(err)
+                });
+            }
+        },
+        (err) => {
+            // Braze may call this on rate limit, network failure, or when feature flags aren't enabled for the workspace.
+            // Still apply cached state so the UI reflects what we have.
+            applyFeatureFlagsState();
+            const detail = err && (err.message || err.reason || err.code) ? String(err.message || err.reason || err.code) : '';
+            logToDisplay('system', {
+                message: 'Feature flags server refresh failed; showing cached values.',
+                hint: 'This can happen if refresh is rate-limited, the request failed, or feature flags are not enabled for your Braze workspace.',
+                detail: detail || undefined
+            });
+        }
+    );
 }
 
 // Handle content cards updates (for status/logging only, Braze UI handles rendering)
@@ -1747,7 +1918,8 @@ function updateButtonStates() {
         elements.clearUserBtn,
         elements.triggerEventBtn,
         elements.purchaseForm?.querySelector('button[type="submit"]'),
-        elements.attributeForm?.querySelector('button[type="submit"]')
+        elements.attributeForm?.querySelector('button[type="submit"]'),
+        elements.refreshFeatureFlagsBtn
     ].filter(Boolean);
     
     // Also update predefined event buttons
@@ -2202,7 +2374,28 @@ document.addEventListener('DOMContentLoaded', async () => {
             refreshContentCards();
         });
     }
-    
+
+    // Feature Flags: refresh from Braze
+    if (elements.refreshFeatureFlagsBtn) {
+        elements.refreshFeatureFlagsBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            refreshFeatureFlags();
+        });
+    }
+
+    // Feature Flags: Start Live Chat (demo - logs event when clicked)
+    if (elements.startLiveChatBtn) {
+        elements.startLiveChatBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            if (isSDKReady) {
+                triggerCustomEvent('live_chat_started', { source: 'feature_flag_demo' });
+                logToDisplay('system', { message: 'Live Chat clicked (demo). In production, open your chat widget here.' });
+            }
+        });
+    }
+
     // Push Notification buttons
     if (elements.requestPushPermissionBtn) {
         elements.requestPushPermissionBtn.addEventListener('click', (e) => {
