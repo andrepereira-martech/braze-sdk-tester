@@ -42,7 +42,7 @@
                 <section id="panel-config" class="panel active" role="region" aria-labelledby="panel-config-heading">
                     <h2 id="panel-config-heading" class="panel-heading">Configuration</h2>
                     <p class="help-text" style="margin-bottom: 15px; font-style: italic;">
-                        Configuration is loaded from <code>.env</code> file. To update, edit <code>.env</code> and run: <code>npm run load-env</code>
+                        When running locally with <code>.env</code>, run <code>npm run load-env</code> to pre-fill. When deployed (e.g. Vercel), enter your API Key and SDK Endpoint below and click Initialize SDK; values are saved in this browser.
                     </p>
                     <form id="config-form">
                         <div class="form-group">
@@ -52,7 +52,7 @@
                         </div>
                         <div class="form-group">
                             <label for="endpoint-input">SDK Endpoint URL</label>
-                            <input type="url" id="endpoint-input" placeholder="SDK Endpoint URL" required maxlength="500" aria-describedby="endpoint-error" aria-required="true">
+                            <input type="text" id="endpoint-input" placeholder="https://sdk.iad-03.braze.com" required maxlength="500" aria-describedby="endpoint-error" aria-required="true" autocomplete="url">
                             <div id="endpoint-error" class="sr-only" role="alert"></div>
                         </div>
                         <button type="submit" id="init-btn" aria-label="Initialize Braze SDK">Initialize SDK</button>

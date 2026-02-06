@@ -2,7 +2,10 @@
 // Main application logic and Braze integration
 
 import * as braze from "@braze/web-sdk";
-import { BRAZE_API_KEY, BRAZE_SDK_ENDPOINT } from "./config.js";
+
+// Config loaded at runtime so the app works when config.js is missing (e.g. Vercel without build step)
+let BRAZE_API_KEY = '';
+let BRAZE_SDK_ENDPOINT = '';
 
 // Global state
 let isSDKReady = false;
@@ -1935,10 +1938,11 @@ function setLoadingState(isLoading) {
         elements.initBtn.textContent = isLoading ? 'Initializing...' : 'Initialize SDK';
     }
     
-    // Disable all form inputs during loading
+    // Disable form inputs during loading, but keep config inputs enabled so user doesn't lose typed values
     const allInputs = document.querySelectorAll('input, textarea, select, button');
+    const configInputIds = ['api-key-input', 'endpoint-input'];
     allInputs.forEach(input => {
-        if (input.id !== 'init-btn') {
+        if (input.id !== 'init-btn' && !configInputIds.includes(input.id)) {
             input.disabled = isLoading;
         }
     });
@@ -1982,12 +1986,23 @@ function updateButtonStates() {
 
 // Initialize application on DOM load
 document.addEventListener('DOMContentLoaded', async () => {
+    // Load config at runtime so app works when config.js is missing (e.g. Vercel static deploy)
+    try {
+        const configModule = await import('./config.js');
+        BRAZE_API_KEY = (configModule.BRAZE_API_KEY || '').trim();
+        BRAZE_SDK_ENDPOINT = (configModule.BRAZE_SDK_ENDPOINT || '').trim();
+    } catch (err) {
+        console.warn('Config not loaded (e.g. config.js missing). Use the form below to enter API key and endpoint.', err);
+        BRAZE_API_KEY = '';
+        BRAZE_SDK_ENDPOINT = '';
+    }
+
     console.log('DOMContentLoaded - Starting initialization');
     console.log('SDK Ready:', isSDKReady);
     console.log('Braze SDK available:', typeof braze !== 'undefined');
     console.log('Config values:', { 
         apiKey: BRAZE_API_KEY ? BRAZE_API_KEY.substring(0, 10) + '...' : 'missing',
-        endpoint: BRAZE_SDK_ENDPOINT 
+        endpoint: BRAZE_SDK_ENDPOINT || 'missing'
     });
     
     initDOMElements();
@@ -2071,8 +2086,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                 }
             }
         } else {
-            // Show warning if no config is available
-            showError('Please configure Braze API Key and SDK Endpoint in .env file and run: npm run load-env');
+            // No env config and no saved config: show friendly message for manual entry (e.g. deployed to Vercel)
+            updateInitStatus('Enter your Braze API Key and SDK Endpoint below, then click Initialize SDK.', 'info');
         }
     }
     
@@ -2095,38 +2110,44 @@ document.addEventListener('DOMContentLoaded', async () => {
             return;
         }
         
-        // Save to localStorage (fallback when env vars not used)
+        // Save to localStorage immediately so values persist even if init fails or page reloads
         saveConfigToStorage(apiKey, endpoint);
         
-        // Re-initialize SDK
+        // Re-initialize SDK (keep form values visible; do not clear inputs)
         isSDKReady = false;
         updateInitStatus('Initializing...', 'info');
         updateButtonStates();
         
-        const success = await initializeBraze(apiKey, endpoint);
-        updateButtonStates();
-        
-        // Show/hide retry button based on success
-        const retryBtn = document.getElementById('retry-init-btn');
-        if (retryBtn) {
-            retryBtn.style.display = success ? 'none' : 'block';
-        }
-        
-        if (success) {
-            // Log page view after successful initialization
-            // Page name is configurable via data attribute or defaults to current path
-            const pageName = document.body.dataset.pageName || window.location.pathname || 'home';
-            try {
-                braze.logCustomEvent('page_view', { page: pageName });
-                logToDisplay('event', { type: 'page_view', page: pageName });
-                
-                // Flush page view event
-                if (braze.requestImmediateDataFlush) {
-                    braze.requestImmediateDataFlush();
-                }
-            } catch (error) {
-                console.error('Page view error:', error);
+        try {
+            const success = await initializeBraze(apiKey, endpoint);
+            updateButtonStates();
+            
+            // Show/hide retry button based on success
+            const retryBtn = document.getElementById('retry-init-btn');
+            if (retryBtn) {
+                retryBtn.style.display = success ? 'none' : 'block';
             }
+            
+            if (success) {
+                // Log page view after successful initialization
+                const pageName = document.body.dataset.pageName || window.location.pathname || 'home';
+                try {
+                    braze.logCustomEvent('page_view', { page: pageName });
+                    logToDisplay('event', { type: 'page_view', page: pageName });
+                    if (braze.requestImmediateDataFlush) {
+                        braze.requestImmediateDataFlush();
+                    }
+                } catch (error) {
+                    console.error('Page view error:', error);
+                }
+            }
+        } catch (err) {
+            console.error('Initialize SDK error:', err);
+            updateInitStatus('Initialization failed. Check the Event Log and try again.', 'error');
+            updateButtonStates();
+            const retryBtn = document.getElementById('retry-init-btn');
+            if (retryBtn) retryBtn.style.display = 'block';
+            // Do not clear apiKeyInput or endpointInput so user can correct and retry
         }
     });
     
