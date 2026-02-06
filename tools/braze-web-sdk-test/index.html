@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Braze Web SDK Test Application</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Used when running locally with npm start (npx serve); stripped in Vite build -->
+    <script type="importmap" id="importmap-dev">
+    {
+        "imports": {
+            "@braze/web-sdk": "./node_modules/@braze/web-sdk/src/index.js"
+        }
+    }
+    </script>
 </head>
 <body data-page-name="home">
     <div class="app-layout">

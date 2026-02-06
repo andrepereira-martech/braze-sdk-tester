@@ -63,16 +63,21 @@ On small screens, the sidebar wraps to a horizontal nav at the top.
 
 3. **Start a local development server:**
    
-   The application uses ES modules and the Braze SDK; use Vite so dependencies resolve correctly:
+   You can run the app locally in either way:
    
    ```bash
-   # Recommended: Vite dev server (resolves @braze/web-sdk)
+   # Option 1: npm start – serves current folder (uses import map for @braze/web-sdk)
+   npm start
+   ```
+   Then open the URL shown (e.g. http://localhost:3000).
+   
+   ```bash
+   # Option 2: Vite dev server – fast reload, no import map needed
    npm run dev
    ```
-   
    Then open http://localhost:5173 (or the URL Vite prints).
    
-   For a production build (e.g. to deploy to Vercel):
+   **Production build** (e.g. to deploy to Vercel):
    ```bash
    npm run build
    ```
@@ -94,7 +99,7 @@ On small screens, the sidebar wraps to a horizontal nav at the top.
 
 ### 1. Configure the SDK
 
-The SDK is automatically configured from your `.env` file when you run `npm start` or `npm run load-env`.
+The SDK is automatically configured from your `.env` file when you run `npm start`, `npm run dev`, or `npm run load-env`.
 
 **If using environment variables (recommended):**
 - Configuration is loaded from `.env` file automatically
@@ -237,9 +242,11 @@ Feature flag limits depend on your Braze plan (e.g. free tier: 10 active feature
 
 **Cause:** Opening HTML file directly (file:// protocol) doesn't support ES6 modules
 
-**Solution:** Use a local development server:
+**Solution:** Use a local development server (see [Setup](#setup)):
 ```bash
-npx serve .
+npm start
+# or
+npm run dev
 ```
 
 ### CORS errors in browser console
@@ -294,13 +301,19 @@ npx serve .
 ## Project Structure
 
 ```
-Website test/
-├── package.json          # NPM dependencies (@braze/web-sdk)
-├── index.html            # Single-page application entry
+tools/braze-web-sdk-test/
+├── package.json          # NPM dependencies and scripts (dev, build, start)
+├── vite.config.js        # Vite config; strips import map from build output
+├── vercel.json           # Vercel deploy: build command and output directory (dist)
+├── index.html            # Single-page app entry (import map for local serve)
 ├── app.js                # Main application logic and Braze integration
-├── styles.css             # Application styling
+├── styles.css            # Application styling
+├── service-worker.js     # Push notifications; copied to dist/ on build
+├── load-env.js           # Generates config.js from .env (run via npm run load-env)
+├── config.js             # Auto-generated from .env (gitignored in production)
+├── .env.example           # Example env; copy to .env and fill in
 ├── README.md              # This file
-├── .gitignore            # Exclude node_modules, .env files
+├── dist/                 # Production build output (npm run build)
 └── node_modules/         # Dependencies (created after npm install)
 ```
 
@@ -346,4 +359,3 @@ MIT
 For Braze SDK documentation, visit: https://www.braze.com/docs/developer_guide/sdk_integration?sdktab=web
 
 For issues with this test application, check the browser console and Network tab for detailed error messages.
->>>>>>> 22c9f3e (Initial commit: Braze Web SDK test application with push notifications, content cards, and predefined events)
