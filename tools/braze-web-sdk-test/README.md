@@ -63,21 +63,21 @@ On small screens, the sidebar wraps to a horizontal nav at the top.
 
 3. **Start a local development server:**
    
-   The application uses ES6 modules which require an HTTP server (not `file://` protocol). You can use any of these options:
+   The application uses ES modules and the Braze SDK; use Vite so dependencies resolve correctly:
    
    ```bash
-   # Option 1: Using npm start (recommended - automatically loads env)
-   npm start
-   
-   # Option 2: Using npx serve directly
-   npx serve .
-   
-   # Option 3: Using Python
-   python -m http.server 8000
-   
-   # Option 4: Using Node.js http-server
-   npx http-server
+   # Recommended: Vite dev server (resolves @braze/web-sdk)
+   npm run dev
    ```
+   
+   Then open http://localhost:5173 (or the URL Vite prints).
+   
+   For a production build (e.g. to deploy to Vercel):
+   ```bash
+   npm run build
+   ```
+   Output is in `dist/`. Use `npm run preview` to serve `dist/` locally.  
+   **Vercel:** Set the project root to this folder; `vercel.json` configures build and output directory.
 
 4. **Open the application:**
    - Navigate to `http://localhost:3000` (or the port shown by your server)

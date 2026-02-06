@@ -5,18 +5,19 @@
   "type": "module",
   "scripts": {
     "load-env": "node load-env.js",
+    "dev": "vite",
+    "build": "npm run load-env && vite build && cp service-worker.js dist/",
+    "preview": "vite preview",
     "start": "npx serve .",
     "prestart": "npm run load-env"
   },
   "dependencies": {
     "@braze/web-sdk": "^4.0.0"
   },
-  "keywords": [
-    "braze",
-    "sdk",
-    "testing",
-    "analytics"
-  ],
+  "devDependencies": {
+    "vite": "^6.0.0"
+  },
+  "keywords": ["braze", "sdk", "testing", "analytics"],
   "author": "Andre Rodrigues",
   "license": "MIT"
 }
