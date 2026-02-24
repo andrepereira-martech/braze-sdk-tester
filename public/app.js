@@ -4,6 +4,7 @@
 
 // Import config (generated from .env)
 import { BRAZE_REST_API_KEY, BRAZE_REST_ENDPOINT } from './config.js';
+import { initScenarioSimulator } from './scenarios.js';
 
 // API base URL
 const API_BASE = '/api';
@@ -170,6 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupEventListeners();
     loadRequestHistory();
     startRateLimitPolling();
+    initScenarioSimulator(apiKeyInput, endpointSelect);
 });
 
 // Initialize configuration from config.js
@@ -570,6 +572,12 @@ function startRateLimitPolling() {
 
 // Show error message
 function showError(message) {
-    alert('Error: ' + message);
+    const errorEl = document.getElementById('error-message');
+    if (errorEl) {
+        errorEl.textContent = 'Error: ' + message;
+        errorEl.style.display = 'block';
+        clearTimeout(errorEl._hideTimer);
+        errorEl._hideTimer = setTimeout(() => { errorEl.style.display = 'none'; }, 6000);
+    }
     console.error(message);
 }

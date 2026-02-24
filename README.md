@@ -6,12 +6,139 @@ A comprehensive REST API testing tool for Braze - enabling quick API testing and
 
 - ✅ **REST API Testing**: Test all Braze REST API endpoints
 - ✅ **Pre-built Templates**: Phase 1 & 2 templates for common PoC scenarios
+- ✅ **Scenario Simulator**: Fire realistic multi-user data patterns for segment testing, internal groups, and Currents connectivity
 - ✅ **Request Builder**: Build custom requests with JSON editor
 - ✅ **Response Viewer**: Formatted JSON response display with status codes
 - ✅ **Request History**: Track and replay previous requests
 - ✅ **Rate Limit Monitoring**: Real-time rate limit status display
 - ✅ **Multi-Instance Support**: Works with all Braze instances (US, EU, AU, ID)
 - ✅ **CORS-Free**: Express backend proxy eliminates CORS issues
+
+## Scenario Simulator
+
+The Scenario Simulator fires pre-built sets of synthetic users with realistic attributes, events, and purchases — all via `/users/track`. Use it to quickly populate your Braze workspace with testable data without building a mock application.
+
+### Available Scenarios
+
+| Scenario | Users | Purpose |
+|---|---|---|
+| E-Commerce: Buyers, Browsers & Churned | 9 | Build segments on `purchase_count`, `lifecycle_stage`, `cart_abandon_count` |
+| SaaS: Trial → Conversion Funnel | 8 | Segment on `converted_to_paid`, `trial_day`, `features_activated` |
+| Media: Content Engagement Tiers | 7 | Segment on `subscription_tier`, `articles_read_30d`, `lifecycle_stage` |
+| Internal Group: 5 Named Test Users | 5 | Set up Braze Internal Groups for per-message delivery logs |
+| Currents / S3 / Snowflake Connectivity Ping | 1 | Verify Currents data pipeline with a traceable event + SQL query |
+
+### How to use
+
+1. Configure your REST API Key and endpoint in the **Configuration** section
+2. Scroll to **Scenario Simulator**, choose a scenario from the dropdown
+3. Optionally change the **User ID Prefix** (default: `sim_`) to namespace test data
+4. Click **Preview Payload** to inspect the JSON before sending
+5. Click **Run Scenario** — a progress bar tracks each user as it's created
+6. After completion, see per-user success/error status and scenario-specific guidance:
+   - **Internal Group setup**: step-by-step Braze dashboard instructions with copyable external_ids
+   - **Currents / Snowflake**: copy-paste Snowflake SQL and optional S3 CLI with your unique `trace_id`
+
+### Scenario reference
+
+Each scenario creates users with a consistent **User ID Prefix** (default `sim_`). Use the prefix to find or delete test data later.
+
+#### E-Commerce: Buyers, Browsers & Churned (9 users)
+
+Creates three cohorts: high-value buyers, browsers/cart abandoners, and churned users. Use for segment and campaign testing on purchase behavior and lifecycle.
+
+- **Attributes**: `lifecycle_stage`, `customer_tier`, `purchase_count`, `total_spend`, `cart_abandon_count`, `sessions_last_30_days`, etc.
+- **Events**: `product_viewed`, `add_to_cart`, `checkout_started`, `wishlist_added`
+- **Purchases**: Multiple products with currency and time offsets
+
+#### SaaS: Trial → Conversion Funnel (8 users)
+
+Creates trial users at different stages: converted (paid), active trial, expired trial, freemium, and reactivated. Use for trial conversion and feature-adoption segments.
+
+- **Attributes**: `trial_started`, `converted_to_paid`, `trial_day`, custom attributes
+- **Events**: `trial_started`, `feature_activated`, `onboarding_step_completed`, `upgrade_clicked`, `subscription_cancelled`, `reactivation_clicked`
+- **Purchases**: Plan purchases (e.g. `plan_starter_monthly`, `plan_enterprise_monthly`)
+
+#### Media: Content Engagement Tiers (7 users)
+
+Creates users across subscription and engagement tiers: superfan, active subscriber, lapsed, free reader, etc. Use for content and subscription segments.
+
+- **Attributes**: `subscription_tier`, `articles_read_30d`, `lifecycle_stage`
+- **Events**: `article_read`, `video_completed`, `content_shared`, `subscription_cancelled`
+
+#### Internal Group: 5 Named Test Users (5 users)
+
+Creates five clearly named users (e.g. Email Tester, Push Tester, SMS Tester, In-App Tester, Canvas Tester) for Braze Internal Groups. After running, the UI shows copyable external_ids and steps to add them in **Braze Dashboard → Settings → Internal Groups**. Use for per-message delivery logs and safe test sends.
+
+#### Currents / S3 / Snowflake Connectivity Ping (1 user)
+
+Verifies that Braze Currents is delivering **custom events** to your data warehouse. The scenario fires a single custom event `braze_connectivity_ping` with a unique `trace_id` (and optional `fired_at`). After Currents processes it, you can confirm the event in Snowflake or in raw S3 files.
+
+**Prerequisites**
+
+- Braze Currents connected to Snowflake (or S3), with **Custom Events** enabled for that destination.
+- In Snowflake: a custom events table and pipe (e.g. `BRAZE_CLOUD_PRODUCTION.CURRENTS.USERS_BEHAVIORS_CUSTOMEVENT`). If your database or schema differ, edit the generated SQL after copying.
+
+**How to use**
+
+1. Run the **Currents / S3 / Snowflake Connectivity Ping** scenario (User ID Prefix can stay as default or be custom).
+2. After a successful run, the UI shows:
+   - **Find this event in Snowflake**: a ready-to-run SQL block with your `trace_id` and `external_user_id`. Click **Copy SQL**.
+   - **Find in S3**: optional AWS CLI commands to download Currents files and `grep` for your `trace_id`.
+3. Wait **5–30 minutes** for Currents to deliver the event to Snowflake (or S3).
+4. In Snowflake, paste and run the copied SQL. The query uses `PARSE_JSON(properties):trace_id::string` and filters by `name = 'braze_connectivity_ping'`. If your table is in a different database or schema, change the `FROM` clause (e.g. `YOUR_DATABASE.YOUR_SCHEMA.USERS_BEHAVIORS_CUSTOMEVENT`).
+5. One matching row confirms the pipeline; no rows after 30+ minutes suggests Currents configuration or delay.
+
+**Generated query (example)**
+
+```sql
+SELECT
+  external_user_id,
+  name AS event_name,
+  PARSE_JSON(properties):trace_id::string AS trace_id,
+  TO_TIMESTAMP(time) AS event_time
+FROM BRAZE_CLOUD_PRODUCTION.CURRENTS.USERS_BEHAVIORS_CUSTOMEVENT
+WHERE PARSE_JSON(properties):trace_id::string = '<your-trace-id>'
+  AND name = 'braze_connectivity_ping'
+ORDER BY event_time DESC;
+```
+
+### Segment examples (post-run)
+
+After running **E-Commerce: Buyers, Browsers & Churned**, build these segments in Braze:
+
+```
+High-Value Active Customers:
+  purchase_count > 3 AND lifecycle_stage = active_customer
+
+Cart Abandonment Recovery:
+  cart_abandon_count > 0 AND purchase_count = 0
+
+Win-Back Campaign:
+  lifecycle_stage = lapsed AND total_spend > 500
+```
+
+After running **SaaS: Trial → Conversion Funnel**:
+
+```
+Trial Activation Nudge:
+  trial_started = true AND converted_to_paid = false AND features_activated < 2
+
+High-Intent Trial — Close:
+  trial_started = true AND features_activated >= 4 AND converted_to_paid = false
+```
+
+### Cleaning up test data
+
+All simulator users are created with the prefix you specify (default `sim_`). To remove them after testing, use `/users/delete` via the Request Builder:
+
+```json
+{
+  "external_ids": ["sim_hv_buyer_001", "sim_hv_buyer_002"]
+}
+```
+
+Or build a Braze segment on your prefix pattern and use the dashboard bulk delete.
 
 ## Supported Endpoints
 

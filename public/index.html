@@ -13,6 +13,9 @@
             <p>Quick API testing and PoC building without SDK integration</p>
         </header>
 
+        <!-- Global error display -->
+        <div id="error-message" class="status-message status-error" role="alert" aria-live="assertive" style="display:none; margin-bottom: 16px;"></div>
+
         <!-- Configuration Section -->
         <section class="section">
             <h2>Configuration</h2>
@@ -73,6 +76,61 @@
                     <span id="rate-limit-reset" class="value">-</span>
                 </div>
             </div>
+        </section>
+
+        <!-- Scenario Simulator Section -->
+        <section class="section" id="scenario-simulator">
+            <h2>Scenario Simulator</h2>
+            <p class="help-text" style="margin-bottom: 20px;">
+                Fire realistic multi-user data patterns via REST API. Use these to build segments,
+                set up internal test user groups, or verify Currents / S3 / Snowflake connectivity.
+            </p>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="scenario-select">Scenario</label>
+                    <select id="scenario-select">
+                        <option value="">-- Choose a scenario --</option>
+                        <optgroup label="Segment Building">
+                            <option value="ecommerce">E-Commerce: Buyers, Browsers &amp; Churned (9 users)</option>
+                            <option value="saas-onboarding">SaaS: Trial → Conversion Funnel (8 users)</option>
+                            <option value="media-engagement">Media: Content Engagement Tiers (7 users)</option>
+                        </optgroup>
+                        <optgroup label="Internal Groups &amp; Testing">
+                            <option value="internal-group-setup">Internal Group: 5 Named Test Users</option>
+                        </optgroup>
+                        <optgroup label="Connectivity Testing">
+                            <option value="currents-ping">Currents / S3 / Snowflake Connectivity Ping</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="scenario-prefix">User ID Prefix</label>
+                    <input type="text" id="scenario-prefix" value="sim_" maxlength="30">
+                    <small class="help-text">Prepended to all generated external_ids (e.g. sim_hv_buyer_001)</small>
+                </div>
+                <div class="form-group">
+                    <label for="scenario-delay">Delay between calls (ms)</label>
+                    <input type="number" id="scenario-delay" value="300" min="0" max="5000">
+                    <small class="help-text">Spacing between API calls to avoid rate limits</small>
+                </div>
+            </div>
+
+            <div id="scenario-description" class="scenario-description" style="display:none"></div>
+
+            <div class="button-group" style="margin-bottom: 16px;">
+                <button type="button" id="run-scenario-btn" class="btn-primary" disabled>Run Scenario</button>
+                <button type="button" id="preview-scenario-btn" class="btn-secondary" disabled>Preview Payload</button>
+            </div>
+
+            <div id="scenario-progress" style="display:none">
+                <div class="scenario-progress-bar">
+                    <div id="scenario-progress-fill" class="scenario-progress-fill"></div>
+                </div>
+                <p id="scenario-progress-label" class="help-text" style="margin-top: 6px;"></p>
+            </div>
+
+            <div id="scenario-results" style="display:none"></div>
         </section>
 
         <!-- Request Builder Section -->
