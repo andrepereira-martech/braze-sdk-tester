@@ -1,0 +1,84 @@
+{
+  "id": "internal-group-setup",
+  "name": "Internal Group: 5 Named Test Users",
+  "description": "Creates 5 clearly named test users optimised for Braze Internal Groups. After running, add them to Settings → Internal Groups in Braze to enable per-message delivery logs and test sends.",
+  "category": "Internal Groups & Testing",
+  "isTemplate": true,
+  "personas": [
+    {
+      "id": "test_alice",
+      "label": "Alice — Email QA",
+      "badge": "test",
+      "attributes": {
+        "first_name": "Alice", "last_name": "TestUser",
+        "email": "alice-test@internal.example.com",
+        "is_test_user": true, "test_role": "qa_email",
+        "country": "US"
+      },
+      "events": [
+        { "name": "internal_group_setup", "time_offset_days": 0, "properties": { "role": "email_tester", "tool": "braze-api-tester" } }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "test_bob",
+      "label": "Bob — Push QA",
+      "badge": "test",
+      "attributes": {
+        "first_name": "Bob", "last_name": "TestUser",
+        "email": "bob-test@internal.example.com",
+        "is_test_user": true, "test_role": "qa_push",
+        "country": "US"
+      },
+      "events": [
+        { "name": "internal_group_setup", "time_offset_days": 0, "properties": { "role": "push_tester", "tool": "braze-api-tester" } }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "test_carol",
+      "label": "Carol — SMS QA",
+      "badge": "test",
+      "attributes": {
+        "first_name": "Carol", "last_name": "TestUser",
+        "email": "carol-test@internal.example.com",
+        "is_test_user": true, "test_role": "qa_sms",
+        "country": "US"
+      },
+      "events": [
+        { "name": "internal_group_setup", "time_offset_days": 0, "properties": { "role": "sms_tester", "tool": "braze-api-tester" } }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "test_david",
+      "label": "David — In-App QA",
+      "badge": "test",
+      "attributes": {
+        "first_name": "David", "last_name": "TestUser",
+        "email": "david-test@internal.example.com",
+        "is_test_user": true, "test_role": "qa_inappmessage",
+        "country": "US"
+      },
+      "events": [
+        { "name": "internal_group_setup", "time_offset_days": 0, "properties": { "role": "inapp_tester", "tool": "braze-api-tester" } }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "test_eva",
+      "label": "Eva — Canvas QA",
+      "badge": "test",
+      "attributes": {
+        "first_name": "Eva", "last_name": "TestUser",
+        "email": "eva-test@internal.example.com",
+        "is_test_user": true, "test_role": "qa_canvas",
+        "country": "US"
+      },
+      "events": [
+        { "name": "internal_group_setup", "time_offset_days": 0, "properties": { "role": "canvas_tester", "tool": "braze-api-tester" } }
+      ],
+      "purchases": []
+    }
+  ]
+}

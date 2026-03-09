@@ -1,0 +1,147 @@
+{
+  "id": "media-engagement",
+  "name": "Media: Content Engagement Tiers",
+  "description": "Creates 7 users representing different content engagement depths. Useful for building re-engagement campaigns targeting lapsed subscribers or upgrading free users.",
+  "category": "Segment Building",
+  "isTemplate": true,
+  "personas": [
+    {
+      "id": "media_superfan",
+      "label": "Super Fan — Daily Active",
+      "badge": "media",
+      "attributes": {
+        "first_name": "Rosa", "last_name": "Ferreira",
+        "email": "rosa.ferreira@media-sim.example.com",
+        "subscription_tier": "premium",
+        "articles_read_30d": 47,
+        "videos_completed_30d": 12,
+        "newsletter_subscriber": true,
+        "content_category_preference": "technology",
+        "lifecycle_stage": "super_fan"
+      },
+      "events": [
+        { "name": "article_read", "time_offset_days": 0, "properties": { "category": "tech", "read_time_seconds": 240 } },
+        { "name": "video_completed", "time_offset_days": 0, "properties": { "duration_seconds": 1800 } },
+        { "name": "content_shared", "time_offset_days": -1, "properties": { "channel": "twitter" } },
+        { "name": "article_read", "time_offset_days": -1, "properties": { "category": "tech", "read_time_seconds": 180 } }
+      ],
+      "purchases": [
+        { "product_id": "premium_annual", "currency": "USD", "price": 99.00, "quantity": 1, "time_offset_days": -180 }
+      ]
+    },
+    {
+      "id": "media_engaged_weekly",
+      "label": "Engaged — Weekly Reader",
+      "badge": "media",
+      "attributes": {
+        "first_name": "Tom", "last_name": "Nguyen",
+        "email": "tom.nguyen@media-sim.example.com",
+        "subscription_tier": "premium",
+        "articles_read_30d": 14,
+        "videos_completed_30d": 3,
+        "newsletter_subscriber": true,
+        "lifecycle_stage": "engaged"
+      },
+      "events": [
+        { "name": "article_read", "time_offset_days": -2, "properties": { "category": "business" } },
+        { "name": "article_read", "time_offset_days": -7, "properties": { "category": "science" } }
+      ],
+      "purchases": [
+        { "product_id": "premium_monthly", "currency": "USD", "price": 12.00, "quantity": 1, "time_offset_days": -30 }
+      ]
+    },
+    {
+      "id": "media_casual",
+      "label": "Casual — Monthly Browser",
+      "badge": "media",
+      "attributes": {
+        "first_name": "Dana", "last_name": "Kowalski",
+        "email": "dana.kowalski@media-sim.example.com",
+        "subscription_tier": "free",
+        "articles_read_30d": 4,
+        "newsletter_subscriber": false,
+        "lifecycle_stage": "casual"
+      },
+      "events": [
+        { "name": "article_read", "time_offset_days": -5, "properties": { "category": "lifestyle" } },
+        { "name": "article_read", "time_offset_days": -18, "properties": { "category": "food" } }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "media_newsletter_only",
+      "label": "Newsletter-only — No App Visits",
+      "badge": "media",
+      "attributes": {
+        "first_name": "Haruto", "last_name": "Yamamoto",
+        "email": "haruto.yamamoto@media-sim.example.com",
+        "subscription_tier": "free",
+        "articles_read_30d": 0,
+        "newsletter_subscriber": true,
+        "newsletter_opens_30d": 8,
+        "lifecycle_stage": "newsletter_only"
+      },
+      "events": [
+        { "name": "newsletter_opened", "time_offset_days": -2 },
+        { "name": "newsletter_opened", "time_offset_days": -9 }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "media_lapsed",
+      "label": "Lapsed Subscriber — Re-engagement Target",
+      "badge": "churned",
+      "attributes": {
+        "first_name": "Anika", "last_name": "Gupta",
+        "email": "anika.gupta@media-sim.example.com",
+        "subscription_tier": "premium",
+        "articles_read_30d": 0,
+        "last_content_interaction_days_ago": 45,
+        "newsletter_subscriber": false,
+        "lifecycle_stage": "lapsed"
+      },
+      "events": [
+        { "name": "article_read", "time_offset_days": -45, "properties": { "category": "health" } }
+      ],
+      "purchases": [
+        { "product_id": "premium_monthly", "currency": "USD", "price": 12.00, "quantity": 1, "time_offset_days": -60 }
+      ]
+    },
+    {
+      "id": "media_new_free",
+      "label": "New Free User — Onboarding",
+      "badge": "media",
+      "attributes": {
+        "first_name": "Leo", "last_name": "Dubois",
+        "email": "leo.dubois@media-sim.example.com",
+        "subscription_tier": "free",
+        "articles_read_30d": 2,
+        "lifecycle_stage": "new_user"
+      },
+      "events": [
+        { "name": "account_created", "time_offset_days": -3 },
+        { "name": "article_read", "time_offset_days": -3, "properties": { "category": "tech" } },
+        { "name": "article_read", "time_offset_days": -1, "properties": { "category": "business" } }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "media_cancelled",
+      "label": "Cancelled Premium — Downgraded to Free",
+      "badge": "churned",
+      "attributes": {
+        "first_name": "Fatima", "last_name": "Al-Rashid",
+        "email": "fatima.alrashid@media-sim.example.com",
+        "subscription_tier": "free",
+        "articles_read_30d": 1,
+        "previously_premium": true,
+        "lifecycle_stage": "cancelled"
+      },
+      "events": [
+        { "name": "subscription_cancelled", "time_offset_days": -14, "properties": { "reason": "too_expensive" } },
+        { "name": "article_read", "time_offset_days": -2, "properties": { "category": "lifestyle" } }
+      ],
+      "purchases": []
+    }
+  ]
+}

@@ -28,10 +28,14 @@ The Scenario Simulator fires pre-built sets of synthetic users with realistic at
 | Internal Group: 5 Named Test Users | 5 | Set up Braze Internal Groups for per-message delivery logs |
 | Currents / S3 / Snowflake Connectivity Ping | 1 | Verify Currents data pipeline with a traceable event + SQL query |
 
+### Custom scenarios
+
+You can create, edit, clone, import, and export scenario definitions. Built-in scenarios are **templates** (read-only); use **Clone** to make an editable copy, or **New** to create from scratch. Use **Import** to load a scenario from a JSON file. Custom scenarios are stored on the server and appear in the scenario list under their category.
+
 ### How to use
 
 1. Configure your REST API Key and endpoint in the **Configuration** section
-2. Scroll to **Scenario Simulator**, choose a scenario from the dropdown
+2. Scroll to **Scenario Simulator**, choose a scenario from the list (search and categories supported)
 3. Optionally change the **User ID Prefix** (default: `sim_`) to namespace test data
 4. Click **Preview Payload** to inspect the JSON before sending
 5. Click **Run Scenario** — a progress bar tracks each user as it's created
@@ -439,13 +443,31 @@ tools/braze-api-tester/
 ├── .env.example          # Example environment variables
 ├── .env                  # Your actual credentials (gitignored)
 ├── load-env.js           # Script to generate config.js from .env
-├── server.js             # Express backend server (API proxy)
+├── server.js             # Express backend server (API proxy + scenario API)
+├── routes/
+│   ├── scenarios.js      # Scenario CRUD, clone, export, import
+│   ├── scenario-store.js # Read/write scenarios (templates + custom)
+│   └── scenario-validator.js # Scenario JSON validation
+├── scenarios/
+│   └── templates/       # Built-in scenario definitions (JSON)
+│       ├── ecommerce.json
+│       ├── saas-onboarding.json
+│       ├── media-engagement.json
+│       ├── internal-group-setup.json
+│       └── currents-ping.json
+├── docs/
+│   └── braze-analytics-data-sources.md  # Braze analytics reference
 ├── public/
-│   ├── index.html        # Main UI
-│   ├── app.js            # Frontend application logic
-│   ├── styles.css        # Application styling
-│   └── config.js         # Auto-generated config (from .env)
-├── README.md             # This file
+│   ├── index.html       # Main UI
+│   ├── app.js           # Frontend application logic
+│   ├── styles.css       # Application styling
+│   ├── config.js        # Auto-generated config (from .env)
+│   ├── scenarios.js     # Scenario Simulator orchestrator
+│   ├── scenario-api.js  # Client for /api/scenarios
+│   ├── scenario-engine.js # Build payloads and run scenarios
+│   ├── scenario-editor.js # Create/edit scenario definitions
+│   └── scenario-render.js # UI rendering for scenarios and results
+├── README.md            # This file
 └── .gitignore           # Exclude node_modules, .env files
 ```
 

@@ -443,6 +443,210 @@ button:disabled {
    Scenario Simulator
    ============================================================ */
 
+/* Two-panel layout */
+.scenario-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 20px;
+    min-height: 400px;
+}
+
+.scenario-list {
+    border-right: 1px solid var(--border-color);
+    padding-right: 16px;
+    overflow-y: auto;
+    max-height: 700px;
+}
+
+.scenario-search {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.scenario-list-category {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    padding: 10px 0 4px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 4px;
+}
+
+.scenario-list-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: background 0.15s;
+}
+
+.scenario-list-item:hover {
+    background: var(--bg-color);
+}
+
+.scenario-list-item.active {
+    background: var(--primary-color);
+    color: white;
+}
+
+.scenario-list-item.active .scenario-list-meta {
+    color: rgba(255,255,255,0.8);
+}
+
+.scenario-list-name {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.scenario-list-meta {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+.template-badge {
+    display: inline-block;
+    background: #ede9fe;
+    color: #5b21b6;
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 1px 5px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    vertical-align: middle;
+}
+
+.scenario-detail {
+    min-height: 200px;
+}
+
+.scenario-detail-content h3 {
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+}
+
+.scenario-detail-content > .help-text {
+    margin-bottom: 12px;
+}
+
+/* Editor styles */
+.scenario-editor {
+    animation: fadeIn 0.15s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.editor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.editor-header h3 {
+    margin: 0;
+}
+
+.editor-json-textarea {
+    font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
+    font-size: 12px;
+    line-height: 1.5;
+    resize: vertical;
+    min-height: 300px;
+}
+
+/* Persona accordion */
+.persona-accordion {
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    margin-bottom: 8px;
+    overflow: hidden;
+}
+
+.persona-accordion-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    background: var(--bg-color);
+    cursor: pointer;
+    user-select: none;
+}
+
+.persona-accordion-toggle {
+    font-size: 0.9rem;
+    width: 16px;
+    text-align: center;
+}
+
+.persona-accordion-title {
+    flex: 1;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.persona-accordion-body {
+    padding: 12px;
+    border-top: 1px solid var(--border-color);
+}
+
+.persona-accordion-body details {
+    margin-top: 12px;
+}
+
+.persona-accordion-body summary {
+    cursor: pointer;
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+}
+
+/* Key-value editor table */
+.kv-editor {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+}
+
+.kv-editor th {
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    padding: 4px 6px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.kv-editor td {
+    padding: 3px 4px;
+}
+
+.kv-editor input {
+    padding: 5px 8px;
+    font-size: 0.85rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    width: 100%;
+}
+
+.kv-editor input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
 .scenario-description {
     background: var(--bg-color);
     border: 1px solid var(--border-color);
@@ -631,5 +835,17 @@ button:disabled {
     .history-header {
         flex-direction: column;
         align-items: flex-start;
+    }
+
+    .scenario-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .scenario-list {
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        padding-right: 0;
+        padding-bottom: 16px;
+        max-height: 300px;
     }
 }

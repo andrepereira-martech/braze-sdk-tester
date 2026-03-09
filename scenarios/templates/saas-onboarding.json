@@ -1,0 +1,165 @@
+{
+  "id": "saas-onboarding",
+  "name": "SaaS: Trial → Conversion Funnel",
+  "description": "Creates 8 users representing each stage of a SaaS funnel. Build segments on converted_to_paid, trial_day, and features_activated to trigger targeted onboarding nudges.",
+  "category": "Segment Building",
+  "isTemplate": true,
+  "personas": [
+    {
+      "id": "saas_converted_power",
+      "label": "Converted — Power User",
+      "badge": "converted",
+      "attributes": {
+        "first_name": "Sophia", "last_name": "Laurent",
+        "email": "sophia.laurent@saas-sim.example.com",
+        "trial_started": true, "converted_to_paid": true,
+        "plan_type": "enterprise", "trial_day": 7,
+        "features_activated": 5, "team_size": 12,
+        "lifecycle_stage": "paying_customer"
+      },
+      "events": [
+        { "name": "trial_started", "time_offset_days": -14 },
+        { "name": "feature_activated", "time_offset_days": -13, "properties": { "feature": "integrations" } },
+        { "name": "feature_activated", "time_offset_days": -12, "properties": { "feature": "analytics" } },
+        { "name": "invited_team_member", "time_offset_days": -10, "properties": { "count": 3 } },
+        { "name": "upgrade_clicked", "time_offset_days": -7 }
+      ],
+      "purchases": [
+        { "product_id": "plan_enterprise_monthly", "currency": "USD", "price": 299.00, "quantity": 1, "time_offset_days": -7 }
+      ]
+    },
+    {
+      "id": "saas_converted_basic",
+      "label": "Converted — Basic Plan",
+      "badge": "converted",
+      "attributes": {
+        "first_name": "Omar", "last_name": "Hassan",
+        "email": "omar.hassan@saas-sim.example.com",
+        "trial_started": true, "converted_to_paid": true,
+        "plan_type": "starter", "trial_day": 12,
+        "features_activated": 2, "team_size": 1,
+        "lifecycle_stage": "paying_customer"
+      },
+      "events": [
+        { "name": "trial_started", "time_offset_days": -16 },
+        { "name": "feature_activated", "time_offset_days": -14, "properties": { "feature": "export" } },
+        { "name": "upgrade_clicked", "time_offset_days": -4 }
+      ],
+      "purchases": [
+        { "product_id": "plan_starter_monthly", "currency": "USD", "price": 29.00, "quantity": 1, "time_offset_days": -4 }
+      ]
+    },
+    {
+      "id": "saas_trial_d7_high",
+      "label": "Trial Day 7 — High Engagement",
+      "badge": "trial",
+      "attributes": {
+        "first_name": "Mei", "last_name": "Zhang",
+        "email": "mei.zhang@saas-sim.example.com",
+        "trial_started": true, "converted_to_paid": false,
+        "trial_day": 7, "features_activated": 4, "team_size": 2,
+        "lifecycle_stage": "trialing"
+      },
+      "events": [
+        { "name": "trial_started", "time_offset_days": -7 },
+        { "name": "onboarding_step_completed", "time_offset_days": -7, "properties": { "step": 1 } },
+        { "name": "feature_activated", "time_offset_days": -6, "properties": { "feature": "dashboard" } },
+        { "name": "feature_activated", "time_offset_days": -5, "properties": { "feature": "reports" } },
+        { "name": "feature_activated", "time_offset_days": -3, "properties": { "feature": "api_access" } },
+        { "name": "upgrade_clicked", "time_offset_days": -1 }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "saas_trial_d3_low",
+      "label": "Trial Day 3 — Low Engagement",
+      "badge": "trial",
+      "attributes": {
+        "first_name": "Ben", "last_name": "Miller",
+        "email": "ben.miller@saas-sim.example.com",
+        "trial_started": true, "converted_to_paid": false,
+        "trial_day": 3, "features_activated": 1, "team_size": 1,
+        "lifecycle_stage": "trialing"
+      },
+      "events": [
+        { "name": "trial_started", "time_offset_days": -3 },
+        { "name": "onboarding_step_completed", "time_offset_days": -3, "properties": { "step": 1 } }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "saas_trial_d10_medium",
+      "label": "Trial Day 10 — Mid Engagement",
+      "badge": "trial",
+      "attributes": {
+        "first_name": "Ingrid", "last_name": "Berg",
+        "email": "ingrid.berg@saas-sim.example.com",
+        "trial_started": true, "converted_to_paid": false,
+        "trial_day": 10, "features_activated": 2, "team_size": 1,
+        "lifecycle_stage": "trialing"
+      },
+      "events": [
+        { "name": "trial_started", "time_offset_days": -10 },
+        { "name": "feature_activated", "time_offset_days": -9, "properties": { "feature": "dashboard" } },
+        { "name": "feature_activated", "time_offset_days": -6, "properties": { "feature": "export" } }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "saas_trial_expired",
+      "label": "Trial Expired — Churned",
+      "badge": "churned",
+      "attributes": {
+        "first_name": "Carlos", "last_name": "Mendez",
+        "email": "carlos.mendez@saas-sim.example.com",
+        "trial_started": true, "converted_to_paid": false,
+        "trial_day": 14, "trial_expired": true,
+        "features_activated": 0, "team_size": 1,
+        "lifecycle_stage": "churned_trial"
+      },
+      "events": [
+        { "name": "trial_started", "time_offset_days": -28 },
+        { "name": "trial_expired", "time_offset_days": -14 }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "saas_freemium",
+      "label": "Freemium — Not Upgrading",
+      "badge": "trial",
+      "attributes": {
+        "first_name": "Aya", "last_name": "Tanaka",
+        "email": "aya.tanaka@saas-sim.example.com",
+        "trial_started": false, "converted_to_paid": false,
+        "plan_type": "free", "features_activated": 1,
+        "lifecycle_stage": "freemium"
+      },
+      "events": [
+        { "name": "feature_activated", "time_offset_days": -20, "properties": { "feature": "dashboard" } },
+        { "name": "upgrade_page_viewed", "time_offset_days": -5 },
+        { "name": "upgrade_page_viewed", "time_offset_days": -2 }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "saas_reactivated",
+      "label": "Reactivated — Lapsed then Returned",
+      "badge": "converted",
+      "attributes": {
+        "first_name": "James", "last_name": "Osei",
+        "email": "james.osei@saas-sim.example.com",
+        "trial_started": true, "converted_to_paid": true,
+        "plan_type": "pro", "reactivated": true,
+        "lifecycle_stage": "reactivated_customer"
+      },
+      "events": [
+        { "name": "trial_started", "time_offset_days": -90 },
+        { "name": "subscription_cancelled", "time_offset_days": -60 },
+        { "name": "reactivation_clicked", "time_offset_days": -2 }
+      ],
+      "purchases": [
+        { "product_id": "plan_pro_monthly", "currency": "USD", "price": 79.00, "quantity": 1, "time_offset_days": -2 }
+      ]
+    }
+  ]
+}

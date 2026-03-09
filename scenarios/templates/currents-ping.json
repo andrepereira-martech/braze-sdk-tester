@@ -1,0 +1,31 @@
+{
+  "id": "currents-ping",
+  "name": "Currents / S3 / Snowflake Connectivity Ping",
+  "description": "Fires a single distinctive event with a unique trace_id. After Currents processes it (typically 5–30 min), use the generated SQL or CLI command to verify it arrived in your data warehouse.",
+  "category": "Connectivity Testing",
+  "isTemplate": true,
+  "personas": [
+    {
+      "id": "connectivity_test_user",
+      "label": "Connectivity Test User",
+      "badge": "ping",
+      "attributes": {
+        "first_name": "Connectivity", "last_name": "TestUser",
+        "test_purpose": "currents_connectivity_check",
+        "fired_at": null
+      },
+      "events": [
+        {
+          "name": "braze_connectivity_ping",
+          "time_offset_days": 0,
+          "properties": {
+            "trace_id": null,
+            "tool": "braze-api-tester",
+            "environment": "test"
+          }
+        }
+      ],
+      "purchases": []
+    }
+  ]
+}

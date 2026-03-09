@@ -1,0 +1,197 @@
+{
+  "id": "ecommerce",
+  "name": "E-Commerce: Buyers, Browsers & Churned",
+  "description": "Creates 9 users across 3 cohorts. After running, build Braze segments on purchase_count, lifecycle_stage, and cart_abandon_count to target each group differently.",
+  "category": "Segment Building",
+  "isTemplate": true,
+  "personas": [
+    {
+      "id": "hv_buyer_001",
+      "label": "High-Value Buyer — Active",
+      "badge": "buyer",
+      "attributes": {
+        "first_name": "Alice", "last_name": "Chen",
+        "email": "alice.chen@sim-test.example.com",
+        "lifecycle_stage": "active_customer",
+        "customer_tier": "gold",
+        "purchase_count": 7,
+        "total_spend": 1249.93,
+        "preferred_category": "electronics",
+        "country": "US"
+      },
+      "events": [
+        { "name": "product_viewed", "time_offset_days": -1, "properties": { "category": "electronics", "product_id": "PROD_A1" } },
+        { "name": "add_to_cart", "time_offset_days": -1, "properties": { "product_id": "PROD_A1", "price": 299.99 } },
+        { "name": "checkout_started", "time_offset_days": 0, "properties": { "cart_value": 299.99 } }
+      ],
+      "purchases": [
+        { "product_id": "PROD_B2", "currency": "USD", "price": 199.99, "quantity": 1, "time_offset_days": -7 },
+        { "product_id": "PROD_C3", "currency": "USD", "price": 89.95, "quantity": 1, "time_offset_days": -30 }
+      ]
+    },
+    {
+      "id": "hv_buyer_002",
+      "label": "High-Value Buyer — Repeat",
+      "badge": "buyer",
+      "attributes": {
+        "first_name": "Marcus", "last_name": "Williams",
+        "email": "marcus.williams@sim-test.example.com",
+        "lifecycle_stage": "loyal_customer",
+        "customer_tier": "platinum",
+        "purchase_count": 15,
+        "total_spend": 3102.50,
+        "preferred_category": "apparel",
+        "country": "CA"
+      },
+      "events": [
+        { "name": "product_viewed", "time_offset_days": -2, "properties": { "category": "apparel" } },
+        { "name": "wishlist_added", "time_offset_days": -2, "properties": { "product_id": "PROD_D4" } }
+      ],
+      "purchases": [
+        { "product_id": "PROD_E5", "currency": "CAD", "price": 149.00, "quantity": 1, "time_offset_days": -3 }
+      ]
+    },
+    {
+      "id": "hv_buyer_003",
+      "label": "High-Value Buyer — Recent First Purchase",
+      "badge": "buyer",
+      "attributes": {
+        "first_name": "Priya", "last_name": "Patel",
+        "email": "priya.patel@sim-test.example.com",
+        "lifecycle_stage": "new_customer",
+        "customer_tier": "silver",
+        "purchase_count": 1,
+        "total_spend": 249.99,
+        "country": "GB"
+      },
+      "events": [
+        { "name": "product_viewed", "time_offset_days": -5, "properties": { "category": "home" } },
+        { "name": "checkout_started", "time_offset_days": -4, "properties": { "cart_value": 249.99 } }
+      ],
+      "purchases": [
+        { "product_id": "PROD_F6", "currency": "GBP", "price": 249.99, "quantity": 1, "time_offset_days": -4 }
+      ]
+    },
+    {
+      "id": "browser_001",
+      "label": "Cart Abandoner — High Intent",
+      "badge": "browser",
+      "attributes": {
+        "first_name": "Jake", "last_name": "Torres",
+        "email": "jake.torres@sim-test.example.com",
+        "lifecycle_stage": "prospect",
+        "purchase_count": 0,
+        "sessions_last_30_days": 8,
+        "cart_abandon_count": 3,
+        "country": "US"
+      },
+      "events": [
+        { "name": "product_viewed", "time_offset_days": -1, "properties": { "category": "electronics", "product_id": "PROD_G7" } },
+        { "name": "add_to_cart", "time_offset_days": -1, "properties": { "product_id": "PROD_G7", "price": 599.99 } },
+        { "name": "checkout_started", "time_offset_days": -1, "properties": { "cart_value": 599.99 } }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "browser_002",
+      "label": "Browser — Low Intent",
+      "badge": "browser",
+      "attributes": {
+        "first_name": "Nina", "last_name": "Okafor",
+        "email": "nina.okafor@sim-test.example.com",
+        "lifecycle_stage": "prospect",
+        "purchase_count": 0,
+        "sessions_last_30_days": 3,
+        "cart_abandon_count": 0,
+        "country": "NG"
+      },
+      "events": [
+        { "name": "product_viewed", "time_offset_days": -3, "properties": { "category": "beauty" } },
+        { "name": "product_viewed", "time_offset_days": -3, "properties": { "category": "beauty", "product_id": "PROD_H8" } }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "browser_003",
+      "label": "Cart Abandoner — Mid-funnel",
+      "badge": "browser",
+      "attributes": {
+        "first_name": "Liam", "last_name": "Park",
+        "email": "liam.park@sim-test.example.com",
+        "lifecycle_stage": "prospect",
+        "purchase_count": 0,
+        "sessions_last_30_days": 12,
+        "cart_abandon_count": 1,
+        "country": "KR"
+      },
+      "events": [
+        { "name": "product_viewed", "time_offset_days": -2, "properties": { "category": "sports", "product_id": "PROD_I9" } },
+        { "name": "add_to_cart", "time_offset_days": -2, "properties": { "product_id": "PROD_I9", "price": 89.00 } }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "churned_001",
+      "label": "Lapsed Customer — 90 days inactive",
+      "badge": "churned",
+      "attributes": {
+        "first_name": "Sandra", "last_name": "Kim",
+        "email": "sandra.kim@sim-test.example.com",
+        "lifecycle_stage": "lapsed",
+        "customer_tier": "silver",
+        "purchase_count": 4,
+        "total_spend": 480.00,
+        "days_since_last_order": 91,
+        "country": "US"
+      },
+      "events": [
+        { "name": "product_viewed", "time_offset_days": -90, "properties": { "category": "beauty" } }
+      ],
+      "purchases": [
+        { "product_id": "PROD_OLD1", "currency": "USD", "price": 120.00, "quantity": 1, "time_offset_days": -91 }
+      ]
+    },
+    {
+      "id": "churned_002",
+      "label": "Lapsed Customer — Never repurchased",
+      "badge": "churned",
+      "attributes": {
+        "first_name": "Derek", "last_name": "Santos",
+        "email": "derek.santos@sim-test.example.com",
+        "lifecycle_stage": "lapsed",
+        "customer_tier": "bronze",
+        "purchase_count": 1,
+        "total_spend": 39.99,
+        "days_since_last_order": 180,
+        "country": "BR"
+      },
+      "events": [
+        { "name": "product_viewed", "time_offset_days": -180, "properties": { "category": "books" } }
+      ],
+      "purchases": [
+        { "product_id": "PROD_OLD2", "currency": "BRL", "price": 39.99, "quantity": 1, "time_offset_days": -180 }
+      ]
+    },
+    {
+      "id": "churned_003",
+      "label": "High-value Lapsed — Win-back target",
+      "badge": "churned",
+      "attributes": {
+        "first_name": "Elena", "last_name": "Rossi",
+        "email": "elena.rossi@sim-test.example.com",
+        "lifecycle_stage": "lapsed",
+        "customer_tier": "gold",
+        "purchase_count": 10,
+        "total_spend": 2100.00,
+        "days_since_last_order": 120,
+        "country": "IT"
+      },
+      "events": [
+        { "name": "product_viewed", "time_offset_days": -120, "properties": { "category": "jewelry" } }
+      ],
+      "purchases": [
+        { "product_id": "PROD_OLD3", "currency": "EUR", "price": 350.00, "quantity": 1, "time_offset_days": -121 }
+      ]
+    }
+  ]
+}
