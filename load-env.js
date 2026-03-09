@@ -46,9 +46,10 @@ function loadEnvFile() {
 }
 
 // Generate config.js from environment variables
+// Uses process.env (e.g. Vercel) first, then .env file
 function generateConfig(envVars) {
-    const apiKey = envVars.BRAZE_REST_API_KEY || '';
-    const endpoint = envVars.BRAZE_REST_ENDPOINT || 'https://rest.iad-03.braze.com';
+    const apiKey = process.env.BRAZE_REST_API_KEY || envVars.BRAZE_REST_API_KEY || '';
+    const endpoint = process.env.BRAZE_REST_ENDPOINT || envVars.BRAZE_REST_ENDPOINT || 'https://rest.iad-03.braze.com';
 
     const configContent = `// Braze REST API Configuration
 // This file is auto-generated from .env by load-env.js

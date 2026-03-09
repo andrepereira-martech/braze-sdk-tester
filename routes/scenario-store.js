@@ -6,7 +6,10 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const TEMPLATES_DIR = join(__dirname, '..', 'scenarios', 'templates');
-const CUSTOM_DIR = join(__dirname, '..', 'scenarios', 'custom');
+// On Vercel the deployment filesystem is read-only; use /tmp for custom scenarios (ephemeral per instance)
+const CUSTOM_DIR = process.env.VERCEL
+  ? join('/tmp', 'braze-api-tester-scenarios')
+  : join(__dirname, '..', 'scenarios', 'custom');
 
 async function ensureCustomDir() {
   await mkdir(CUSTOM_DIR, { recursive: true });

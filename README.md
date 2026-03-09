@@ -222,6 +222,17 @@ The following endpoints are supported with pre-built templates:
    - Navigate to `http://localhost:3000` in your browser
    - The application will load automatically
 
+## Deploying to Vercel
+
+The app runs on Vercel as an Express serverless app. Static assets in `public/` are served by Vercel’s CDN; `/api/*` is handled by the Express app.
+
+1. **Create a Vercel project** from the same repo as the Braze Web SDK test app (or this repo).
+2. **Set Root Directory** to `tools/braze-api-tester` (Project Settings → General).
+3. **Optional:** In Project Settings → Environment Variables, set `BRAZE_REST_API_KEY` and `BRAZE_REST_ENDPOINT` to pre-fill the UI (otherwise users enter them in the browser).
+4. Deploy; `vercel.json` runs `npm run load-env` at build time so `public/config.js` is generated from env vars.
+
+**Note:** On Vercel, custom scenarios (create/edit/delete) are stored in `/tmp` and are ephemeral per serverless instance. Built-in scenario templates always work; for persistent custom scenarios run the app locally or use a file-based store elsewhere.
+
 ## Getting Your Braze Credentials
 
 1. Log in to your [Braze Dashboard](https://dashboard.braze.com)
@@ -468,6 +479,7 @@ tools/braze-api-tester/
 │   ├── scenario-editor.js # Create/edit scenario definitions
 │   └── scenario-render.js # UI rendering for scenarios and results
 ├── README.md            # This file
+├── vercel.json          # Vercel: build command (load-env)
 └── .gitignore           # Exclude node_modules, .env files
 ```
 

@@ -178,18 +178,20 @@ app.get('/api/health', (req, res) => {
     res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
-// Start server
-app.listen(PORT, () => {
-    console.log(`🚀 Braze API Tester server running on http://localhost:${PORT}`);
-    console.log(`📝 Open http://localhost:${PORT} in your browser`);
-    
-    if (!process.env.BRAZE_REST_API_KEY) {
-        console.warn('⚠️  Warning: BRAZE_REST_API_KEY not set in .env file');
-        console.warn('   You can still use the tool by entering credentials in the UI');
-    }
-    
-    if (!process.env.BRAZE_REST_ENDPOINT) {
-        console.warn('⚠️  Warning: BRAZE_REST_ENDPOINT not set in .env file');
-        console.warn('   Default endpoint will be used');
-    }
-});
+// Start server only when not on Vercel (Vercel runs the app as a serverless function)
+if (!process.env.VERCEL) {
+    app.listen(PORT, () => {
+        console.log(`🚀 Braze API Tester server running on http://localhost:${PORT}`);
+        console.log(`📝 Open http://localhost:${PORT} in your browser`);
+        if (!process.env.BRAZE_REST_API_KEY) {
+            console.warn('⚠️  Warning: BRAZE_REST_API_KEY not set in .env file');
+            console.warn('   You can still use the tool by entering credentials in the UI');
+        }
+        if (!process.env.BRAZE_REST_ENDPOINT) {
+            console.warn('⚠️  Warning: BRAZE_REST_ENDPOINT not set in .env file');
+            console.warn('   Default endpoint will be used');
+        }
+    });
+}
+
+export default app;
