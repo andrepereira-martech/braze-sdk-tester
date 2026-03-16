@@ -1,0 +1,1983 @@
+{
+  "id": "analytics-demo-open-cohort",
+  "name": "Analytics Demo \u2014 Open Cohort (andre.pereira+open)",
+  "description": "Seeds 20 test users all mapped to andre.pereira+open{N}@telusdigital.com. Useful for testing email open/click analytics against a controlled sender address. Users span high/medium/low engagement tiers with varied roles, countries, and behavioural events. All share demo_scenario='analytics-demo' for segment compatibility.",
+  "category": "Analytics & Reporting",
+  "isTemplate": true,
+  "personas": [
+    {
+      "id": "open_001",
+      "label": "Open Cohort 001",
+      "badge": "test",
+      "attributes": {
+        "first_name": "Andre",
+        "last_name": "Pereira",
+        "email": "andre.pereira+open@telusdigital.com",
+        "role": "Admin",
+        "demo_cohort": "low",
+        "email_engagement_tier": "low",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 3,
+        "content_items_consumed": 1,
+        "subscription_status": "active",
+        "subscription_plan": "free"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -51,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -50,
+          "properties": {
+            "source": "direct"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -49,
+          "properties": {
+            "plan": "free_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -30,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -22,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -21,
+          "properties": {
+            "content_type": "video",
+            "duration_minutes": 10
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -5,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "open_002",
+      "label": "Open Cohort 002",
+      "badge": "test",
+      "attributes": {
+        "first_name": "Andre",
+        "last_name": "Pereira",
+        "email": "andre.pereira+open@telusdigital.com",
+        "role": "Course Creator",
+        "demo_cohort": "low",
+        "email_engagement_tier": "low",
+        "demo_scenario": "analytics-demo",
+        "country": "BR",
+        "sessions_last_30_days": 2,
+        "content_items_consumed": 3,
+        "subscription_status": "inactive",
+        "subscription_plan": "free"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -45,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -44,
+          "properties": {
+            "source": "email"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -43,
+          "properties": {
+            "plan": "free_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -25,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -15,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -14,
+          "properties": {
+            "content_type": "article",
+            "duration_minutes": 5
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -5,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "open_003",
+      "label": "Open Cohort 003",
+      "badge": "test",
+      "attributes": {
+        "first_name": "Andre",
+        "last_name": "Pereira",
+        "email": "andre.pereira+open@telusdigital.com",
+        "role": "Admin",
+        "demo_cohort": "medium",
+        "email_engagement_tier": "medium",
+        "demo_scenario": "analytics-demo",
+        "country": "FR",
+        "sessions_last_30_days": 10,
+        "content_items_consumed": 7,
+        "subscription_status": "active",
+        "subscription_plan": "starter"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -74,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -73,
+          "properties": {
+            "source": "email"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -72,
+          "properties": {
+            "plan": "starter_trial"
+          }
+        },
+        {
+          "name": "onboarding_completed",
+          "time_offset_days": -72,
+          "properties": {
+            "steps_completed": 2
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -51,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -50,
+          "properties": {
+            "course_title": "Expert Techniques"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -49,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -38,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -37,
+          "properties": {
+            "content_type": "course",
+            "duration_minutes": 5
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -16,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "premium_upgrade_clicked",
+          "time_offset_days": -15,
+          "properties": {
+            "plan": "pro",
+            "trigger": "paywall"
+          }
+        },
+        {
+          "name": "subscription_purchased",
+          "time_offset_days": -15,
+          "properties": {
+            "plan": "pro",
+            "amount": 49
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -7,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -2,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "open_004",
+      "label": "Open Cohort 004",
+      "badge": "test",
+      "attributes": {
+        "first_name": "Andre",
+        "last_name": "Pereira",
+        "email": "andre.pereira+open@telusdigital.com",
+        "role": "Student",
+        "demo_cohort": "medium",
+        "email_engagement_tier": "medium",
+        "demo_scenario": "analytics-demo",
+        "country": "ES",
+        "sessions_last_30_days": 10,
+        "content_items_consumed": 5,
+        "subscription_status": "active",
+        "subscription_plan": "pro"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -67,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -66,
+          "properties": {
+            "source": "paid_social"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -65,
+          "properties": {
+            "plan": "starter_trial"
+          }
+        },
+        {
+          "name": "onboarding_completed",
+          "time_offset_days": -65,
+          "properties": {
+            "steps_completed": 2
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -43,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -42,
+          "properties": {
+            "course_title": "Expert Techniques"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -41,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -32,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -31,
+          "properties": {
+            "content_type": "podcast",
+            "duration_minutes": 20
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -7,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -2,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "open_005",
+      "label": "Open Cohort 005",
+      "badge": "test",
+      "attributes": {
+        "first_name": "Andre",
+        "last_name": "Pereira",
+        "email": "andre.pereira+open@telusdigital.com",
+        "role": "Student",
+        "demo_cohort": "low",
+        "email_engagement_tier": "low",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 2,
+        "content_items_consumed": 0,
+        "subscription_status": "inactive",
+        "subscription_plan": "starter"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -62,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -61,
+          "properties": {
+            "source": "referral"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -60,
+          "properties": {
+            "plan": "free_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -38,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -27,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -26,
+          "properties": {
+            "content_type": "podcast",
+            "duration_minutes": 20
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -5,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "open_006",
+      "label": "Open Cohort 006",
+      "badge": "test",
+      "attributes": {
+        "first_name": "Andre",
+        "last_name": "Pereira",
+        "email": "andre.pereira+open@telusdigital.com",
+        "role": "Course Creator",
+        "demo_cohort": "medium",
+        "email_engagement_tier": "medium",
+        "demo_scenario": "analytics-demo",
+        "country": "AU",
+        "sessions_last_30_days": 9,
+        "content_items_consumed": 9,
+        "subscription_status": "active",
+        "subscription_plan": "starter"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -70,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -69,
+          "properties": {
+            "source": "referral"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -68,
+          "properties": {
+            "plan": "starter_trial"
+          }
+        },
+        {
+          "name": "onboarding_completed",
+          "time_offset_days": -68,
+          "properties": {
+            "steps_completed": 2
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -47,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -46,
+          "properties": {
+            "course_title": "Getting Started"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -45,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -39,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -38,
+          "properties": {
+            "content_type": "video",
+            "duration_minutes": 10
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -22,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "premium_upgrade_clicked",
+          "time_offset_days": -21,
+          "properties": {
+            "plan": "pro",
+            "trigger": "banner"
+          }
+        },
+        {
+          "name": "subscription_purchased",
+          "time_offset_days": -21,
+          "properties": {
+            "plan": "pro",
+            "amount": 49
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -7,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -2,
+          "properties": {
+            "platform": "mobile"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "open_007",
+      "label": "Open Cohort 007",
+      "badge": "test",
+      "attributes": {
+        "first_name": "Andre",
+        "last_name": "Pereira",
+        "email": "andre.pereira+open@telusdigital.com",
+        "role": "Student",
+        "demo_cohort": "low",
+        "email_engagement_tier": "low",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 1,
+        "content_items_consumed": 2,
+        "subscription_status": "inactive",
+        "subscription_plan": "free"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -52,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -51,
+          "properties": {
+            "source": "email"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -50,
+          "properties": {
+            "plan": "free_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -35,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -27,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -26,
+          "properties": {
+            "content_type": "video",
+            "duration_minutes": 30
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -5,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "open_008",
+      "label": "Open Cohort 008",
+      "badge": "test",
+      "attributes": {
+        "first_name": "Andre",
+        "last_name": "Pereira",
+        "email": "andre.pereira+open@telusdigital.com",
+        "role": "Student",
+        "demo_cohort": "low",
+        "email_engagement_tier": "low",
+        "demo_scenario": "analytics-demo",
+        "country": "AU",
+        "sessions_last_30_days": 2,
+        "content_items_consumed": 2,
+        "subscription_status": "active",
+        "subscription_plan": "free"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -83,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -82,
+          "properties": {
+            "source": "email"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -81,
+          "properties": {
+            "plan": "free_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -68,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -55,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -54,
+          "properties": {
+            "content_type": "video",
+            "duration_minutes": 5
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -5,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "open_009",
+      "label": "Open Cohort 009",
+      "badge": "test",
+      "attributes": {
+        "first_name": "Andre",
+        "last_name": "Pereira",
+        "email": "andre.pereira+open@telusdigital.com",
+        "role": "Admin",
+        "demo_cohort": "low",
+        "email_engagement_tier": "low",
+        "demo_scenario": "analytics-demo",
+        "country": "CA",
+        "sessions_last_30_days": 4,
+        "content_items_consumed": 0,
+        "subscription_status": "active",
+        "subscription_plan": "free"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -53,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -52,
+          "properties": {
+            "source": "direct"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -51,
+          "properties": {
+            "plan": "free_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -36,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -22,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -21,
+          "properties": {
+            "content_type": "video",
+            "duration_minutes": 15
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -5,
+          "properties": {
+            "platform": "mobile"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "open_010",
+      "label": "Open Cohort 010",
+      "badge": "test",
+      "attributes": {
+        "first_name": "Andre",
+        "last_name": "Pereira",
+        "email": "andre.pereira+open@telusdigital.com",
+        "role": "Student",
+        "demo_cohort": "low",
+        "email_engagement_tier": "low",
+        "demo_scenario": "analytics-demo",
+        "country": "ES",
+        "sessions_last_30_days": 5,
+        "content_items_consumed": 3,
+        "subscription_status": "active",
+        "subscription_plan": "free"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -59,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -58,
+          "properties": {
+            "source": "paid_social"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -57,
+          "properties": {
+            "plan": "free_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -44,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -33,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -32,
+          "properties": {
+            "content_type": "course",
+            "duration_minutes": 5
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -5,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "open_011",
+      "label": "Open Cohort 011",
+      "badge": "test",
+      "attributes": {
+        "first_name": "Andre",
+        "last_name": "Pereira",
+        "email": "andre.pereira+open@telusdigital.com",
+        "role": "Admin",
+        "demo_cohort": "high",
+        "email_engagement_tier": "high",
+        "demo_scenario": "analytics-demo",
+        "country": "FR",
+        "sessions_last_30_days": 14,
+        "content_items_consumed": 17,
+        "subscription_status": "active",
+        "subscription_plan": "pro"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -58,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -57,
+          "properties": {
+            "source": "direct"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -56,
+          "properties": {
+            "plan": "pro_trial"
+          }
+        },
+        {
+          "name": "onboarding_completed",
+          "time_offset_days": -56,
+          "properties": {
+            "steps_completed": 4
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -34,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -33,
+          "properties": {
+            "course_title": "Advanced Training"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -32,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -31,
+          "properties": {
+            "lesson_index": 2
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -30,
+          "properties": {
+            "block_type": "audio"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -22,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "premium_upgrade_clicked",
+          "time_offset_days": -21,
+          "properties": {
+            "plan": "pro",
+            "trigger": "banner"
+          }
+        },
+        {
+          "name": "subscription_purchased",
+          "time_offset_days": -21,
+          "properties": {
+            "plan": "pro",
+            "amount": 49
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -20,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -19,
+          "properties": {
+            "content_type": "course",
+            "duration_minutes": 5
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -7,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -3,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -1,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": [
+        {
+          "product_id": "plan_pro_monthly",
+          "currency": "USD",
+          "price": 49,
+          "quantity": 1,
+          "time_offset_days": -23
+        }
+      ]
+    },
+    {
+      "id": "open_012",
+      "label": "Open Cohort 012",
+      "badge": "test",
+      "attributes": {
+        "first_name": "Andre",
+        "last_name": "Pereira",
+        "email": "andre.pereira+open@telusdigital.com",
+        "role": "Admin",
+        "demo_cohort": "low",
+        "email_engagement_tier": "low",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 4,
+        "content_items_consumed": 2,
+        "subscription_status": "active",
+        "subscription_plan": "free"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -57,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -56,
+          "properties": {
+            "source": "direct"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -55,
+          "properties": {
+            "plan": "free_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -35,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -21,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -20,
+          "properties": {
+            "content_type": "article",
+            "duration_minutes": 20
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -5,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "open_013",
+      "label": "Open Cohort 013",
+      "badge": "test",
+      "attributes": {
+        "first_name": "Andre",
+        "last_name": "Pereira",
+        "email": "andre.pereira+open@telusdigital.com",
+        "role": "Instructor",
+        "demo_cohort": "high",
+        "email_engagement_tier": "high",
+        "demo_scenario": "analytics-demo",
+        "country": "CA",
+        "sessions_last_30_days": 13,
+        "content_items_consumed": 10,
+        "subscription_status": "active",
+        "subscription_plan": "pro"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -55,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -54,
+          "properties": {
+            "source": "email"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -53,
+          "properties": {
+            "plan": "pro_trial"
+          }
+        },
+        {
+          "name": "onboarding_completed",
+          "time_offset_days": -53,
+          "properties": {
+            "steps_completed": 4
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -33,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -32,
+          "properties": {
+            "course_title": "Pro Workflows"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -31,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -30,
+          "properties": {
+            "lesson_index": 2
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -29,
+          "properties": {
+            "block_type": "quiz"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -23,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -22,
+          "properties": {
+            "content_type": "course",
+            "duration_minutes": 20
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -17,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "premium_upgrade_clicked",
+          "time_offset_days": -16,
+          "properties": {
+            "plan": "pro",
+            "trigger": "banner"
+          }
+        },
+        {
+          "name": "subscription_purchased",
+          "time_offset_days": -16,
+          "properties": {
+            "plan": "pro",
+            "amount": 49
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -7,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -3,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -1,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": [
+        {
+          "product_id": "plan_pro_monthly",
+          "currency": "USD",
+          "price": 49,
+          "quantity": 1,
+          "time_offset_days": -15
+        }
+      ]
+    },
+    {
+      "id": "open_014",
+      "label": "Open Cohort 014",
+      "badge": "test",
+      "attributes": {
+        "first_name": "Andre",
+        "last_name": "Pereira",
+        "email": "andre.pereira+open@telusdigital.com",
+        "role": "Student",
+        "demo_cohort": "high",
+        "email_engagement_tier": "high",
+        "demo_scenario": "analytics-demo",
+        "country": "AU",
+        "sessions_last_30_days": 13,
+        "content_items_consumed": 11,
+        "subscription_status": "active",
+        "subscription_plan": "pro"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -48,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -47,
+          "properties": {
+            "source": "direct"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -46,
+          "properties": {
+            "plan": "pro_trial"
+          }
+        },
+        {
+          "name": "onboarding_completed",
+          "time_offset_days": -46,
+          "properties": {
+            "steps_completed": 4
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -25,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -24,
+          "properties": {
+            "course_title": "Getting Started"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -23,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -22,
+          "properties": {
+            "lesson_index": 2
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -21,
+          "properties": {
+            "block_type": "image"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -16,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -15,
+          "properties": {
+            "content_type": "course",
+            "duration_minutes": 30
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -11,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "premium_upgrade_clicked",
+          "time_offset_days": -10,
+          "properties": {
+            "plan": "pro",
+            "trigger": "banner"
+          }
+        },
+        {
+          "name": "subscription_purchased",
+          "time_offset_days": -10,
+          "properties": {
+            "plan": "pro",
+            "amount": 49
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -7,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -3,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -1,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": [
+        {
+          "product_id": "plan_pro_monthly",
+          "currency": "USD",
+          "price": 49,
+          "quantity": 1,
+          "time_offset_days": -9
+        }
+      ]
+    },
+    {
+      "id": "open_015",
+      "label": "Open Cohort 015",
+      "badge": "test",
+      "attributes": {
+        "first_name": "Andre",
+        "last_name": "Pereira",
+        "email": "andre.pereira+open@telusdigital.com",
+        "role": "Admin",
+        "demo_cohort": "low",
+        "email_engagement_tier": "low",
+        "demo_scenario": "analytics-demo",
+        "country": "BR",
+        "sessions_last_30_days": 5,
+        "content_items_consumed": 2,
+        "subscription_status": "active",
+        "subscription_plan": "starter"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -87,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -86,
+          "properties": {
+            "source": "referral"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -85,
+          "properties": {
+            "plan": "free_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -68,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -58,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -57,
+          "properties": {
+            "content_type": "podcast",
+            "duration_minutes": 15
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -5,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "open_016",
+      "label": "Open Cohort 016",
+      "badge": "test",
+      "attributes": {
+        "first_name": "Andre",
+        "last_name": "Pereira",
+        "email": "andre.pereira+open@telusdigital.com",
+        "role": "Instructor",
+        "demo_cohort": "high",
+        "email_engagement_tier": "high",
+        "demo_scenario": "analytics-demo",
+        "country": "CA",
+        "sessions_last_30_days": 14,
+        "content_items_consumed": 16,
+        "subscription_status": "active",
+        "subscription_plan": "pro"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -67,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -66,
+          "properties": {
+            "source": "referral"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -65,
+          "properties": {
+            "plan": "pro_trial"
+          }
+        },
+        {
+          "name": "onboarding_completed",
+          "time_offset_days": -65,
+          "properties": {
+            "steps_completed": 4
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -47,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -46,
+          "properties": {
+            "course_title": "Advanced Training"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -45,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -44,
+          "properties": {
+            "lesson_index": 2
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -43,
+          "properties": {
+            "block_type": "audio"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -35,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -34,
+          "properties": {
+            "content_type": "article",
+            "duration_minutes": 5
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -13,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "premium_upgrade_clicked",
+          "time_offset_days": -12,
+          "properties": {
+            "plan": "pro",
+            "trigger": "paywall"
+          }
+        },
+        {
+          "name": "subscription_purchased",
+          "time_offset_days": -12,
+          "properties": {
+            "plan": "pro",
+            "amount": 49
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -7,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -3,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -1,
+          "properties": {
+            "platform": "mobile"
+          }
+        }
+      ],
+      "purchases": [
+        {
+          "product_id": "plan_pro_monthly",
+          "currency": "USD",
+          "price": 49,
+          "quantity": 1,
+          "time_offset_days": -12
+        }
+      ]
+    },
+    {
+      "id": "open_017",
+      "label": "Open Cohort 017",
+      "badge": "test",
+      "attributes": {
+        "first_name": "Andre",
+        "last_name": "Pereira",
+        "email": "andre.pereira+open@telusdigital.com",
+        "role": "Team Lead",
+        "demo_cohort": "medium",
+        "email_engagement_tier": "medium",
+        "demo_scenario": "analytics-demo",
+        "country": "AU",
+        "sessions_last_30_days": 10,
+        "content_items_consumed": 6,
+        "subscription_status": "active",
+        "subscription_plan": "starter"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -85,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -84,
+          "properties": {
+            "source": "direct"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -83,
+          "properties": {
+            "plan": "starter_trial"
+          }
+        },
+        {
+          "name": "onboarding_completed",
+          "time_offset_days": -83,
+          "properties": {
+            "steps_completed": 3
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -66,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -65,
+          "properties": {
+            "course_title": "Getting Started"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -64,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -52,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -51,
+          "properties": {
+            "content_type": "course",
+            "duration_minutes": 5
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -7,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -2,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "open_018",
+      "label": "Open Cohort 018",
+      "badge": "test",
+      "attributes": {
+        "first_name": "Andre",
+        "last_name": "Pereira",
+        "email": "andre.pereira+open@telusdigital.com",
+        "role": "Student",
+        "demo_cohort": "low",
+        "email_engagement_tier": "low",
+        "demo_scenario": "analytics-demo",
+        "country": "GB",
+        "sessions_last_30_days": 4,
+        "content_items_consumed": 3,
+        "subscription_status": "active",
+        "subscription_plan": "free"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -52,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -51,
+          "properties": {
+            "source": "referral"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -50,
+          "properties": {
+            "plan": "free_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -29,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -16,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -15,
+          "properties": {
+            "content_type": "podcast",
+            "duration_minutes": 10
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -5,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "open_019",
+      "label": "Open Cohort 019",
+      "badge": "test",
+      "attributes": {
+        "first_name": "Andre",
+        "last_name": "Pereira",
+        "email": "andre.pereira+open@telusdigital.com",
+        "role": "Student",
+        "demo_cohort": "medium",
+        "email_engagement_tier": "medium",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 10,
+        "content_items_consumed": 6,
+        "subscription_status": "active",
+        "subscription_plan": "starter"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -60,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -59,
+          "properties": {
+            "source": "paid_social"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -58,
+          "properties": {
+            "plan": "starter_trial"
+          }
+        },
+        {
+          "name": "onboarding_completed",
+          "time_offset_days": -58,
+          "properties": {
+            "steps_completed": 3
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -36,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -35,
+          "properties": {
+            "course_title": "Advanced Training"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -34,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -26,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -25,
+          "properties": {
+            "content_type": "podcast",
+            "duration_minutes": 5
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -7,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -2,
+          "properties": {
+            "platform": "mobile"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "open_020",
+      "label": "Open Cohort 020",
+      "badge": "test",
+      "attributes": {
+        "first_name": "Andre",
+        "last_name": "Pereira",
+        "email": "andre.pereira+open@telusdigital.com",
+        "role": "Course Creator",
+        "demo_cohort": "medium",
+        "email_engagement_tier": "medium",
+        "demo_scenario": "analytics-demo",
+        "country": "DE",
+        "sessions_last_30_days": 7,
+        "content_items_consumed": 4,
+        "subscription_status": "active",
+        "subscription_plan": "pro"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -47,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -46,
+          "properties": {
+            "source": "referral"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -45,
+          "properties": {
+            "plan": "starter_trial"
+          }
+        },
+        {
+          "name": "onboarding_completed",
+          "time_offset_days": -45,
+          "properties": {
+            "steps_completed": 2
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -25,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -24,
+          "properties": {
+            "course_title": "My First Course"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -23,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -14,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -13,
+          "properties": {
+            "content_type": "course",
+            "duration_minutes": 10
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -7,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -2,
+          "properties": {
+            "platform": "mobile"
+          }
+        }
+      ],
+      "purchases": []
+    }
+  ]
+}

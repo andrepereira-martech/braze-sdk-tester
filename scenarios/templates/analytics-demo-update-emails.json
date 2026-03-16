@@ -1,0 +1,539 @@
+{
+  "id": "analytics-demo-update-emails",
+  "name": "Analytics Demo — Update Email Addresses",
+  "description": "One-time attribute patch. Assigns the 3 test email addresses across all 53 seeded users by engagement tier: +click (high), +open (medium), +delivered (low). Use the same prefix as the original seed. No events or purchases are modified.",
+  "category": "Analytics & Reporting",
+  "isTemplate": true,
+  "personas": [
+    {
+      "id": "hi_001",
+      "label": "High Engager 001 — update email",
+      "badge": "buyer",
+      "attributes": {
+        "email": "andre.pereira+click@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    },
+    {
+      "id": "hi_002",
+      "label": "High Engager 002 — update email",
+      "badge": "buyer",
+      "attributes": {
+        "email": "andre.pereira+click@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    },
+    {
+      "id": "hi_003",
+      "label": "High Engager 003 — update email",
+      "badge": "buyer",
+      "attributes": {
+        "email": "andre.pereira+click@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    },
+    {
+      "id": "hi_004",
+      "label": "High Engager 004 — update email",
+      "badge": "buyer",
+      "attributes": {
+        "email": "andre.pereira+click@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    },
+    {
+      "id": "hi_005",
+      "label": "High Engager 005 — update email",
+      "badge": "buyer",
+      "attributes": {
+        "email": "andre.pereira+click@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    },
+    {
+      "id": "hi_006",
+      "label": "High Engager 006 — update email",
+      "badge": "buyer",
+      "attributes": {
+        "email": "andre.pereira+click@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    },
+    {
+      "id": "hi_007",
+      "label": "High Engager 007 — update email",
+      "badge": "buyer",
+      "attributes": {
+        "email": "andre.pereira+click@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    },
+    {
+      "id": "hi_008",
+      "label": "High Engager 008 — update email",
+      "badge": "buyer",
+      "attributes": {
+        "email": "andre.pereira+click@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    },
+    {
+      "id": "hi_009",
+      "label": "High Engager 009 — update email",
+      "badge": "buyer",
+      "attributes": {
+        "email": "andre.pereira+click@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    },
+    {
+      "id": "hi_010",
+      "label": "High Engager 010 — update email",
+      "badge": "buyer",
+      "attributes": {
+        "email": "andre.pereira+click@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    },
+    {
+      "id": "hi_011",
+      "label": "High Engager 011 — update email",
+      "badge": "buyer",
+      "attributes": {
+        "email": "andre.pereira+click@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    },
+    {
+      "id": "hi_012",
+      "label": "High Engager 012 — update email",
+      "badge": "buyer",
+      "attributes": {
+        "email": "andre.pereira+click@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    },
+    {
+      "id": "hi_013",
+      "label": "High Engager 013 — update email",
+      "badge": "buyer",
+      "attributes": {
+        "email": "andre.pereira+click@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    },
+    {
+      "id": "hi_014",
+      "label": "High Engager 014 — update email",
+      "badge": "buyer",
+      "attributes": {
+        "email": "andre.pereira+click@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    },
+    {
+      "id": "hi_015",
+      "label": "High Engager 015 — update email",
+      "badge": "buyer",
+      "attributes": {
+        "email": "andre.pereira+click@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    },
+    {
+      "id": "hi_016",
+      "label": "High Engager 016 — update email",
+      "badge": "buyer",
+      "attributes": {
+        "email": "andre.pereira+click@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    },
+    {
+      "id": "hi_017",
+      "label": "High Engager 017 — update email",
+      "badge": "buyer",
+      "attributes": {
+        "email": "andre.pereira+click@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    },
+    {
+      "id": "med_001",
+      "label": "Medium Engager 001 — update email",
+      "badge": "browser",
+      "attributes": {
+        "email": "andre.pereira+open@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    },
+    {
+      "id": "med_002",
+      "label": "Medium Engager 002 — update email",
+      "badge": "browser",
+      "attributes": {
+        "email": "andre.pereira+open@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    },
+    {
+      "id": "med_003",
+      "label": "Medium Engager 003 — update email",
+      "badge": "browser",
+      "attributes": {
+        "email": "andre.pereira+open@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    },
+    {
+      "id": "med_004",
+      "label": "Medium Engager 004 — update email",
+      "badge": "browser",
+      "attributes": {
+        "email": "andre.pereira+open@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    },
+    {
+      "id": "med_005",
+      "label": "Medium Engager 005 — update email",
+      "badge": "browser",
+      "attributes": {
+        "email": "andre.pereira+open@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    },
+    {
+      "id": "med_006",
+      "label": "Medium Engager 006 — update email",
+      "badge": "browser",
+      "attributes": {
+        "email": "andre.pereira+open@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    },
+    {
+      "id": "med_007",
+      "label": "Medium Engager 007 — update email",
+      "badge": "browser",
+      "attributes": {
+        "email": "andre.pereira+open@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    },
+    {
+      "id": "med_008",
+      "label": "Medium Engager 008 — update email",
+      "badge": "browser",
+      "attributes": {
+        "email": "andre.pereira+open@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    },
+    {
+      "id": "med_009",
+      "label": "Medium Engager 009 — update email",
+      "badge": "browser",
+      "attributes": {
+        "email": "andre.pereira+open@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    },
+    {
+      "id": "med_010",
+      "label": "Medium Engager 010 — update email",
+      "badge": "browser",
+      "attributes": {
+        "email": "andre.pereira+open@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    },
+    {
+      "id": "med_011",
+      "label": "Medium Engager 011 — update email",
+      "badge": "browser",
+      "attributes": {
+        "email": "andre.pereira+open@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    },
+    {
+      "id": "med_012",
+      "label": "Medium Engager 012 — update email",
+      "badge": "browser",
+      "attributes": {
+        "email": "andre.pereira+open@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    },
+    {
+      "id": "med_013",
+      "label": "Medium Engager 013 — update email",
+      "badge": "browser",
+      "attributes": {
+        "email": "andre.pereira+open@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    },
+    {
+      "id": "med_014",
+      "label": "Medium Engager 014 — update email",
+      "badge": "browser",
+      "attributes": {
+        "email": "andre.pereira+open@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    },
+    {
+      "id": "med_015",
+      "label": "Medium Engager 015 — update email",
+      "badge": "browser",
+      "attributes": {
+        "email": "andre.pereira+open@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    },
+    {
+      "id": "med_016",
+      "label": "Medium Engager 016 — update email",
+      "badge": "browser",
+      "attributes": {
+        "email": "andre.pereira+open@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    },
+    {
+      "id": "med_017",
+      "label": "Medium Engager 017 — update email",
+      "badge": "browser",
+      "attributes": {
+        "email": "andre.pereira+open@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    },
+    {
+      "id": "low_001",
+      "label": "Low Engager 001 — update email",
+      "badge": "churned",
+      "attributes": {
+        "email": "andre.pereira+delivered@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    },
+    {
+      "id": "low_002",
+      "label": "Low Engager 002 — update email",
+      "badge": "churned",
+      "attributes": {
+        "email": "andre.pereira+delivered@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    },
+    {
+      "id": "low_003",
+      "label": "Low Engager 003 — update email",
+      "badge": "churned",
+      "attributes": {
+        "email": "andre.pereira+delivered@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    },
+    {
+      "id": "low_004",
+      "label": "Low Engager 004 — update email",
+      "badge": "churned",
+      "attributes": {
+        "email": "andre.pereira+delivered@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    },
+    {
+      "id": "low_005",
+      "label": "Low Engager 005 — update email",
+      "badge": "churned",
+      "attributes": {
+        "email": "andre.pereira+delivered@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    },
+    {
+      "id": "low_006",
+      "label": "Low Engager 006 — update email",
+      "badge": "churned",
+      "attributes": {
+        "email": "andre.pereira+delivered@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    },
+    {
+      "id": "low_007",
+      "label": "Low Engager 007 — update email",
+      "badge": "churned",
+      "attributes": {
+        "email": "andre.pereira+delivered@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    },
+    {
+      "id": "low_008",
+      "label": "Low Engager 008 — update email",
+      "badge": "churned",
+      "attributes": {
+        "email": "andre.pereira+delivered@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    },
+    {
+      "id": "low_009",
+      "label": "Low Engager 009 — update email",
+      "badge": "churned",
+      "attributes": {
+        "email": "andre.pereira+delivered@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    },
+    {
+      "id": "low_010",
+      "label": "Low Engager 010 — update email",
+      "badge": "churned",
+      "attributes": {
+        "email": "andre.pereira+delivered@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    },
+    {
+      "id": "low_011",
+      "label": "Low Engager 011 — update email",
+      "badge": "churned",
+      "attributes": {
+        "email": "andre.pereira+delivered@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    },
+    {
+      "id": "low_012",
+      "label": "Low Engager 012 — update email",
+      "badge": "churned",
+      "attributes": {
+        "email": "andre.pereira+delivered@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    },
+    {
+      "id": "low_013",
+      "label": "Low Engager 013 — update email",
+      "badge": "churned",
+      "attributes": {
+        "email": "andre.pereira+delivered@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    },
+    {
+      "id": "low_014",
+      "label": "Low Engager 014 — update email",
+      "badge": "churned",
+      "attributes": {
+        "email": "andre.pereira+delivered@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    },
+    {
+      "id": "low_015",
+      "label": "Low Engager 015 — update email",
+      "badge": "churned",
+      "attributes": {
+        "email": "andre.pereira+delivered@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    },
+    {
+      "id": "low_016",
+      "label": "Low Engager 016 — update email",
+      "badge": "churned",
+      "attributes": {
+        "email": "andre.pereira+delivered@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    },
+    {
+      "id": "andre_delivered",
+      "label": "Andre — Delivered (confirm)",
+      "badge": "test",
+      "attributes": {
+        "email": "andre.pereira+delivered@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    },
+    {
+      "id": "andre_open",
+      "label": "Andre — Open (confirm)",
+      "badge": "test",
+      "attributes": {
+        "email": "andre.pereira+open@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    },
+    {
+      "id": "andre_click",
+      "label": "Andre — Click (confirm)",
+      "badge": "test",
+      "attributes": {
+        "email": "andre.pereira+click@telusdigital.com"
+      },
+      "events": [],
+      "purchases": []
+    }
+  ]
+}

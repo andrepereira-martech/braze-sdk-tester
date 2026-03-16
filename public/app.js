@@ -5,6 +5,7 @@
 // Import config (generated from .env)
 import { BRAZE_REST_API_KEY, BRAZE_REST_ENDPOINT } from './config.js';
 import { initScenarioSimulator } from './scenarios.js';
+import { initCanvasTriggerPanel } from './canvas-trigger.js';
 
 // API base URL
 const API_BASE = '/api';
@@ -172,14 +173,17 @@ document.addEventListener('DOMContentLoaded', () => {
     loadRequestHistory();
     startRateLimitPolling();
     initScenarioSimulator(apiKeyInput, endpointSelect);
+
+    const canvasTriggerContent = document.getElementById('canvas-trigger-content');
+    if (canvasTriggerContent) {
+        initCanvasTriggerPanel(canvasTriggerContent, apiKeyInput, endpointSelect);
+    }
 });
 
 // Initialize configuration from config.js
 function initializeConfig() {
     if (BRAZE_REST_API_KEY && BRAZE_REST_API_KEY !== 'your-rest-api-key-here') {
-        apiKeyInput.value = BRAZE_REST_API_KEY;
-        apiKeyInput.setAttribute('readonly', 'readonly');
-        apiKeyInput.style.backgroundColor = '#f0f0f0';
+        apiKeyInput.title = 'A key is configured in .env — paste your key here to use it';
     }
 
     if (BRAZE_REST_ENDPOINT && BRAZE_REST_ENDPOINT !== 'https://rest.iad-03.braze.com') {

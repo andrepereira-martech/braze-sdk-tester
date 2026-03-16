@@ -4,13 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Braze API Tester - REST API Testing Tool</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        corePlugins: { preflight: false },
+        theme: {
+          extend: {
+            colors: {
+              telus: {
+                purple: '#4B286D',
+                'purple-light': '#ede5f5',
+                green: '#2B8000',
+                'green-light': '#e8f5e0',
+                'green-bright': '#66CC00',
+              }
+            },
+            fontFamily: {
+              sans: ["'Helvetica Neue'", 'Helvetica', '-apple-system', 'BlinkMacSystemFont', "'Segoe UI'", 'Roboto', 'Arial', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>🚀 Braze API Tester</h1>
-            <p>Quick API testing and PoC building without SDK integration</p>
+            <div class="header-row">
+                <a href="https://www.telusdigital.com" target="_blank" rel="noopener" class="header-brand" aria-label="TELUS Digital home">
+                    <img src="telus-logo.svg" alt="TELUS Digital" class="header-logo">
+                </a>
+                <div class="header-divider"></div>
+                <div class="header-title">
+                    <h1>Braze API Tester</h1>
+                    <p>Quick API testing and PoC building</p>
+                </div>
+                <a href="/guide.html" target="_blank" rel="noopener" class="header-docs-link">Documentation</a>
+            </div>
         </header>
 
         <!-- Global error display -->
@@ -107,6 +138,17 @@
             <!-- Hidden inputs for default prefix/delay (used by detail panel) -->
             <input type="hidden" id="scenario-prefix" value="sim_">
             <input type="hidden" id="scenario-delay" value="300">
+        </section>
+
+        <!-- Canvas Trigger Section -->
+        <section class="section" id="canvas-trigger">
+            <h2>Canvas Trigger</h2>
+            <p class="help-text" style="margin-bottom: 20px;">
+                List your Braze Canvases and trigger sends to specific users. Use after running a scenario to generate real message delivery and engagement analytics.
+                Need a Canvas to test with? Follow the
+                <a href="/guide.html#build-canvas" target="_blank" rel="noopener" id="canvas-guide-link" style="color:var(--primary-color);text-decoration:underline;">step-by-step guide to build a test Canvas from scratch</a>.
+            </p>
+            <div id="canvas-trigger-content"></div>
         </section>
 
         <!-- Request Builder Section -->

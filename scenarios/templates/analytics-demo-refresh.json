@@ -1,0 +1,2394 @@
+{
+  "id": "analytics-demo-refresh",
+  "name": "Analytics Demo — Refresh Timestamps for Canvas Reports",
+  "description": "Re-fires funnel and retention events at current timestamps for the 53 seeded users. Run this after launching the Analytics Demo canvas using the same prefix. Enables the Canvas Funnel Report and Retention Report. Expected funnel: 53 → 53 → 36 → 28 → 18. Retention curve populates over 3 days.",
+  "category": "Analytics & Reporting",
+  "isTemplate": true,
+  "personas": [
+    {
+      "id": "hi_001",
+      "label": "High Engager 001 — refresh",
+      "badge": "buyer",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "pro_trial"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": 0,
+          "properties": {
+            "course_title": "My First Course"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": 0,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "subscription_purchased",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "pro",
+            "amount": 49
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 1,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 2,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 3,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "hi_002",
+      "label": "High Engager 002 — refresh",
+      "badge": "buyer",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "pro_trial"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": 0,
+          "properties": {
+            "course_title": "My First Course"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": 0,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "subscription_purchased",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "pro",
+            "amount": 49
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 1,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 2,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 3,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "hi_003",
+      "label": "High Engager 003 — refresh",
+      "badge": "buyer",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "pro_trial"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": 0,
+          "properties": {
+            "course_title": "My First Course"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": 0,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "subscription_purchased",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "pro",
+            "amount": 49
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 1,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 2,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 3,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "hi_004",
+      "label": "High Engager 004 — refresh",
+      "badge": "buyer",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "pro_trial"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": 0,
+          "properties": {
+            "course_title": "My First Course"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": 0,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "subscription_purchased",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "pro",
+            "amount": 49
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 1,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 2,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 3,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "hi_005",
+      "label": "High Engager 005 — refresh",
+      "badge": "buyer",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "pro_trial"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": 0,
+          "properties": {
+            "course_title": "My First Course"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": 0,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "subscription_purchased",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "pro",
+            "amount": 49
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 1,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 2,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 3,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "hi_006",
+      "label": "High Engager 006 — refresh",
+      "badge": "buyer",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "pro_trial"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": 0,
+          "properties": {
+            "course_title": "My First Course"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": 0,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "subscription_purchased",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "pro",
+            "amount": 49
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 1,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 2,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 3,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "hi_007",
+      "label": "High Engager 007 — refresh",
+      "badge": "buyer",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "pro_trial"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": 0,
+          "properties": {
+            "course_title": "My First Course"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": 0,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "subscription_purchased",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "pro",
+            "amount": 49
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 1,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 2,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 3,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "hi_008",
+      "label": "High Engager 008 — refresh",
+      "badge": "buyer",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "pro_trial"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": 0,
+          "properties": {
+            "course_title": "My First Course"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": 0,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "subscription_purchased",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "pro",
+            "amount": 49
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 1,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 2,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 3,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "hi_009",
+      "label": "High Engager 009 — refresh",
+      "badge": "buyer",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "pro_trial"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": 0,
+          "properties": {
+            "course_title": "My First Course"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": 0,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "subscription_purchased",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "pro",
+            "amount": 49
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 1,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 2,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 3,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "hi_010",
+      "label": "High Engager 010 — refresh",
+      "badge": "buyer",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "pro_trial"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": 0,
+          "properties": {
+            "course_title": "My First Course"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": 0,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "subscription_purchased",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "pro",
+            "amount": 49
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 1,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 2,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 3,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "hi_011",
+      "label": "High Engager 011 — refresh",
+      "badge": "buyer",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "pro_trial"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": 0,
+          "properties": {
+            "course_title": "My First Course"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": 0,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "subscription_purchased",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "pro",
+            "amount": 49
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 1,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 2,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 3,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "hi_012",
+      "label": "High Engager 012 — refresh",
+      "badge": "buyer",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "pro_trial"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": 0,
+          "properties": {
+            "course_title": "My First Course"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": 0,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "subscription_purchased",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "pro",
+            "amount": 49
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 1,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 2,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 3,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "hi_013",
+      "label": "High Engager 013 — refresh",
+      "badge": "buyer",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "pro_trial"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": 0,
+          "properties": {
+            "course_title": "My First Course"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": 0,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "subscription_purchased",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "pro",
+            "amount": 49
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 1,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 2,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 3,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "hi_014",
+      "label": "High Engager 014 — refresh",
+      "badge": "buyer",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "pro_trial"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": 0,
+          "properties": {
+            "course_title": "My First Course"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": 0,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "subscription_purchased",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "pro",
+            "amount": 49
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 1,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 2,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 3,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "hi_015",
+      "label": "High Engager 015 — refresh",
+      "badge": "buyer",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "pro_trial"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": 0,
+          "properties": {
+            "course_title": "My First Course"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": 0,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "subscription_purchased",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "pro",
+            "amount": 49
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 1,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 2,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 3,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "hi_016",
+      "label": "High Engager 016 — refresh",
+      "badge": "buyer",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "pro_trial"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": 0,
+          "properties": {
+            "course_title": "My First Course"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": 0,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "subscription_purchased",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "pro",
+            "amount": 49
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 1,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 2,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 3,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "hi_017",
+      "label": "High Engager 017 — refresh",
+      "badge": "buyer",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "pro_trial"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": 0,
+          "properties": {
+            "course_title": "My First Course"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": 0,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "subscription_purchased",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "pro",
+            "amount": 49
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 1,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 2,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 3,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "med_001",
+      "label": "Medium Engager 001 — refresh",
+      "badge": "browser",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "starter_trial"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": 0,
+          "properties": {
+            "course_title": "Getting Started"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": 0,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 1,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 2,
+          "properties": {
+            "platform": "mobile"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "med_002",
+      "label": "Medium Engager 002 — refresh",
+      "badge": "browser",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "starter_trial"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": 0,
+          "properties": {
+            "course_title": "Getting Started"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": 0,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 1,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 2,
+          "properties": {
+            "platform": "mobile"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "med_003",
+      "label": "Medium Engager 003 — refresh",
+      "badge": "browser",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "starter_trial"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": 0,
+          "properties": {
+            "course_title": "Getting Started"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": 0,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 1,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 2,
+          "properties": {
+            "platform": "mobile"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "med_004",
+      "label": "Medium Engager 004 — refresh",
+      "badge": "browser",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "starter_trial"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": 0,
+          "properties": {
+            "course_title": "Getting Started"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": 0,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 1,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 2,
+          "properties": {
+            "platform": "mobile"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "med_005",
+      "label": "Medium Engager 005 — refresh",
+      "badge": "browser",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "starter_trial"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": 0,
+          "properties": {
+            "course_title": "Getting Started"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": 0,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 1,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 2,
+          "properties": {
+            "platform": "mobile"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "med_006",
+      "label": "Medium Engager 006 — refresh",
+      "badge": "browser",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "starter_trial"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": 0,
+          "properties": {
+            "course_title": "Getting Started"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": 0,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 1,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 2,
+          "properties": {
+            "platform": "mobile"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "med_007",
+      "label": "Medium Engager 007 — refresh",
+      "badge": "browser",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "starter_trial"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": 0,
+          "properties": {
+            "course_title": "Getting Started"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": 0,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 1,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 2,
+          "properties": {
+            "platform": "mobile"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "med_008",
+      "label": "Medium Engager 008 — refresh",
+      "badge": "browser",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "starter_trial"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": 0,
+          "properties": {
+            "course_title": "Getting Started"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": 0,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 1,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 2,
+          "properties": {
+            "platform": "mobile"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "med_009",
+      "label": "Medium Engager 009 — refresh",
+      "badge": "browser",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "starter_trial"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": 0,
+          "properties": {
+            "course_title": "Getting Started"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": 0,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 1,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 2,
+          "properties": {
+            "platform": "mobile"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "med_010",
+      "label": "Medium Engager 010 — refresh",
+      "badge": "browser",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "starter_trial"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": 0,
+          "properties": {
+            "course_title": "Untitled Course"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 1,
+          "properties": {
+            "platform": "mobile"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "med_011",
+      "label": "Medium Engager 011 — refresh",
+      "badge": "browser",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "starter_trial"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": 0,
+          "properties": {
+            "course_title": "Untitled Course"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 1,
+          "properties": {
+            "platform": "mobile"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "med_012",
+      "label": "Medium Engager 012 — refresh",
+      "badge": "browser",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "starter_trial"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": 0,
+          "properties": {
+            "course_title": "Untitled Course"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 1,
+          "properties": {
+            "platform": "mobile"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "med_013",
+      "label": "Medium Engager 013 — refresh",
+      "badge": "browser",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "starter_trial"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": 0,
+          "properties": {
+            "course_title": "Untitled Course"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 1,
+          "properties": {
+            "platform": "mobile"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "med_014",
+      "label": "Medium Engager 014 — refresh",
+      "badge": "browser",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "starter_trial"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": 0,
+          "properties": {
+            "course_title": "Untitled Course"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 1,
+          "properties": {
+            "platform": "mobile"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "med_015",
+      "label": "Medium Engager 015 — refresh",
+      "badge": "browser",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "starter_trial"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": 0,
+          "properties": {
+            "course_title": "Untitled Course"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 1,
+          "properties": {
+            "platform": "mobile"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "med_016",
+      "label": "Medium Engager 016 — refresh",
+      "badge": "browser",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "starter_trial"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": 0,
+          "properties": {
+            "course_title": "Untitled Course"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 1,
+          "properties": {
+            "platform": "mobile"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "med_017",
+      "label": "Medium Engager 017 — refresh",
+      "badge": "browser",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "starter_trial"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": 0,
+          "properties": {
+            "course_title": "Untitled Course"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 1,
+          "properties": {
+            "platform": "mobile"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "low_001",
+      "label": "Low Engager 001 — refresh",
+      "badge": "churned",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "free_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "low_002",
+      "label": "Low Engager 002 — refresh",
+      "badge": "churned",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "free_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "low_003",
+      "label": "Low Engager 003 — refresh",
+      "badge": "churned",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "free_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "low_004",
+      "label": "Low Engager 004 — refresh",
+      "badge": "churned",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "free_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "low_005",
+      "label": "Low Engager 005 — refresh",
+      "badge": "churned",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "free_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "low_006",
+      "label": "Low Engager 006 — refresh",
+      "badge": "churned",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "free_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "low_007",
+      "label": "Low Engager 007 — refresh",
+      "badge": "churned",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "free_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "low_008",
+      "label": "Low Engager 008 — refresh",
+      "badge": "churned",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "free_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "low_009",
+      "label": "Low Engager 009 — refresh",
+      "badge": "churned",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "free_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "low_010",
+      "label": "Low Engager 010 — refresh",
+      "badge": "churned",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "free_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "low_011",
+      "label": "Low Engager 011 — refresh",
+      "badge": "churned",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "free_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "low_012",
+      "label": "Low Engager 012 — refresh",
+      "badge": "churned",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "free_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "low_013",
+      "label": "Low Engager 013 — refresh",
+      "badge": "churned",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "free_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "low_014",
+      "label": "Low Engager 014 — refresh",
+      "badge": "churned",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "free_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "low_015",
+      "label": "Low Engager 015 — refresh",
+      "badge": "churned",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "free_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "low_016",
+      "label": "Low Engager 016 — refresh",
+      "badge": "churned",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "free_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "andre_delivered",
+      "label": "Andre — Email Delivered — refresh",
+      "badge": "test",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "free_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "andre_open",
+      "label": "Andre — Email Open — refresh",
+      "badge": "test",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "starter_trial"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": 0,
+          "properties": {
+            "course_title": "Getting Started"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": 0,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 1,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 2,
+          "properties": {
+            "platform": "mobile"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "andre_click",
+      "label": "Andre — Email Click — refresh",
+      "badge": "test",
+      "attributes": {},
+      "events": [
+        {
+          "name": "started_trial",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "pro_trial"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": 0,
+          "properties": {
+            "course_title": "My First Course"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": 0,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "subscription_purchased",
+          "time_offset_days": 0,
+          "properties": {
+            "plan": "pro",
+            "amount": 49
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 1,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 2,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 3,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": []
+    }
+  ]
+}

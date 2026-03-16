@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Demo — Setup Guide | Braze API Tester</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        .guide-container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 32px 24px 80px;
+        }
+
+        .guide-nav {
+            position: sticky;
+            top: 0;
+            background: var(--bg-color);
+            z-index: 10;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 28px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .guide-nav a.back-link {
+            font-size: 0.8125rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .guide-nav a.back-link:hover {
+            text-decoration: underline;
+        }
+
+        .guide-breadcrumb {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .guide-header {
+            margin-bottom: 32px;
+        }
+
+        .guide-header h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+
+        .guide-header p {
+            color: var(--text-muted);
+            font-size: 0.9375rem;
+            line-height: 1.5;
+        }
+
+        /* Table of contents */
+        .guide-toc {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 16px 20px;
+            margin-bottom: 32px;
+        }
+
+        .guide-toc h2 {
+            font-size: 0.8125rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .guide-toc ol {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            columns: 2;
+            column-gap: 24px;
+        }
+
+        @media (max-width: 600px) {
+            .guide-toc ol { columns: 1; }
+        }
+
+        .guide-toc li {
+            break-inside: avoid;
+            margin-bottom: 6px;
+        }
+
+        .guide-toc a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+
+        .guide-toc a:hover {
+            text-decoration: underline;
+        }
+
+        .guide-toc .toc-sub {
+            padding-left: 16px;
+            font-size: 0.8125rem;
+        }
+
+        /* Content sections */
+        .guide-section {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 24px 28px;
+            margin-bottom: 20px;
+        }
+
+        .guide-section h2 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--secondary-light);
+        }
+
+        .guide-section h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin: 18px 0 8px;
+        }
+
+        .guide-section p,
+        .guide-section li {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: var(--text-color);
+        }
+
+        .guide-section ol,
+        .guide-section ul {
+            padding-left: 20px;
+            margin: 8px 0 12px;
+        }
+
+        .guide-section li {
+            margin-bottom: 6px;
+        }
+
+        .guide-section code {
+            background: var(--secondary-light);
+            color: var(--secondary-color);
+            padding: 1px 5px;
+            border-radius: 3px;
+            font-size: 0.825rem;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+        }
+
+        .guide-section pre {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 14px 16px;
+            border-radius: var(--radius-sm);
+            overflow-x: auto;
+            font-size: 0.8rem;
+            line-height: 1.5;
+            margin: 10px 0;
+        }
+
+        .guide-section pre code {
+            background: none;
+            color: inherit;
+            padding: 0;
+        }
+
+        .guide-section blockquote {
+            border-left: 3px solid var(--primary-color);
+            padding: 8px 14px;
+            margin: 12px 0;
+            background: var(--primary-light);
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            font-size: 0.875rem;
+            color: var(--text-color);
+        }
+
+        .guide-section blockquote strong {
+            color: var(--primary-color);
+        }
+
+        .callout-warning {
+            border-left: 3px solid #f59e0b;
+            background: rgba(245, 158, 11, 0.08);
+            padding: 10px 14px;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            margin: 12px 0;
+            font-size: 0.875rem;
+        }
+
+        .callout-warning strong {
+            color: #b45309;
+        }
+
+        /* Tables */
+        .guide-section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 12px 0;
+            font-size: 0.85rem;
+        }
+
+        .guide-section th {
+            text-align: left;
+            padding: 8px 10px;
+            background: var(--secondary-light);
+            color: var(--secondary-color);
+            font-weight: 600;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .guide-section td {
+            padding: 8px 10px;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: top;
+        }
+
+        .guide-section tr:last-child td {
+            border-bottom: none;
+        }
+
+        .guide-section tr:hover td {
+            background: rgba(0, 0, 0, 0.015);
+        }
+
+        .badge-yes {
+            display: inline-block;
+            background: #dcfce7;
+            color: #166534;
+            padding: 1px 8px;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .badge-warn {
+            display: inline-block;
+            background: #fef3c7;
+            color: #92400e;
+            padding: 1px 8px;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: var(--secondary-color);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-right: 8px;
+            flex-shrink: 0;
+            vertical-align: middle;
+        }
+
+        .guide-footer {
+            text-align: center;
+            padding: 24px 0;
+            color: var(--text-muted);
+            font-size: 0.8125rem;
+        }
+
+        .guide-footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .guide-footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="guide-container">
+        <nav class="guide-nav">
+            <a href="/" class="back-link">← Back to API Tester</a>
+            <span class="guide-breadcrumb">/ Documentation / Analytics Demo Setup Guide</span>
+        </nav>
+
+        <div class="guide-header">
+            <h1>Analytics Demo — Braze Report Setup Guide</h1>
+            <p>Instructions for building analytics reports after running the <strong>Analytics Demo</strong> scenario in the API Tester.</p>
+        </div>
+
+        <!-- Table of Contents -->
+        <div class="guide-toc">
+            <h2>Contents</h2>
+            <ol>
+                <li><a href="#capabilities">What the Seeded Data Can and Cannot Do</a></li>
+                <li><a href="#step1">Step 1 — Create a Segment</a></li>
+                <li><a href="#step2">Step 2 — Build &amp; Launch a Canvas</a></li>
+                <li><a href="#step2a">Step 2a — Trigger Canvas from the API Tester</a></li>
+                <li><a href="#step2b">Step 2b — Refresh Scenario</a></li>
+                <li><a href="#step3">Step 3 — Funnel Report</a></li>
+                <li><a href="#step4">Step 4 — Retention Report</a></li>
+                <li><a href="#step5">Step 5 — Email Performance &amp; Heatmap</a></li>
+                <li><a href="#step6">Step 6 — Report Builder</a></li>
+                <li><a href="#step7">Step 7 — Immediate Reports (No Canvas)</a></li>
+                <li><a href="#users">Seeded User Summary</a></li>
+                <li><a href="#build-canvas">Building a Test Canvas from Scratch</a></li>
+            </ol>
+        </div>
+
+        <!-- Capabilities -->
+        <div class="guide-section" id="capabilities">
+            <h2>What the Seeded Data Can and Cannot Do</h2>
+            <p>The scenario seeds 53 users with <strong>backdated custom events</strong> (up to 90 days in the past). This matters for which reports work out of the box:</p>
+            <table>
+                <thead>
+                    <tr><th>Report</th><th>Status</th><th>Why</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Analytics → Overview (MAU/DAU)</td><td><span class="badge-yes">✅ Yes</span></td><td>Braze counts backdated session events</td></tr>
+                    <tr><td>Analytics → Custom Events</td><td><span class="badge-yes">✅ Yes</span></td><td>Event frequency charts use historical data</td></tr>
+                    <tr><td>Analytics → Revenue</td><td><span class="badge-yes">✅ Yes</span></td><td>Backdated purchases appear in revenue charts</td></tr>
+                    <tr><td>Segment building</td><td><span class="badge-yes">✅ Yes</span></td><td>Attribute/event filters work regardless of date</td></tr>
+                    <tr><td>Email Performance / Heatmap</td><td><span class="badge-warn">⚠️ Real send</span></td><td>Opens and clicks only come from Braze's sending pipeline — use the <strong>Canvas Trigger</strong> panel</td></tr>
+                    <tr><td>Canvas Funnel Report</td><td><span class="badge-warn">⚠️ Limited</span></td><td>Only counts events <strong>after</strong> Canvas entry — backdated events excluded</td></tr>
+                    <tr><td>Canvas Retention Report</td><td><span class="badge-warn">⚠️ Limited</span></td><td>Same constraint — only post-entry events count</td></tr>
+                </tbody>
+            </table>
+            <p>For the Funnel and Retention demos, see <a href="#step3">Step 3</a> and <a href="#step4">Step 4</a>.</p>
+        </div>
+
+        <!-- Step 1 -->
+        <div class="guide-section" id="step1">
+            <h2><span class="step-number">1</span>Create a Segment to Isolate These Users</h2>
+            <ol>
+                <li>Go to <strong>Audience → Segments → Create Segment</strong>.</li>
+                <li>Name it <em>"Analytics Demo Users"</em>.</li>
+                <li>Add filter: <strong>Custom Attribute</strong> → <code>demo_scenario</code> → <em>equals</em> → <code>analytics-demo</code>.</li>
+                <li>Save. This segment is used as the entry audience for the Canvas and as a filter in all reports.</li>
+            </ol>
+            <h3>Optional sub-segments</h3>
+            <table>
+                <thead><tr><th>Sub-segment</th><th>Filter</th><th>Purpose</th></tr></thead>
+                <tbody>
+                    <tr><td>High Engagers</td><td><code>demo_cohort</code> = <code>high</code></td><td>Power users, full funnel</td></tr>
+                    <tr><td>Medium Engagers</td><td><code>demo_cohort</code> = <code>medium</code></td><td>Mid-funnel drop-off</td></tr>
+                    <tr><td>Low Engagers</td><td><code>demo_cohort</code> = <code>low</code></td><td>Retention baseline</td></tr>
+                    <tr><td>Admins</td><td><code>role</code> = <code>Admin</code></td><td>Role-based targeting demo</td></tr>
+                    <tr><td>Course Creators</td><td><code>role</code> = <code>Course Creator</code></td><td>Role-based targeting demo</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="guide-section" id="step2">
+            <h2><span class="step-number">2</span>Build &amp; Launch a Canvas</h2>
+            <blockquote>Required before Email Performance, Heatmap, Funnel Report, and Retention Report are accessible.</blockquote>
+            <p>You have two options:</p>
+            <ul>
+                <li><strong>Option A — Build from scratch</strong> in the Braze Dashboard (see the full walkthrough in <a href="#build-canvas">Building a Test Canvas from Scratch</a> below).</li>
+                <li><strong>Option B — Use an existing Canvas</strong> and trigger it from the API Tester (skip to <a href="#step2a">Step 2a</a>).</li>
+            </ul>
+            <h3>If building from scratch (quick version)</h3>
+            <ol>
+                <li>Go to <strong>Messaging → Canvas → Create Canvas</strong>. Name it <em>"Analytics Demo — Onboarding Journey"</em>.</li>
+                <li>Set <strong>Entry Schedule</strong> to <strong>API-Triggered</strong> (this allows the API Tester to trigger entry).</li>
+                <li>Set <strong>Entry Audience</strong> to the <em>Analytics Demo Users</em> segment.</li>
+                <li>Add a <strong>Message step</strong> → select <strong>Email</strong>. Build a simple email with at least one clickable link.</li>
+                <li><strong>Launch</strong> the Canvas (it must be active to accept API triggers).</li>
+            </ol>
+            <div class="callout-warning">
+                <strong>Note:</strong> Email opens, clicks, heatmap, and deliverability data are generated by Braze's sending pipeline only — they cannot be seeded via the API. A real send is required.
+            </div>
+        </div>
+
+        <!-- Step 2a -->
+        <div class="guide-section" id="step2a">
+            <h2><span class="step-number">2a</span>Trigger the Canvas from the API Tester</h2>
+            <blockquote>Use this after building or selecting a Canvas in Step 2. This replaces the manual "Send Test" workflow.</blockquote>
+
+            <h3>Post-scenario trigger (recommended)</h3>
+            <ol>
+                <li>Run the <strong>Analytics Demo</strong> scenario as usual (Step 1 should already be done).</li>
+                <li>After the run completes, expand the <strong>"Trigger Canvas for these users"</strong> section below the results.</li>
+                <li>Click <strong>Load Canvases</strong> to fetch your Canvas list.</li>
+                <li>Select the Canvas you built in Step 2.</li>
+                <li>Optionally set <code>canvas_entry_properties</code> (e.g. <code>{"source": "api-tester"}</code>).</li>
+                <li>Click <strong>Trigger Canvas</strong>. The seeded users will enter the Canvas and receive the email.</li>
+            </ol>
+
+            <h3>Standalone trigger (for re-triggering or different users)</h3>
+            <ol>
+                <li>Scroll to the <strong>Canvas Trigger</strong> section in the API Tester.</li>
+                <li>Click <strong>Refresh</strong> to load your Canvas list.</li>
+                <li>Select the target Canvas.</li>
+                <li>Enter the <code>external_id</code> values (one per line) — you can copy these from a previous scenario run.</li>
+                <li>Click <strong>Trigger Canvas Send</strong>.</li>
+            </ol>
+            <p>Wait <strong>30–60 minutes</strong> for engagement data to process before viewing reports.</p>
+        </div>
+
+        <!-- Step 2b -->
+        <div class="guide-section" id="step2b">
+            <h2><span class="step-number">2b</span>Run the Refresh Scenario (Enables Funnel &amp; Retention Data)</h2>
+            <blockquote>Run this <strong>after</strong> launching the Canvas in Step 2, using the <strong>same prefix</strong> as the original seed.</blockquote>
+            <p>The original scenario seeded backdated events (up to 90 days ago) which the Canvas Funnel and Retention Reports cannot see — they only count events that occur after Canvas entry. This refresh scenario re-fires the key events at current timestamps so both reports populate.</p>
+
+            <h3>In the API Tester</h3>
+            <ol>
+                <li>Select <strong>Analytics Demo — Refresh Timestamps for Canvas Reports</strong>.</li>
+                <li>Enter the <strong>same prefix</strong> used when running the original Analytics Demo scenario.</li>
+                <li>Click <strong>Run</strong>. 53 users, ~20 seconds.</li>
+            </ol>
+
+            <h3>What it fires per user group</h3>
+            <table>
+                <thead><tr><th>Group</th><th>Funnel events fired</th><th>Retention sessions</th></tr></thead>
+                <tbody>
+                    <tr><td>High (18 users)</td><td><code>started_trial</code>, <code>created_course</code>, <code>created_lesson</code>, <code>subscription_purchased</code></td><td>Day 0, 1, 2, 3</td></tr>
+                    <tr><td>Medium first half (10)</td><td><code>started_trial</code>, <code>created_course</code>, <code>created_lesson</code></td><td>Day 0, 1, 2</td></tr>
+                    <tr><td>Medium second half (8)</td><td><code>started_trial</code>, <code>created_course</code></td><td>Day 0, 1</td></tr>
+                    <tr><td>Low (17 users)</td><td><code>started_trial</code></td><td>Day 0 only</td></tr>
+                </tbody>
+            </table>
+            <p><strong>Expected funnel counts:</strong> 53 → 53 → 36 → 28 → 18</p>
+            <p><strong>Expected retention by demo day (Day 3):</strong></p>
+            <ul>
+                <li>Day 0: 53/53 = 100%</li>
+                <li>Day 1: 36/53 = 68%</li>
+                <li>Day 2: 28/53 = 53%</li>
+                <li>Day 3: 18/53 = 34%</li>
+            </ul>
+            <blockquote>Braze stores future-dated events (<code>+1</code>, <code>+2</code>, <code>+3</code> days) and includes them in analytics on the appropriate calendar date — no re-runs needed.</blockquote>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="guide-section" id="step3">
+            <h2><span class="step-number">3</span>Funnel Report</h2>
+            <blockquote>Accessed from within the Canvas analytics page. <strong>Max 5 steps</strong> (Step 1 "Entered Canvas" is fixed). Run the refresh scenario first.</blockquote>
+            <ol>
+                <li>Go to <strong>Messaging → Canvas → [your canvas] → Analytics</strong>.</li>
+                <li>Click the <strong>Funnel Report</strong> tab.</li>
+                <li>Add these 4 steps:</li>
+            </ol>
+            <table>
+                <thead><tr><th>Step</th><th>Event</th><th>Expected count</th></tr></thead>
+                <tbody>
+                    <tr><td>1</td><td>Entered Canvas</td><td>53 (100%)</td></tr>
+                    <tr><td>2</td><td><code>started_trial</code></td><td>53 (100%)</td></tr>
+                    <tr><td>3</td><td><code>created_course</code></td><td>36 (68%)</td></tr>
+                    <tr><td>4</td><td><code>created_lesson</code></td><td>28 (53%)</td></tr>
+                    <tr><td>5</td><td><code>subscription_purchased</code></td><td>18 (34%)</td></tr>
+                </tbody>
+            </table>
+            <ol start="4">
+                <li>Set date range and conversion window to <strong>90 days</strong>. Click <strong>Run</strong>.</li>
+            </ol>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="guide-section" id="step4">
+            <h2><span class="step-number">4</span>Retention Report</h2>
+            <blockquote>Accessed from within the Canvas analytics page. Run the refresh scenario first.</blockquote>
+            <ol>
+                <li>Stay on <strong>[your canvas] → Analytics</strong> and click the <strong>Retention Report</strong> tab.</li>
+                <li>Set <strong>Retention Event</strong> to <strong>Custom Event</strong> → <code>app_session_started</code>.</li>
+                <li>Set date range to the past <strong>90 days</strong>. Click <strong>Run</strong>.</li>
+            </ol>
+            <p><strong>Expected curve by demo day:</strong></p>
+            <ul>
+                <li>Day 0: 100% (all 53)</li>
+                <li>Day 1: 68% (36 users)</li>
+                <li>Day 2: 53% (28 users)</li>
+                <li>Day 3: 34% (18 users)</li>
+            </ul>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="guide-section" id="step5">
+            <h2><span class="step-number">5</span>Email Performance &amp; Heatmap</h2>
+            <p>These populate from the Canvas email send — no timing constraint with seeded data.</p>
+            <ol>
+                <li>On <strong>[your canvas] → Analytics</strong>, click the <strong>Email Performance</strong> tab — shows deliveries, unique opens, unique clicks, and unsubscribes from the 3 test addresses.</li>
+                <li>Click the <strong>Email Heatmap</strong> tab — shows which links were clicked. Requires at least one click from <code>andre.pereira+click@telusdigital.com</code>.</li>
+            </ol>
+        </div>
+
+        <!-- Step 6 -->
+        <div class="guide-section" id="step6">
+            <h2><span class="step-number">6</span>Report Builder</h2>
+            <ol>
+                <li>Go to <strong>Analytics → Report Builder → Create New Report</strong>.</li>
+                <li>Click <strong>Add Canvas/Campaign</strong> and select your canvas.</li>
+                <li>Add the following metric columns:
+                    <ul>
+                        <li><strong>Email:</strong> Sends, Unique Opens, Unique Clicks, Unsubscribes</li>
+                        <li><strong>Custom Events:</strong> <code>created_course</code>, <code>created_lesson</code>, <code>created_block</code>, <code>subscription_purchased</code></li>
+                    </ul>
+                </li>
+                <li>Set date range to past <strong>90 days</strong>. Click <strong>Save &amp; Build Report</strong>.</li>
+                <li>Optionally pin to a dashboard: <strong>Analytics → Dashboard Builder</strong>.</li>
+            </ol>
+        </div>
+
+        <!-- Step 7 -->
+        <div class="guide-section" id="step7">
+            <h2><span class="step-number">7</span>Reports That Work Immediately (No Canvas Needed)</h2>
+            <p>These use the backdated seeded data directly and are ready as soon as profiles propagate.</p>
+
+            <h3>Analytics → Overview</h3>
+            <p>Shows MAU/DAU and new users from the seeded historical <code>app_session_started</code> events.</p>
+
+            <h3>Analytics → Custom Events</h3>
+            <p>Select any of the following to view event frequency over time:</p>
+            <ul>
+                <li><code>started_trial</code></li>
+                <li><code>created_course</code></li>
+                <li><code>created_lesson</code></li>
+                <li><code>created_block</code></li>
+                <li><code>app_session_started</code></li>
+            </ul>
+            <p>Apply a <code>role = Admin</code> or <code>role = Course Creator</code> segment filter to compare behaviour by role. This is a strong demo of segmented event analytics without needing a live Canvas.</p>
+
+            <h3>Analytics → Revenue</h3>
+            <p>Purchase data appears automatically:</p>
+            <ul>
+                <li>High engagers: <code>plan_pro_monthly</code> at $49/mo or <code>plan_pro_annual</code> at $199/yr</li>
+                <li>Medium engagers (first 7): <code>plan_starter_monthly</code> at $19/mo</li>
+            </ul>
+        </div>
+
+        <!-- Seeded User Summary -->
+        <div class="guide-section" id="users">
+            <h2>Seeded User Summary</h2>
+            <table>
+                <thead><tr><th>Group</th><th>Count</th><th>Events Seeded</th><th>Purchases</th></tr></thead>
+                <tbody>
+                    <tr><td>High Engagers</td><td>17</td><td>Full funnel + 9 <code>app_session_started</code> across 85 days</td><td>Pro ($49/mo or $199/yr)</td></tr>
+                    <tr><td>Medium Engagers</td><td>17</td><td>Partial funnel, stops before <code>subscription_purchased</code></td><td>Starter ($19/mo) — 7 of 17</td></tr>
+                    <tr><td>Low Engagers</td><td>16</td><td><code>started_trial</code> + 1 <code>created_course</code> + 3 sessions</td><td>None</td></tr>
+                    <tr><td>Test Emails (Andre)</td><td>3</td><td>Varies by email behavior tier</td><td>Pro (click persona only)</td></tr>
+                </tbody>
+            </table>
+            <p><strong>Custom Attributes on all users:</strong> <code>demo_scenario</code>, <code>demo_cohort</code>, <code>email_engagement_tier</code>, <code>role</code>, <code>country</code>, <code>subscription_status</code>, <code>subscription_plan</code></p>
+            <p><strong>Custom Events seeded:</strong> <code>account_created</code>, <code>started_trial</code>, <code>onboarding_completed</code>, <code>created_course</code>, <code>created_lesson</code>, <code>created_block</code>, <code>content_consumed</code>, <code>premium_upgrade_clicked</code>, <code>subscription_purchased</code>, <code>app_session_started</code></p>
+        </div>
+
+        <!-- Building a Test Canvas from Scratch -->
+        <div class="guide-section" id="build-canvas">
+            <h2>Building a Test Canvas from Scratch</h2>
+            <p>This walkthrough creates a Canvas specifically designed for testing engagement messaging statistics with the API Tester. The Canvas uses API-triggered entry so you can fire it directly from the app.</p>
+
+            <h3>Prerequisites</h3>
+            <ul>
+                <li>A Braze workspace with a REST API key that has <code>canvas.trigger.send</code> and <code>canvas.list</code> permissions.</li>
+                <li>The <strong>Analytics Demo Users</strong> segment from <a href="#step1">Step 1</a> (or any segment containing your test users).</li>
+                <li>At least one email address on the test users that can receive mail.</li>
+            </ul>
+
+            <h3>1. Create the Canvas</h3>
+            <ol>
+                <li>Go to <strong>Messaging → Canvas → Create Canvas</strong>.</li>
+                <li>Name it <em>"API Tester — Engagement Test Canvas"</em>.</li>
+                <li>Optionally add a tag: <code>api-tester</code> (makes it easy to find in the Canvas Trigger panel).</li>
+            </ol>
+
+            <h3>2. Configure Entry</h3>
+            <ol>
+                <li>Set <strong>Entry Schedule</strong> to <strong>API-Triggered</strong>.
+                    <br><em>This is critical — it allows the API Tester's <code>/canvas/trigger/send</code> call to push users into the Canvas.</em>
+                </li>
+                <li>Under <strong>Entry Audience</strong>, select the <em>Analytics Demo Users</em> segment.
+                    <br><em>This acts as a guardrail: only users matching the segment can enter, even if the API sends other IDs.</em>
+                </li>
+                <li>Set <strong>Entry Controls</strong> → <strong>Allow users to re-enter this Canvas</strong>: choose <em>Yes</em> if you want to test multiple sends to the same users.</li>
+            </ol>
+
+            <h3>3. Build the Message Flow</h3>
+            <ol>
+                <li>Click <strong>+ Add Step</strong> → <strong>Message</strong>.</li>
+                <li>Name it <em>"Welcome Email"</em>.</li>
+                <li>Select <strong>Email</strong> as the channel.</li>
+                <li>Build the email:
+                    <ul>
+                        <li><strong>Subject:</strong> <code>Welcome to the Analytics Demo</code></li>
+                        <li><strong>Body:</strong> Include at least <strong>two clickable links</strong> (these generate heatmap data):
+                            <pre><code>&lt;a href="https://example.com/get-started"&gt;Get Started&lt;/a&gt;
+&lt;a href="https://example.com/learn-more"&gt;Learn More&lt;/a&gt;</code></pre>
+                        </li>
+                        <li>Use any template you like — the key is having trackable links.</li>
+                    </ul>
+                </li>
+                <li>(Optional) Add a <strong>Delay step</strong> (e.g. 1 day) followed by a second <strong>Message step</strong> with a different email to test multi-step funnel analytics.</li>
+            </ol>
+
+            <h3>4. Launch</h3>
+            <ol>
+                <li>Review the Canvas summary.</li>
+                <li>Click <strong>Launch Canvas</strong>.</li>
+                <li>The Canvas is now active and waiting for API triggers.</li>
+            </ol>
+
+            <h3>5. Trigger from the API Tester</h3>
+            <ol>
+                <li>In the API Tester, go to the <strong>Canvas Trigger</strong> section.</li>
+                <li>Click <strong>Refresh</strong> — your new Canvas should appear in the list.</li>
+                <li>Select it, enter the <code>external_id</code> values of your test users (or use the post-scenario trigger after running the Analytics Demo).</li>
+                <li>Click <strong>Trigger Canvas Send</strong>.</li>
+            </ol>
+
+            <h3>6. Verify Delivery</h3>
+            <ol>
+                <li>In Braze, go to <strong>Messaging → Canvas → [your canvas] → Analytics</strong>.</li>
+                <li>You should see:
+                    <ul>
+                        <li><strong>Entered:</strong> the number of users you triggered</li>
+                        <li><strong>Sent:</strong> emails dispatched</li>
+                        <li><strong>Delivered / Opened / Clicked:</strong> will populate as recipients interact with the email</li>
+                    </ul>
+                </li>
+                <li>For per-user verification, go to <strong>Users → User Search</strong> → look up a test <code>external_id</code> → <strong>Messaging</strong> tab to see the Canvas entry and email delivery events.</li>
+            </ol>
+
+            <h3>Tips</h3>
+            <ul>
+                <li><strong>Re-triggering:</strong> If entry controls allow re-entry, you can trigger the same users multiple times to build up volume for reports.</li>
+                <li><strong>Entry properties:</strong> Pass <code>canvas_entry_properties</code> like <code>{"source": "api-tester", "test_run": "2026-03-16"}</code> to tag sends for easier filtering in Currents/Snowflake.</li>
+                <li><strong>Multiple channels:</strong> Add push or SMS steps alongside email to test cross-channel reporting (requires the corresponding channel setup in Braze).</li>
+                <li><strong>Conversion events:</strong> Set a conversion event on the Canvas (e.g. <code>subscription_purchased</code>) to see conversion rate analytics alongside delivery metrics.</li>
+            </ul>
+        </div>
+
+        <div class="guide-footer">
+            <a href="/">← Back to Braze API Tester</a> · Source: <a href="/docs/analytics-demo-setup.md">analytics-demo-setup.md</a>
+        </div>
+    </div>
+</body>
+</html>

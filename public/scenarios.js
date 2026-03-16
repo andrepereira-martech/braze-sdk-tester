@@ -3,9 +3,10 @@
  * Wires the scenario list, detail panel, editor, and engine together.
  */
 import { buildPersonaPayload, runScenario } from './scenario-engine.js';
-import { escHtml, renderPersonaList, renderResultsList, renderSnowflakeSQL, renderInternalGroupInstructions } from './scenario-render.js';
+import { escHtml, renderPersonaList, renderResultsList, renderSnowflakeSQL, renderInternalGroupInstructions, renderAnalyticsDemoInstructions } from './scenario-render.js';
 import * as api from './scenario-api.js';
-import { ScenarioEditor } from './scenario-editor.js';
+import { ScenarioBuilder } from './scenario-builder.js';
+import { renderPostRunCanvasTrigger } from './canvas-trigger.js';
 
 export function initScenarioSimulator(apiKeyInput, endpointSelect) {
   const section = document.getElementById('scenario-simulator');
@@ -23,7 +24,7 @@ export function initScenarioSimulator(apiKeyInput, endpointSelect) {
   let scenarios = [];
   let selectedId = null;
 
-  const editor = new ScenarioEditor(detailEl, {
+  const editor = new ScenarioBuilder(detailEl, {
     onSave: async (data, isNew) => {
       try {
         if (isNew) {
@@ -113,9 +114,9 @@ export function initScenarioSimulator(apiKeyInput, endpointSelect) {
 
     const isTemplate = scenario.isTemplate;
     const actionButtons = isTemplate
-      ? `<button type="button" class="btn-secondary btn-small detail-clone">Clone</button>
+      ? `<button type="button" class="btn-primary btn-small detail-open-builder">Open in Builder</button>
          <button type="button" class="btn-secondary btn-small detail-export">Export</button>`
-      : `<button type="button" class="btn-secondary btn-small detail-edit">Edit</button>
+      : `<button type="button" class="btn-primary btn-small detail-edit">Edit in Builder</button>
          <button type="button" class="btn-secondary btn-small detail-clone">Clone</button>
          <button type="button" class="btn-secondary btn-small detail-export">Export</button>
          <button type="button" class="btn-small btn-danger detail-delete">Delete</button>`;
@@ -164,20 +165,37 @@ export function initScenarioSimulator(apiKeyInput, endpointSelect) {
     const detailDelay = detailEl.querySelector('#scenario-delay');
 
     // Action handlers
-    const editBtn = detailEl.querySelector('.detail-edit');
-    if (editBtn) {
-      editBtn.addEventListener('click', () => editor.open(scenario, false));
-    }
 
+    // Edit (custom scenarios)
+    detailEl.querySelector('.detail-edit')?.addEventListener('click', () => editor.open(scenario, false));
+
+    // "Open in Builder" for templates: clones then immediately opens the builder
+    detailEl.querySelector('.detail-open-builder')?.addEventListener('click', async () => {
+      const name = prompt('Name for the new scenario (cloned from template):', scenario.name + ' (Custom)');
+      if (!name) return;
+      try {
+        const cloned = await api.cloneScenario(id, name);
+        const clonedFull = await api.fetchScenario(cloned.id);
+        await loadList();
+        selectedId = cloned.id;
+        renderList(searchInput.value);
+        editor.open(clonedFull, false);
+      } catch (err) {
+        alert('Failed: ' + err.message);
+      }
+    });
+
+    // Clone (custom scenarios) — also opens builder
     detailEl.querySelector('.detail-clone')?.addEventListener('click', async () => {
       const name = prompt('Name for the cloned scenario:', scenario.name + ' (Copy)');
       if (!name) return;
       try {
         const cloned = await api.cloneScenario(id, name);
+        const clonedFull = await api.fetchScenario(cloned.id);
         await loadList();
         selectedId = cloned.id;
         renderList(searchInput.value);
-        showDetail(cloned.id);
+        editor.open(clonedFull, false);
       } catch (err) {
         alert('Clone failed: ' + err.message);
       }
@@ -275,9 +293,18 @@ export function initScenarioSimulator(apiKeyInput, endpointSelect) {
       if (scenario.id === 'internal-group-setup' && results.success.length) {
         html += renderInternalGroupInstructions(prefix, results.success.map(u => u.id));
       }
+      if (scenario.id === 'analytics-demo') {
+        html += renderAnalyticsDemoInstructions(prefix, results.success.length, total);
+      }
 
       resultsEl.innerHTML = html;
       resultsEl.style.display = 'block';
+
+      if (results.success.length > 0) {
+        const successIds = results.success.map(u => u.id);
+        renderPostRunCanvasTrigger(resultsEl, successIds, apiKeyInput, endpointSelect);
+      }
+
       resultsEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 
       runBtn.disabled = false;

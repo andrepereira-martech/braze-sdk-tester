@@ -26,6 +26,7 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 app.use(express.static(join(__dirname, 'public')));
+app.use('/docs', express.static(join(__dirname, 'docs')));
 
 // Scenario CRUD routes
 app.use('/api/scenarios', scenarioRoutes);

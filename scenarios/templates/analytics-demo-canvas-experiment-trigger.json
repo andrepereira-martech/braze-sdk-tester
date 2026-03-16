@@ -1,0 +1,169 @@
+{
+  "id": "analytics-demo-canvas-experiment-trigger",
+  "name": "Analytics Demo \u2014 Canvas Experiment Trigger (created_course NOW)",
+  "description": "Fires the 'created_course' custom event at the current timestamp for 10 of the 20 experiment users (exp_001\u2013exp_010). Run this after canvas emails confirm entry of the 20 seeded users. The event timestamp is set to 'now' (time_offset_days: 0) so it lands within the canvas experiment's 2-minute evaluation window.",
+  "category": "Analytics & Reporting",
+  "isTemplate": true,
+  "personas": [
+    {
+      "id": "exp_001",
+      "label": "Canvas Experiment 001 \u2014 created_course trigger",
+      "badge": "test",
+      "attributes": {},
+      "events": [
+        {
+          "name": "created_course",
+          "time_offset_days": 0,
+          "properties": {
+            "course_title": "Canvas Experiment Course"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "exp_002",
+      "label": "Canvas Experiment 002 \u2014 created_course trigger",
+      "badge": "test",
+      "attributes": {},
+      "events": [
+        {
+          "name": "created_course",
+          "time_offset_days": 0,
+          "properties": {
+            "course_title": "Canvas Experiment Course"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "exp_003",
+      "label": "Canvas Experiment 003 \u2014 created_course trigger",
+      "badge": "test",
+      "attributes": {},
+      "events": [
+        {
+          "name": "created_course",
+          "time_offset_days": 0,
+          "properties": {
+            "course_title": "Canvas Experiment Course"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "exp_004",
+      "label": "Canvas Experiment 004 \u2014 created_course trigger",
+      "badge": "test",
+      "attributes": {},
+      "events": [
+        {
+          "name": "created_course",
+          "time_offset_days": 0,
+          "properties": {
+            "course_title": "Canvas Experiment Course"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "exp_005",
+      "label": "Canvas Experiment 005 \u2014 created_course trigger",
+      "badge": "test",
+      "attributes": {},
+      "events": [
+        {
+          "name": "created_course",
+          "time_offset_days": 0,
+          "properties": {
+            "course_title": "Canvas Experiment Course"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "exp_006",
+      "label": "Canvas Experiment 006 \u2014 created_course trigger",
+      "badge": "test",
+      "attributes": {},
+      "events": [
+        {
+          "name": "created_course",
+          "time_offset_days": 0,
+          "properties": {
+            "course_title": "Canvas Experiment Course"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "exp_007",
+      "label": "Canvas Experiment 007 \u2014 created_course trigger",
+      "badge": "test",
+      "attributes": {},
+      "events": [
+        {
+          "name": "created_course",
+          "time_offset_days": 0,
+          "properties": {
+            "course_title": "Canvas Experiment Course"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "exp_008",
+      "label": "Canvas Experiment 008 \u2014 created_course trigger",
+      "badge": "test",
+      "attributes": {},
+      "events": [
+        {
+          "name": "created_course",
+          "time_offset_days": 0,
+          "properties": {
+            "course_title": "Canvas Experiment Course"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "exp_009",
+      "label": "Canvas Experiment 009 \u2014 created_course trigger",
+      "badge": "test",
+      "attributes": {},
+      "events": [
+        {
+          "name": "created_course",
+          "time_offset_days": 0,
+          "properties": {
+            "course_title": "Canvas Experiment Course"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "exp_010",
+      "label": "Canvas Experiment 010 \u2014 created_course trigger",
+      "badge": "test",
+      "attributes": {},
+      "events": [
+        {
+          "name": "created_course",
+          "time_offset_days": 0,
+          "properties": {
+            "course_title": "Canvas Experiment Course"
+          }
+        }
+      ],
+      "purchases": []
+    }
+  ]
+}

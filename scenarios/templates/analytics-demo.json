@@ -1,0 +1,6623 @@
+{
+  "id": "analytics-demo",
+  "name": "Analytics Demo: Retention, Funnel & Email Cohorts",
+  "description": "Seeds 53 users across High/Medium/Low engagement tiers plus 3 test email addresses. Designed for Retention Reports, Funnel Reports, Canvas/Campaign analytics, and Report Builder demos. Run first, then launch a Canvas/Campaign targeting the demo_scenario='analytics-demo' segment.",
+  "category": "Analytics & Reporting",
+  "isTemplate": true,
+  "personas": [
+    {
+      "id": "hi_001",
+      "label": "Alice Chen",
+      "badge": "buyer",
+      "attributes": {
+        "first_name": "Alice",
+        "last_name": "Chen",
+        "email": "alice.chen@ademo.example.com",
+        "role": "Admin",
+        "demo_cohort": "high",
+        "email_engagement_tier": "high",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 22,
+        "content_items_consumed": 18,
+        "subscription_status": "active",
+        "subscription_plan": "pro"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -85,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -84,
+          "properties": {
+            "source": "organic"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -83,
+          "properties": {
+            "plan": "pro_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -70,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "onboarding_completed",
+          "time_offset_days": -70,
+          "properties": {
+            "steps_completed": 4
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -65,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -65,
+          "properties": {
+            "course_title": "My First Course"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -64,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -63,
+          "properties": {
+            "lesson_index": 2
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -62,
+          "properties": {
+            "block_type": "quiz"
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -61,
+          "properties": {
+            "block_type": "video"
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -60,
+          "properties": {
+            "block_type": "text"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -56,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -55,
+          "properties": {
+            "content_type": "course",
+            "duration_minutes": 30
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -42,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -41,
+          "properties": {
+            "content_type": "video",
+            "duration_minutes": 15
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -28,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "premium_upgrade_clicked",
+          "time_offset_days": -27,
+          "properties": {
+            "plan": "pro",
+            "trigger": "paywall"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -14,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "subscription_purchased",
+          "time_offset_days": -14,
+          "properties": {
+            "plan": "pro",
+            "amount": 49
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -7,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -2,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": 0,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": [
+        {
+          "product_id": "plan_pro_monthly",
+          "currency": "USD",
+          "price": 49,
+          "quantity": 1,
+          "time_offset_days": -14
+        }
+      ]
+    },
+    {
+      "id": "hi_002",
+      "label": "Marcus Williams",
+      "badge": "buyer",
+      "attributes": {
+        "first_name": "Marcus",
+        "last_name": "Williams",
+        "email": "marcus.williams@ademo.example.com",
+        "role": "Course Creator",
+        "demo_cohort": "high",
+        "email_engagement_tier": "high",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 22,
+        "content_items_consumed": 18,
+        "subscription_status": "active",
+        "subscription_plan": "pro"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -86,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -85,
+          "properties": {
+            "source": "referral"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -84,
+          "properties": {
+            "plan": "pro_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -71,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "onboarding_completed",
+          "time_offset_days": -71,
+          "properties": {
+            "steps_completed": 4
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -66,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -66,
+          "properties": {
+            "course_title": "My First Course"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -65,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -64,
+          "properties": {
+            "lesson_index": 2
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -63,
+          "properties": {
+            "block_type": "quiz"
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -62,
+          "properties": {
+            "block_type": "video"
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -61,
+          "properties": {
+            "block_type": "text"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -57,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -56,
+          "properties": {
+            "content_type": "video",
+            "duration_minutes": 45
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -43,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -42,
+          "properties": {
+            "content_type": "article",
+            "duration_minutes": 25
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -29,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "premium_upgrade_clicked",
+          "time_offset_days": -28,
+          "properties": {
+            "plan": "pro",
+            "trigger": "paywall"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -15,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "subscription_purchased",
+          "time_offset_days": -15,
+          "properties": {
+            "plan": "pro",
+            "amount": 49
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -8,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -3,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -1,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": [
+        {
+          "product_id": "plan_pro_monthly",
+          "currency": "USD",
+          "price": 49,
+          "quantity": 1,
+          "time_offset_days": -15
+        }
+      ]
+    },
+    {
+      "id": "hi_003",
+      "label": "Priya Patel",
+      "badge": "buyer",
+      "attributes": {
+        "first_name": "Priya",
+        "last_name": "Patel",
+        "email": "priya.patel@ademo.example.com",
+        "role": "Course Creator",
+        "demo_cohort": "high",
+        "email_engagement_tier": "high",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 22,
+        "content_items_consumed": 18,
+        "subscription_status": "active",
+        "subscription_plan": "pro"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -87,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -86,
+          "properties": {
+            "source": "ad"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -85,
+          "properties": {
+            "plan": "pro_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -72,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "onboarding_completed",
+          "time_offset_days": -72,
+          "properties": {
+            "steps_completed": 4
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -67,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -67,
+          "properties": {
+            "course_title": "My First Course"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -66,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -65,
+          "properties": {
+            "lesson_index": 2
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -64,
+          "properties": {
+            "block_type": "quiz"
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -63,
+          "properties": {
+            "block_type": "video"
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -62,
+          "properties": {
+            "block_type": "text"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -58,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -57,
+          "properties": {
+            "content_type": "webinar",
+            "duration_minutes": 20
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -44,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -43,
+          "properties": {
+            "content_type": "course",
+            "duration_minutes": 10
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -30,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "premium_upgrade_clicked",
+          "time_offset_days": -29,
+          "properties": {
+            "plan": "pro",
+            "trigger": "paywall"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -16,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "subscription_purchased",
+          "time_offset_days": -16,
+          "properties": {
+            "plan": "pro",
+            "amount": 49
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -9,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -4,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -2,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": [
+        {
+          "product_id": "plan_pro_monthly",
+          "currency": "USD",
+          "price": 49,
+          "quantity": 1,
+          "time_offset_days": -16
+        }
+      ]
+    },
+    {
+      "id": "hi_004",
+      "label": "Jake Torres",
+      "badge": "buyer",
+      "attributes": {
+        "first_name": "Jake",
+        "last_name": "Torres",
+        "email": "jake.torres@ademo.example.com",
+        "role": "Admin",
+        "demo_cohort": "high",
+        "email_engagement_tier": "high",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 22,
+        "content_items_consumed": 18,
+        "subscription_status": "active",
+        "subscription_plan": "pro"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -88,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -87,
+          "properties": {
+            "source": "organic"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -86,
+          "properties": {
+            "plan": "pro_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -73,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "onboarding_completed",
+          "time_offset_days": -73,
+          "properties": {
+            "steps_completed": 4
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -68,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -68,
+          "properties": {
+            "course_title": "My First Course"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -67,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -66,
+          "properties": {
+            "lesson_index": 2
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -65,
+          "properties": {
+            "block_type": "quiz"
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -64,
+          "properties": {
+            "block_type": "video"
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -63,
+          "properties": {
+            "block_type": "text"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -59,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -58,
+          "properties": {
+            "content_type": "course",
+            "duration_minutes": 30
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -45,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -44,
+          "properties": {
+            "content_type": "video",
+            "duration_minutes": 15
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -31,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "premium_upgrade_clicked",
+          "time_offset_days": -30,
+          "properties": {
+            "plan": "pro",
+            "trigger": "paywall"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -17,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "subscription_purchased",
+          "time_offset_days": -17,
+          "properties": {
+            "plan": "pro",
+            "amount": 49
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -10,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -5,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -3,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": [
+        {
+          "product_id": "plan_pro_monthly",
+          "currency": "USD",
+          "price": 49,
+          "quantity": 1,
+          "time_offset_days": -17
+        }
+      ]
+    },
+    {
+      "id": "hi_005",
+      "label": "Nina Okafor",
+      "badge": "buyer",
+      "attributes": {
+        "first_name": "Nina",
+        "last_name": "Okafor",
+        "email": "nina.okafor@ademo.example.com",
+        "role": "Course Creator",
+        "demo_cohort": "high",
+        "email_engagement_tier": "high",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 22,
+        "content_items_consumed": 18,
+        "subscription_status": "active",
+        "subscription_plan": "pro"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -89,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -88,
+          "properties": {
+            "source": "referral"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -87,
+          "properties": {
+            "plan": "pro_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -74,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "onboarding_completed",
+          "time_offset_days": -74,
+          "properties": {
+            "steps_completed": 4
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -69,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -69,
+          "properties": {
+            "course_title": "My First Course"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -68,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -67,
+          "properties": {
+            "lesson_index": 2
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -66,
+          "properties": {
+            "block_type": "quiz"
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -65,
+          "properties": {
+            "block_type": "video"
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -64,
+          "properties": {
+            "block_type": "text"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -60,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -59,
+          "properties": {
+            "content_type": "video",
+            "duration_minutes": 45
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -46,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -45,
+          "properties": {
+            "content_type": "article",
+            "duration_minutes": 25
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -32,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "premium_upgrade_clicked",
+          "time_offset_days": -31,
+          "properties": {
+            "plan": "pro",
+            "trigger": "paywall"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -18,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "subscription_purchased",
+          "time_offset_days": -18,
+          "properties": {
+            "plan": "pro",
+            "amount": 49
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -11,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -6,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -4,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": [
+        {
+          "product_id": "plan_pro_monthly",
+          "currency": "USD",
+          "price": 49,
+          "quantity": 1,
+          "time_offset_days": -18
+        }
+      ]
+    },
+    {
+      "id": "hi_006",
+      "label": "Liam Park",
+      "badge": "buyer",
+      "attributes": {
+        "first_name": "Liam",
+        "last_name": "Park",
+        "email": "liam.park@ademo.example.com",
+        "role": "Course Creator",
+        "demo_cohort": "high",
+        "email_engagement_tier": "high",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 22,
+        "content_items_consumed": 18,
+        "subscription_status": "active",
+        "subscription_plan": "pro"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -90,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -89,
+          "properties": {
+            "source": "ad"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -88,
+          "properties": {
+            "plan": "pro_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -75,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "onboarding_completed",
+          "time_offset_days": -75,
+          "properties": {
+            "steps_completed": 4
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -70,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -70,
+          "properties": {
+            "course_title": "My First Course"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -69,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -68,
+          "properties": {
+            "lesson_index": 2
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -67,
+          "properties": {
+            "block_type": "quiz"
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -66,
+          "properties": {
+            "block_type": "video"
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -65,
+          "properties": {
+            "block_type": "text"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -61,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -60,
+          "properties": {
+            "content_type": "webinar",
+            "duration_minutes": 20
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -47,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -46,
+          "properties": {
+            "content_type": "course",
+            "duration_minutes": 10
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -33,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "premium_upgrade_clicked",
+          "time_offset_days": -32,
+          "properties": {
+            "plan": "pro",
+            "trigger": "paywall"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -19,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "subscription_purchased",
+          "time_offset_days": -19,
+          "properties": {
+            "plan": "pro",
+            "amount": 49
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -12,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -7,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -5,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": [
+        {
+          "product_id": "plan_pro_monthly",
+          "currency": "USD",
+          "price": 49,
+          "quantity": 1,
+          "time_offset_days": -19
+        }
+      ]
+    },
+    {
+      "id": "hi_007",
+      "label": "Sandra Kim",
+      "badge": "buyer",
+      "attributes": {
+        "first_name": "Sandra",
+        "last_name": "Kim",
+        "email": "sandra.kim@ademo.example.com",
+        "role": "Admin",
+        "demo_cohort": "high",
+        "email_engagement_tier": "high",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 22,
+        "content_items_consumed": 18,
+        "subscription_status": "active",
+        "subscription_plan": "pro"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -91,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -90,
+          "properties": {
+            "source": "organic"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -89,
+          "properties": {
+            "plan": "pro_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -76,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "onboarding_completed",
+          "time_offset_days": -76,
+          "properties": {
+            "steps_completed": 4
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -71,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -71,
+          "properties": {
+            "course_title": "My First Course"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -70,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -69,
+          "properties": {
+            "lesson_index": 2
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -68,
+          "properties": {
+            "block_type": "quiz"
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -67,
+          "properties": {
+            "block_type": "video"
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -66,
+          "properties": {
+            "block_type": "text"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -62,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -61,
+          "properties": {
+            "content_type": "course",
+            "duration_minutes": 30
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -48,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -47,
+          "properties": {
+            "content_type": "video",
+            "duration_minutes": 15
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -34,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "premium_upgrade_clicked",
+          "time_offset_days": -33,
+          "properties": {
+            "plan": "pro",
+            "trigger": "paywall"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -20,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "subscription_purchased",
+          "time_offset_days": -20,
+          "properties": {
+            "plan": "pro",
+            "amount": 49
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -13,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -8,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -6,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": [
+        {
+          "product_id": "plan_pro_monthly",
+          "currency": "USD",
+          "price": 49,
+          "quantity": 1,
+          "time_offset_days": -20
+        }
+      ]
+    },
+    {
+      "id": "hi_008",
+      "label": "Derek Santos",
+      "badge": "buyer",
+      "attributes": {
+        "first_name": "Derek",
+        "last_name": "Santos",
+        "email": "derek.santos@ademo.example.com",
+        "role": "Course Creator",
+        "demo_cohort": "high",
+        "email_engagement_tier": "high",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 22,
+        "content_items_consumed": 18,
+        "subscription_status": "active",
+        "subscription_plan": "pro"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -92,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -91,
+          "properties": {
+            "source": "referral"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -90,
+          "properties": {
+            "plan": "pro_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -77,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "onboarding_completed",
+          "time_offset_days": -77,
+          "properties": {
+            "steps_completed": 4
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -72,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -72,
+          "properties": {
+            "course_title": "My First Course"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -71,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -70,
+          "properties": {
+            "lesson_index": 2
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -69,
+          "properties": {
+            "block_type": "quiz"
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -68,
+          "properties": {
+            "block_type": "video"
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -67,
+          "properties": {
+            "block_type": "text"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -63,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -62,
+          "properties": {
+            "content_type": "video",
+            "duration_minutes": 45
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -49,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -48,
+          "properties": {
+            "content_type": "article",
+            "duration_minutes": 25
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -35,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "premium_upgrade_clicked",
+          "time_offset_days": -34,
+          "properties": {
+            "plan": "pro",
+            "trigger": "paywall"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -21,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "subscription_purchased",
+          "time_offset_days": -21,
+          "properties": {
+            "plan": "pro",
+            "amount": 49
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -14,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -9,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -7,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": [
+        {
+          "product_id": "plan_pro_monthly",
+          "currency": "USD",
+          "price": 49,
+          "quantity": 1,
+          "time_offset_days": -21
+        }
+      ]
+    },
+    {
+      "id": "hi_009",
+      "label": "Elena Rossi",
+      "badge": "buyer",
+      "attributes": {
+        "first_name": "Elena",
+        "last_name": "Rossi",
+        "email": "elena.rossi@ademo.example.com",
+        "role": "Course Creator",
+        "demo_cohort": "high",
+        "email_engagement_tier": "high",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 22,
+        "content_items_consumed": 18,
+        "subscription_status": "active",
+        "subscription_plan": "pro"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -93,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -92,
+          "properties": {
+            "source": "ad"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -91,
+          "properties": {
+            "plan": "pro_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -78,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "onboarding_completed",
+          "time_offset_days": -78,
+          "properties": {
+            "steps_completed": 4
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -73,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -73,
+          "properties": {
+            "course_title": "My First Course"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -72,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -71,
+          "properties": {
+            "lesson_index": 2
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -70,
+          "properties": {
+            "block_type": "quiz"
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -69,
+          "properties": {
+            "block_type": "video"
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -68,
+          "properties": {
+            "block_type": "text"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -64,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -63,
+          "properties": {
+            "content_type": "webinar",
+            "duration_minutes": 20
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -50,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -49,
+          "properties": {
+            "content_type": "course",
+            "duration_minutes": 10
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -36,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "premium_upgrade_clicked",
+          "time_offset_days": -35,
+          "properties": {
+            "plan": "pro",
+            "trigger": "paywall"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -22,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "subscription_purchased",
+          "time_offset_days": -22,
+          "properties": {
+            "plan": "pro",
+            "amount": 49
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -15,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -10,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -8,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": [
+        {
+          "product_id": "plan_pro_monthly",
+          "currency": "USD",
+          "price": 49,
+          "quantity": 1,
+          "time_offset_days": -22
+        }
+      ]
+    },
+    {
+      "id": "hi_010",
+      "label": "Ayasha Morales",
+      "badge": "buyer",
+      "attributes": {
+        "first_name": "Ayasha",
+        "last_name": "Morales",
+        "email": "ayasha.morales@ademo.example.com",
+        "role": "Admin",
+        "demo_cohort": "high",
+        "email_engagement_tier": "high",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 22,
+        "content_items_consumed": 18,
+        "subscription_status": "active",
+        "subscription_plan": "pro"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -94,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -93,
+          "properties": {
+            "source": "organic"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -92,
+          "properties": {
+            "plan": "pro_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -79,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "onboarding_completed",
+          "time_offset_days": -79,
+          "properties": {
+            "steps_completed": 4
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -74,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -74,
+          "properties": {
+            "course_title": "My First Course"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -73,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -72,
+          "properties": {
+            "lesson_index": 2
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -71,
+          "properties": {
+            "block_type": "quiz"
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -70,
+          "properties": {
+            "block_type": "video"
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -69,
+          "properties": {
+            "block_type": "text"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -65,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -64,
+          "properties": {
+            "content_type": "course",
+            "duration_minutes": 30
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -51,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -50,
+          "properties": {
+            "content_type": "video",
+            "duration_minutes": 15
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -37,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "premium_upgrade_clicked",
+          "time_offset_days": -36,
+          "properties": {
+            "plan": "pro",
+            "trigger": "paywall"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -23,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "subscription_purchased",
+          "time_offset_days": -23,
+          "properties": {
+            "plan": "pro",
+            "amount": 49
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -16,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -11,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -9,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": [
+        {
+          "product_id": "plan_pro_monthly",
+          "currency": "USD",
+          "price": 49,
+          "quantity": 1,
+          "time_offset_days": -23
+        }
+      ]
+    },
+    {
+      "id": "hi_011",
+      "label": "Dmitri Volkov",
+      "badge": "buyer",
+      "attributes": {
+        "first_name": "Dmitri",
+        "last_name": "Volkov",
+        "email": "dmitri.volkov@ademo.example.com",
+        "role": "Course Creator",
+        "demo_cohort": "high",
+        "email_engagement_tier": "high",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 22,
+        "content_items_consumed": 18,
+        "subscription_status": "active",
+        "subscription_plan": "pro"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -95,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -94,
+          "properties": {
+            "source": "referral"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -93,
+          "properties": {
+            "plan": "pro_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -80,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "onboarding_completed",
+          "time_offset_days": -80,
+          "properties": {
+            "steps_completed": 4
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -75,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -75,
+          "properties": {
+            "course_title": "My First Course"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -74,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -73,
+          "properties": {
+            "lesson_index": 2
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -72,
+          "properties": {
+            "block_type": "quiz"
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -71,
+          "properties": {
+            "block_type": "video"
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -70,
+          "properties": {
+            "block_type": "text"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -66,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -65,
+          "properties": {
+            "content_type": "video",
+            "duration_minutes": 45
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -52,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -51,
+          "properties": {
+            "content_type": "article",
+            "duration_minutes": 25
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -38,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "premium_upgrade_clicked",
+          "time_offset_days": -37,
+          "properties": {
+            "plan": "pro",
+            "trigger": "paywall"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -24,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "subscription_purchased",
+          "time_offset_days": -24,
+          "properties": {
+            "plan": "pro",
+            "amount": 49
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -17,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -12,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -10,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": [
+        {
+          "product_id": "plan_pro_monthly",
+          "currency": "USD",
+          "price": 49,
+          "quantity": 1,
+          "time_offset_days": -24
+        }
+      ]
+    },
+    {
+      "id": "hi_012",
+      "label": "Chloe Bernard",
+      "badge": "buyer",
+      "attributes": {
+        "first_name": "Chloe",
+        "last_name": "Bernard",
+        "email": "chloe.bernard@ademo.example.com",
+        "role": "Course Creator",
+        "demo_cohort": "high",
+        "email_engagement_tier": "high",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 22,
+        "content_items_consumed": 18,
+        "subscription_status": "active",
+        "subscription_plan": "pro"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -96,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -95,
+          "properties": {
+            "source": "ad"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -94,
+          "properties": {
+            "plan": "pro_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -81,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "onboarding_completed",
+          "time_offset_days": -81,
+          "properties": {
+            "steps_completed": 4
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -76,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -76,
+          "properties": {
+            "course_title": "My First Course"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -75,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -74,
+          "properties": {
+            "lesson_index": 2
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -73,
+          "properties": {
+            "block_type": "quiz"
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -72,
+          "properties": {
+            "block_type": "video"
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -71,
+          "properties": {
+            "block_type": "text"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -67,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -66,
+          "properties": {
+            "content_type": "webinar",
+            "duration_minutes": 20
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -53,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -52,
+          "properties": {
+            "content_type": "course",
+            "duration_minutes": 10
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -39,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "premium_upgrade_clicked",
+          "time_offset_days": -38,
+          "properties": {
+            "plan": "pro",
+            "trigger": "paywall"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -25,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "subscription_purchased",
+          "time_offset_days": -25,
+          "properties": {
+            "plan": "pro",
+            "amount": 49
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -18,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -13,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -11,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": [
+        {
+          "product_id": "plan_pro_monthly",
+          "currency": "USD",
+          "price": 49,
+          "quantity": 1,
+          "time_offset_days": -25
+        }
+      ]
+    },
+    {
+      "id": "hi_013",
+      "label": "Kwame Asante",
+      "badge": "buyer",
+      "attributes": {
+        "first_name": "Kwame",
+        "last_name": "Asante",
+        "email": "kwame.asante@ademo.example.com",
+        "role": "Admin",
+        "demo_cohort": "high",
+        "email_engagement_tier": "high",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 22,
+        "content_items_consumed": 18,
+        "subscription_status": "active",
+        "subscription_plan": "pro"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -97,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -96,
+          "properties": {
+            "source": "organic"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -95,
+          "properties": {
+            "plan": "pro_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -82,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "onboarding_completed",
+          "time_offset_days": -82,
+          "properties": {
+            "steps_completed": 4
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -77,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -77,
+          "properties": {
+            "course_title": "My First Course"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -76,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -75,
+          "properties": {
+            "lesson_index": 2
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -74,
+          "properties": {
+            "block_type": "quiz"
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -73,
+          "properties": {
+            "block_type": "video"
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -72,
+          "properties": {
+            "block_type": "text"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -68,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -67,
+          "properties": {
+            "content_type": "course",
+            "duration_minutes": 30
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -54,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -53,
+          "properties": {
+            "content_type": "video",
+            "duration_minutes": 15
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -40,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "premium_upgrade_clicked",
+          "time_offset_days": -39,
+          "properties": {
+            "plan": "pro",
+            "trigger": "paywall"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -26,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "subscription_purchased",
+          "time_offset_days": -26,
+          "properties": {
+            "plan": "pro",
+            "amount": 199
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -19,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -14,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -12,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": [
+        {
+          "product_id": "plan_pro_annual",
+          "currency": "USD",
+          "price": 199,
+          "quantity": 1,
+          "time_offset_days": -26
+        }
+      ]
+    },
+    {
+      "id": "hi_014",
+      "label": "Hana Suzuki",
+      "badge": "buyer",
+      "attributes": {
+        "first_name": "Hana",
+        "last_name": "Suzuki",
+        "email": "hana.suzuki@ademo.example.com",
+        "role": "Course Creator",
+        "demo_cohort": "high",
+        "email_engagement_tier": "high",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 22,
+        "content_items_consumed": 18,
+        "subscription_status": "active",
+        "subscription_plan": "pro"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -98,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -97,
+          "properties": {
+            "source": "referral"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -96,
+          "properties": {
+            "plan": "pro_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -83,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "onboarding_completed",
+          "time_offset_days": -83,
+          "properties": {
+            "steps_completed": 4
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -78,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -78,
+          "properties": {
+            "course_title": "My First Course"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -77,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -76,
+          "properties": {
+            "lesson_index": 2
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -75,
+          "properties": {
+            "block_type": "quiz"
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -74,
+          "properties": {
+            "block_type": "video"
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -73,
+          "properties": {
+            "block_type": "text"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -69,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -68,
+          "properties": {
+            "content_type": "video",
+            "duration_minutes": 45
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -55,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -54,
+          "properties": {
+            "content_type": "article",
+            "duration_minutes": 25
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -41,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "premium_upgrade_clicked",
+          "time_offset_days": -40,
+          "properties": {
+            "plan": "pro",
+            "trigger": "paywall"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -27,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "subscription_purchased",
+          "time_offset_days": -27,
+          "properties": {
+            "plan": "pro",
+            "amount": 199
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -20,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -15,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -13,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": [
+        {
+          "product_id": "plan_pro_annual",
+          "currency": "USD",
+          "price": 199,
+          "quantity": 1,
+          "time_offset_days": -27
+        }
+      ]
+    },
+    {
+      "id": "hi_015",
+      "label": "Rafael Lima",
+      "badge": "buyer",
+      "attributes": {
+        "first_name": "Rafael",
+        "last_name": "Lima",
+        "email": "rafael.lima@ademo.example.com",
+        "role": "Course Creator",
+        "demo_cohort": "high",
+        "email_engagement_tier": "high",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 22,
+        "content_items_consumed": 18,
+        "subscription_status": "active",
+        "subscription_plan": "pro"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -99,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -98,
+          "properties": {
+            "source": "ad"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -97,
+          "properties": {
+            "plan": "pro_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -84,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "onboarding_completed",
+          "time_offset_days": -84,
+          "properties": {
+            "steps_completed": 4
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -79,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -79,
+          "properties": {
+            "course_title": "My First Course"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -78,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -77,
+          "properties": {
+            "lesson_index": 2
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -76,
+          "properties": {
+            "block_type": "quiz"
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -75,
+          "properties": {
+            "block_type": "video"
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -74,
+          "properties": {
+            "block_type": "text"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -70,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -69,
+          "properties": {
+            "content_type": "webinar",
+            "duration_minutes": 20
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -56,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -55,
+          "properties": {
+            "content_type": "course",
+            "duration_minutes": 10
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -42,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "premium_upgrade_clicked",
+          "time_offset_days": -41,
+          "properties": {
+            "plan": "pro",
+            "trigger": "paywall"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -28,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "subscription_purchased",
+          "time_offset_days": -28,
+          "properties": {
+            "plan": "pro",
+            "amount": 199
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -21,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -16,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -14,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": [
+        {
+          "product_id": "plan_pro_annual",
+          "currency": "USD",
+          "price": 199,
+          "quantity": 1,
+          "time_offset_days": -28
+        }
+      ]
+    },
+    {
+      "id": "hi_016",
+      "label": "Mia Andersen",
+      "badge": "buyer",
+      "attributes": {
+        "first_name": "Mia",
+        "last_name": "Andersen",
+        "email": "mia.andersen@ademo.example.com",
+        "role": "Admin",
+        "demo_cohort": "high",
+        "email_engagement_tier": "high",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 22,
+        "content_items_consumed": 18,
+        "subscription_status": "active",
+        "subscription_plan": "pro"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -100,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -99,
+          "properties": {
+            "source": "organic"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -98,
+          "properties": {
+            "plan": "pro_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -85,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "onboarding_completed",
+          "time_offset_days": -85,
+          "properties": {
+            "steps_completed": 4
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -80,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -80,
+          "properties": {
+            "course_title": "My First Course"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -79,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -78,
+          "properties": {
+            "lesson_index": 2
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -77,
+          "properties": {
+            "block_type": "quiz"
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -76,
+          "properties": {
+            "block_type": "video"
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -75,
+          "properties": {
+            "block_type": "text"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -71,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -70,
+          "properties": {
+            "content_type": "course",
+            "duration_minutes": 30
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -57,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -56,
+          "properties": {
+            "content_type": "video",
+            "duration_minutes": 15
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -43,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "premium_upgrade_clicked",
+          "time_offset_days": -42,
+          "properties": {
+            "plan": "pro",
+            "trigger": "paywall"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -29,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "subscription_purchased",
+          "time_offset_days": -29,
+          "properties": {
+            "plan": "pro",
+            "amount": 199
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -22,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -17,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -15,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": [
+        {
+          "product_id": "plan_pro_annual",
+          "currency": "USD",
+          "price": 199,
+          "quantity": 1,
+          "time_offset_days": -29
+        }
+      ]
+    },
+    {
+      "id": "hi_017",
+      "label": "Tobias Muller",
+      "badge": "buyer",
+      "attributes": {
+        "first_name": "Tobias",
+        "last_name": "Muller",
+        "email": "tobias.muller@ademo.example.com",
+        "role": "Course Creator",
+        "demo_cohort": "high",
+        "email_engagement_tier": "high",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 22,
+        "content_items_consumed": 18,
+        "subscription_status": "active",
+        "subscription_plan": "pro"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -101,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -100,
+          "properties": {
+            "source": "referral"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -99,
+          "properties": {
+            "plan": "pro_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -86,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "onboarding_completed",
+          "time_offset_days": -86,
+          "properties": {
+            "steps_completed": 4
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -81,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -81,
+          "properties": {
+            "course_title": "My First Course"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -80,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -79,
+          "properties": {
+            "lesson_index": 2
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -78,
+          "properties": {
+            "block_type": "quiz"
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -77,
+          "properties": {
+            "block_type": "video"
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -76,
+          "properties": {
+            "block_type": "text"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -72,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -71,
+          "properties": {
+            "content_type": "video",
+            "duration_minutes": 45
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -58,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -57,
+          "properties": {
+            "content_type": "article",
+            "duration_minutes": 25
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -44,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "premium_upgrade_clicked",
+          "time_offset_days": -43,
+          "properties": {
+            "plan": "pro",
+            "trigger": "paywall"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -30,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "subscription_purchased",
+          "time_offset_days": -30,
+          "properties": {
+            "plan": "pro",
+            "amount": 199
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -23,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -18,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -16,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": [
+        {
+          "product_id": "plan_pro_annual",
+          "currency": "USD",
+          "price": 199,
+          "quantity": 1,
+          "time_offset_days": -30
+        }
+      ]
+    },
+    {
+      "id": "med_001",
+      "label": "Sophia Laurent",
+      "badge": "browser",
+      "attributes": {
+        "first_name": "Sophia",
+        "last_name": "Laurent",
+        "email": "sophia.laurent@ademo.example.com",
+        "role": "Admin",
+        "demo_cohort": "medium",
+        "email_engagement_tier": "medium",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 8,
+        "content_items_consumed": 6,
+        "subscription_status": "active",
+        "subscription_plan": "starter"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -60,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -59,
+          "properties": {
+            "source": "organic"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -58,
+          "properties": {
+            "plan": "starter_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -45,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "onboarding_completed",
+          "time_offset_days": -44,
+          "properties": {
+            "steps_completed": 2
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -43,
+          "properties": {
+            "course_title": "Getting Started"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -42,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -41,
+          "properties": {
+            "block_type": "text"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -30,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -29,
+          "properties": {
+            "content_type": "article",
+            "duration_minutes": 30
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -15,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -5,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "premium_upgrade_clicked",
+          "time_offset_days": -4,
+          "properties": {
+            "plan": "starter",
+            "trigger": "banner"
+          }
+        }
+      ],
+      "purchases": [
+        {
+          "product_id": "plan_starter_monthly",
+          "currency": "USD",
+          "price": 19,
+          "quantity": 1,
+          "time_offset_days": -4
+        }
+      ]
+    },
+    {
+      "id": "med_002",
+      "label": "Omar Hassan",
+      "badge": "browser",
+      "attributes": {
+        "first_name": "Omar",
+        "last_name": "Hassan",
+        "email": "omar.hassan@ademo.example.com",
+        "role": "Course Creator",
+        "demo_cohort": "medium",
+        "email_engagement_tier": "medium",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 8,
+        "content_items_consumed": 6,
+        "subscription_status": "active",
+        "subscription_plan": "starter"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -61,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -60,
+          "properties": {
+            "source": "referral"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -59,
+          "properties": {
+            "plan": "starter_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -46,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "onboarding_completed",
+          "time_offset_days": -45,
+          "properties": {
+            "steps_completed": 2
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -44,
+          "properties": {
+            "course_title": "Getting Started"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -43,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -42,
+          "properties": {
+            "block_type": "text"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -31,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -30,
+          "properties": {
+            "content_type": "video",
+            "duration_minutes": 20
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -16,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -6,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "premium_upgrade_clicked",
+          "time_offset_days": -5,
+          "properties": {
+            "plan": "starter",
+            "trigger": "banner"
+          }
+        }
+      ],
+      "purchases": [
+        {
+          "product_id": "plan_starter_monthly",
+          "currency": "USD",
+          "price": 19,
+          "quantity": 1,
+          "time_offset_days": -5
+        }
+      ]
+    },
+    {
+      "id": "med_003",
+      "label": "Mei Zhang",
+      "badge": "browser",
+      "attributes": {
+        "first_name": "Mei",
+        "last_name": "Zhang",
+        "email": "mei.zhang@ademo.example.com",
+        "role": "Course Creator",
+        "demo_cohort": "medium",
+        "email_engagement_tier": "medium",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 8,
+        "content_items_consumed": 6,
+        "subscription_status": "active",
+        "subscription_plan": "starter"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -62,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -61,
+          "properties": {
+            "source": "ad"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -60,
+          "properties": {
+            "plan": "starter_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -47,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "onboarding_completed",
+          "time_offset_days": -46,
+          "properties": {
+            "steps_completed": 2
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -45,
+          "properties": {
+            "course_title": "Getting Started"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -44,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -43,
+          "properties": {
+            "block_type": "text"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -32,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -31,
+          "properties": {
+            "content_type": "course",
+            "duration_minutes": 15
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -17,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -7,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "premium_upgrade_clicked",
+          "time_offset_days": -6,
+          "properties": {
+            "plan": "starter",
+            "trigger": "banner"
+          }
+        }
+      ],
+      "purchases": [
+        {
+          "product_id": "plan_starter_monthly",
+          "currency": "USD",
+          "price": 19,
+          "quantity": 1,
+          "time_offset_days": -6
+        }
+      ]
+    },
+    {
+      "id": "med_004",
+      "label": "Ben Miller",
+      "badge": "browser",
+      "attributes": {
+        "first_name": "Ben",
+        "last_name": "Miller",
+        "email": "ben.miller@ademo.example.com",
+        "role": "Course Creator",
+        "demo_cohort": "medium",
+        "email_engagement_tier": "medium",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 8,
+        "content_items_consumed": 6,
+        "subscription_status": "active",
+        "subscription_plan": "starter"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -63,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -62,
+          "properties": {
+            "source": "organic"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -61,
+          "properties": {
+            "plan": "starter_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -48,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "onboarding_completed",
+          "time_offset_days": -47,
+          "properties": {
+            "steps_completed": 2
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -46,
+          "properties": {
+            "course_title": "Getting Started"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -45,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -44,
+          "properties": {
+            "block_type": "text"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -33,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -32,
+          "properties": {
+            "content_type": "article",
+            "duration_minutes": 30
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -18,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -8,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "premium_upgrade_clicked",
+          "time_offset_days": -7,
+          "properties": {
+            "plan": "starter",
+            "trigger": "banner"
+          }
+        }
+      ],
+      "purchases": [
+        {
+          "product_id": "plan_starter_monthly",
+          "currency": "USD",
+          "price": 19,
+          "quantity": 1,
+          "time_offset_days": -7
+        }
+      ]
+    },
+    {
+      "id": "med_005",
+      "label": "Ingrid Berg",
+      "badge": "browser",
+      "attributes": {
+        "first_name": "Ingrid",
+        "last_name": "Berg",
+        "email": "ingrid.berg@ademo.example.com",
+        "role": "Course Creator",
+        "demo_cohort": "medium",
+        "email_engagement_tier": "medium",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 8,
+        "content_items_consumed": 6,
+        "subscription_status": "active",
+        "subscription_plan": "starter"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -64,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -63,
+          "properties": {
+            "source": "referral"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -62,
+          "properties": {
+            "plan": "starter_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -49,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "onboarding_completed",
+          "time_offset_days": -48,
+          "properties": {
+            "steps_completed": 2
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -47,
+          "properties": {
+            "course_title": "Getting Started"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -46,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -45,
+          "properties": {
+            "block_type": "text"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -34,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -33,
+          "properties": {
+            "content_type": "video",
+            "duration_minutes": 20
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -19,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -9,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "premium_upgrade_clicked",
+          "time_offset_days": -8,
+          "properties": {
+            "plan": "starter",
+            "trigger": "banner"
+          }
+        }
+      ],
+      "purchases": [
+        {
+          "product_id": "plan_starter_monthly",
+          "currency": "USD",
+          "price": 19,
+          "quantity": 1,
+          "time_offset_days": -8
+        }
+      ]
+    },
+    {
+      "id": "med_006",
+      "label": "Carlos Mendez",
+      "badge": "browser",
+      "attributes": {
+        "first_name": "Carlos",
+        "last_name": "Mendez",
+        "email": "carlos.mendez@ademo.example.com",
+        "role": "Course Creator",
+        "demo_cohort": "medium",
+        "email_engagement_tier": "medium",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 8,
+        "content_items_consumed": 6,
+        "subscription_status": "active",
+        "subscription_plan": "starter"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -65,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -64,
+          "properties": {
+            "source": "ad"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -63,
+          "properties": {
+            "plan": "starter_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -50,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "onboarding_completed",
+          "time_offset_days": -49,
+          "properties": {
+            "steps_completed": 2
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -48,
+          "properties": {
+            "course_title": "Getting Started"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -47,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -46,
+          "properties": {
+            "block_type": "text"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -35,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -34,
+          "properties": {
+            "content_type": "course",
+            "duration_minutes": 15
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -20,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -10,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "premium_upgrade_clicked",
+          "time_offset_days": -9,
+          "properties": {
+            "plan": "starter",
+            "trigger": "banner"
+          }
+        }
+      ],
+      "purchases": [
+        {
+          "product_id": "plan_starter_monthly",
+          "currency": "USD",
+          "price": 19,
+          "quantity": 1,
+          "time_offset_days": -9
+        }
+      ]
+    },
+    {
+      "id": "med_007",
+      "label": "Aya Tanaka",
+      "badge": "browser",
+      "attributes": {
+        "first_name": "Aya",
+        "last_name": "Tanaka",
+        "email": "aya.tanaka@ademo.example.com",
+        "role": "Admin",
+        "demo_cohort": "medium",
+        "email_engagement_tier": "medium",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 8,
+        "content_items_consumed": 6,
+        "subscription_status": "active",
+        "subscription_plan": "starter"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -66,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -65,
+          "properties": {
+            "source": "organic"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -64,
+          "properties": {
+            "plan": "starter_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -51,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "onboarding_completed",
+          "time_offset_days": -50,
+          "properties": {
+            "steps_completed": 2
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -49,
+          "properties": {
+            "course_title": "Getting Started"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -48,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -47,
+          "properties": {
+            "block_type": "text"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -36,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -35,
+          "properties": {
+            "content_type": "article",
+            "duration_minutes": 30
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -21,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -11,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "premium_upgrade_clicked",
+          "time_offset_days": -10,
+          "properties": {
+            "plan": "starter",
+            "trigger": "banner"
+          }
+        }
+      ],
+      "purchases": [
+        {
+          "product_id": "plan_starter_monthly",
+          "currency": "USD",
+          "price": 19,
+          "quantity": 1,
+          "time_offset_days": -10
+        }
+      ]
+    },
+    {
+      "id": "med_008",
+      "label": "James Osei",
+      "badge": "browser",
+      "attributes": {
+        "first_name": "James",
+        "last_name": "Osei",
+        "email": "james.osei@ademo.example.com",
+        "role": "Course Creator",
+        "demo_cohort": "medium",
+        "email_engagement_tier": "medium",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 8,
+        "content_items_consumed": 6,
+        "subscription_status": "active",
+        "subscription_plan": "starter"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -67,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -66,
+          "properties": {
+            "source": "referral"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -65,
+          "properties": {
+            "plan": "starter_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -52,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "onboarding_completed",
+          "time_offset_days": -51,
+          "properties": {
+            "steps_completed": 2
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -50,
+          "properties": {
+            "course_title": "Getting Started"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -49,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -48,
+          "properties": {
+            "block_type": "text"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -37,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -36,
+          "properties": {
+            "content_type": "video",
+            "duration_minutes": 20
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -22,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -12,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "premium_upgrade_clicked",
+          "time_offset_days": -11,
+          "properties": {
+            "plan": "starter",
+            "trigger": "banner"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "med_009",
+      "label": "Rosa Ferreira",
+      "badge": "browser",
+      "attributes": {
+        "first_name": "Rosa",
+        "last_name": "Ferreira",
+        "email": "rosa.ferreira@ademo.example.com",
+        "role": "Course Creator",
+        "demo_cohort": "medium",
+        "email_engagement_tier": "medium",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 8,
+        "content_items_consumed": 6,
+        "subscription_status": "active",
+        "subscription_plan": "starter"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -68,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -67,
+          "properties": {
+            "source": "ad"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -66,
+          "properties": {
+            "plan": "starter_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -53,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "onboarding_completed",
+          "time_offset_days": -52,
+          "properties": {
+            "steps_completed": 2
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -51,
+          "properties": {
+            "course_title": "Getting Started"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -50,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -49,
+          "properties": {
+            "block_type": "text"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -38,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -37,
+          "properties": {
+            "content_type": "course",
+            "duration_minutes": 15
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -23,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -13,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "premium_upgrade_clicked",
+          "time_offset_days": -12,
+          "properties": {
+            "plan": "starter",
+            "trigger": "banner"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "med_010",
+      "label": "Tom Nguyen",
+      "badge": "browser",
+      "attributes": {
+        "first_name": "Tom",
+        "last_name": "Nguyen",
+        "email": "tom.nguyen@ademo.example.com",
+        "role": "Course Creator",
+        "demo_cohort": "medium",
+        "email_engagement_tier": "medium",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 8,
+        "content_items_consumed": 6,
+        "subscription_status": "active",
+        "subscription_plan": "starter"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -69,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -68,
+          "properties": {
+            "source": "organic"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -67,
+          "properties": {
+            "plan": "starter_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -54,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "onboarding_completed",
+          "time_offset_days": -53,
+          "properties": {
+            "steps_completed": 2
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -52,
+          "properties": {
+            "course_title": "Getting Started"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -51,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -50,
+          "properties": {
+            "block_type": "text"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -39,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -38,
+          "properties": {
+            "content_type": "article",
+            "duration_minutes": 30
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -24,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -14,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "premium_upgrade_clicked",
+          "time_offset_days": -13,
+          "properties": {
+            "plan": "starter",
+            "trigger": "banner"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "med_011",
+      "label": "Dana Kowalski",
+      "badge": "browser",
+      "attributes": {
+        "first_name": "Dana",
+        "last_name": "Kowalski",
+        "email": "dana.kowalski@ademo.example.com",
+        "role": "Course Creator",
+        "demo_cohort": "medium",
+        "email_engagement_tier": "medium",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 8,
+        "content_items_consumed": 6,
+        "subscription_status": "active",
+        "subscription_plan": "starter"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -70,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -69,
+          "properties": {
+            "source": "referral"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -68,
+          "properties": {
+            "plan": "starter_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -55,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "onboarding_completed",
+          "time_offset_days": -54,
+          "properties": {
+            "steps_completed": 2
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -53,
+          "properties": {
+            "course_title": "Getting Started"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -52,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -51,
+          "properties": {
+            "block_type": "text"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -40,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -39,
+          "properties": {
+            "content_type": "video",
+            "duration_minutes": 20
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -25,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -15,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "premium_upgrade_clicked",
+          "time_offset_days": -14,
+          "properties": {
+            "plan": "starter",
+            "trigger": "banner"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "med_012",
+      "label": "Haruto Yamamoto",
+      "badge": "browser",
+      "attributes": {
+        "first_name": "Haruto",
+        "last_name": "Yamamoto",
+        "email": "haruto.yamamoto@ademo.example.com",
+        "role": "Course Creator",
+        "demo_cohort": "medium",
+        "email_engagement_tier": "medium",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 8,
+        "content_items_consumed": 6,
+        "subscription_status": "active",
+        "subscription_plan": "starter"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -71,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -70,
+          "properties": {
+            "source": "ad"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -69,
+          "properties": {
+            "plan": "starter_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -56,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "onboarding_completed",
+          "time_offset_days": -55,
+          "properties": {
+            "steps_completed": 2
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -54,
+          "properties": {
+            "course_title": "Getting Started"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -53,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -52,
+          "properties": {
+            "block_type": "text"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -41,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -40,
+          "properties": {
+            "content_type": "course",
+            "duration_minutes": 15
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -26,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -16,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "premium_upgrade_clicked",
+          "time_offset_days": -15,
+          "properties": {
+            "plan": "starter",
+            "trigger": "banner"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "med_013",
+      "label": "Anika Gupta",
+      "badge": "browser",
+      "attributes": {
+        "first_name": "Anika",
+        "last_name": "Gupta",
+        "email": "anika.gupta@ademo.example.com",
+        "role": "Admin",
+        "demo_cohort": "medium",
+        "email_engagement_tier": "medium",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 8,
+        "content_items_consumed": 6,
+        "subscription_status": "active",
+        "subscription_plan": "starter"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -72,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -71,
+          "properties": {
+            "source": "organic"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -70,
+          "properties": {
+            "plan": "starter_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -57,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "onboarding_completed",
+          "time_offset_days": -56,
+          "properties": {
+            "steps_completed": 2
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -55,
+          "properties": {
+            "course_title": "Getting Started"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -54,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -53,
+          "properties": {
+            "block_type": "text"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -42,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -41,
+          "properties": {
+            "content_type": "article",
+            "duration_minutes": 30
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -27,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -17,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "premium_upgrade_clicked",
+          "time_offset_days": -16,
+          "properties": {
+            "plan": "starter",
+            "trigger": "banner"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "med_014",
+      "label": "Leo Dubois",
+      "badge": "browser",
+      "attributes": {
+        "first_name": "Leo",
+        "last_name": "Dubois",
+        "email": "leo.dubois@ademo.example.com",
+        "role": "Course Creator",
+        "demo_cohort": "medium",
+        "email_engagement_tier": "medium",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 8,
+        "content_items_consumed": 6,
+        "subscription_status": "active",
+        "subscription_plan": "starter"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -73,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -72,
+          "properties": {
+            "source": "referral"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -71,
+          "properties": {
+            "plan": "starter_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -58,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "onboarding_completed",
+          "time_offset_days": -57,
+          "properties": {
+            "steps_completed": 2
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -56,
+          "properties": {
+            "course_title": "Getting Started"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -55,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -54,
+          "properties": {
+            "block_type": "text"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -43,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -42,
+          "properties": {
+            "content_type": "video",
+            "duration_minutes": 20
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -28,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -18,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "premium_upgrade_clicked",
+          "time_offset_days": -17,
+          "properties": {
+            "plan": "starter",
+            "trigger": "banner"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "med_015",
+      "label": "Fatima Al-Rashid",
+      "badge": "browser",
+      "attributes": {
+        "first_name": "Fatima",
+        "last_name": "Al-Rashid",
+        "email": "fatima.alrashid@ademo.example.com",
+        "role": "Course Creator",
+        "demo_cohort": "medium",
+        "email_engagement_tier": "medium",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 8,
+        "content_items_consumed": 6,
+        "subscription_status": "active",
+        "subscription_plan": "starter"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -74,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -73,
+          "properties": {
+            "source": "ad"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -72,
+          "properties": {
+            "plan": "starter_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -59,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "onboarding_completed",
+          "time_offset_days": -58,
+          "properties": {
+            "steps_completed": 2
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -57,
+          "properties": {
+            "course_title": "Getting Started"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -56,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -55,
+          "properties": {
+            "block_type": "text"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -44,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -43,
+          "properties": {
+            "content_type": "course",
+            "duration_minutes": 15
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -29,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -19,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "premium_upgrade_clicked",
+          "time_offset_days": -18,
+          "properties": {
+            "plan": "starter",
+            "trigger": "banner"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "med_016",
+      "label": "Yolanda Cruz",
+      "badge": "browser",
+      "attributes": {
+        "first_name": "Yolanda",
+        "last_name": "Cruz",
+        "email": "yolanda.cruz@ademo.example.com",
+        "role": "Course Creator",
+        "demo_cohort": "medium",
+        "email_engagement_tier": "medium",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 8,
+        "content_items_consumed": 6,
+        "subscription_status": "active",
+        "subscription_plan": "starter"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -75,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -74,
+          "properties": {
+            "source": "organic"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -73,
+          "properties": {
+            "plan": "starter_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -60,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "onboarding_completed",
+          "time_offset_days": -59,
+          "properties": {
+            "steps_completed": 2
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -58,
+          "properties": {
+            "course_title": "Getting Started"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -57,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -56,
+          "properties": {
+            "block_type": "text"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -45,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -44,
+          "properties": {
+            "content_type": "article",
+            "duration_minutes": 30
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -30,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -20,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "premium_upgrade_clicked",
+          "time_offset_days": -19,
+          "properties": {
+            "plan": "starter",
+            "trigger": "banner"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "med_017",
+      "label": "Patrick Nwosu",
+      "badge": "browser",
+      "attributes": {
+        "first_name": "Patrick",
+        "last_name": "Nwosu",
+        "email": "patrick.nwosu@ademo.example.com",
+        "role": "Course Creator",
+        "demo_cohort": "medium",
+        "email_engagement_tier": "medium",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 8,
+        "content_items_consumed": 6,
+        "subscription_status": "active",
+        "subscription_plan": "starter"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -76,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -75,
+          "properties": {
+            "source": "referral"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -74,
+          "properties": {
+            "plan": "starter_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -61,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "onboarding_completed",
+          "time_offset_days": -60,
+          "properties": {
+            "steps_completed": 2
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -59,
+          "properties": {
+            "course_title": "Getting Started"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -58,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -57,
+          "properties": {
+            "block_type": "text"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -46,
+          "properties": {
+            "platform": "mobile"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -45,
+          "properties": {
+            "content_type": "video",
+            "duration_minutes": 20
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -31,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -21,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "premium_upgrade_clicked",
+          "time_offset_days": -20,
+          "properties": {
+            "plan": "starter",
+            "trigger": "banner"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "low_001",
+      "label": "Sandra Rivera",
+      "badge": "churned",
+      "attributes": {
+        "first_name": "Sandra",
+        "last_name": "Rivera",
+        "email": "sandra.rivera@ademo.example.com",
+        "role": "Course Creator",
+        "demo_cohort": "low",
+        "email_engagement_tier": "low",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 2,
+        "content_items_consumed": 1,
+        "subscription_status": "active",
+        "subscription_plan": "free"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -30,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -29,
+          "properties": {
+            "source": "organic"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -28,
+          "properties": {
+            "plan": "free_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -20,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -19,
+          "properties": {
+            "course_title": "Untitled Course"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -10,
+          "properties": {
+            "platform": "mobile"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "low_002",
+      "label": "Eric Johansson",
+      "badge": "churned",
+      "attributes": {
+        "first_name": "Eric",
+        "last_name": "Johansson",
+        "email": "eric.johansson@ademo.example.com",
+        "role": "Course Creator",
+        "demo_cohort": "low",
+        "email_engagement_tier": "low",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 2,
+        "content_items_consumed": 1,
+        "subscription_status": "active",
+        "subscription_plan": "free"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -31,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -30,
+          "properties": {
+            "source": "referral"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -29,
+          "properties": {
+            "plan": "free_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -21,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -20,
+          "properties": {
+            "course_title": "Untitled Course"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -11,
+          "properties": {
+            "platform": "mobile"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "low_003",
+      "label": "Amara Diallo",
+      "badge": "churned",
+      "attributes": {
+        "first_name": "Amara",
+        "last_name": "Diallo",
+        "email": "amara.diallo@ademo.example.com",
+        "role": "Course Creator",
+        "demo_cohort": "low",
+        "email_engagement_tier": "low",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 2,
+        "content_items_consumed": 1,
+        "subscription_status": "active",
+        "subscription_plan": "free"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -32,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -31,
+          "properties": {
+            "source": "ad"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -30,
+          "properties": {
+            "plan": "free_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -22,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -21,
+          "properties": {
+            "course_title": "Untitled Course"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -12,
+          "properties": {
+            "platform": "mobile"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "low_004",
+      "label": "Chen Wei",
+      "badge": "churned",
+      "attributes": {
+        "first_name": "Chen",
+        "last_name": "Wei",
+        "email": "chen.wei@ademo.example.com",
+        "role": "Course Creator",
+        "demo_cohort": "low",
+        "email_engagement_tier": "low",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 2,
+        "content_items_consumed": 1,
+        "subscription_status": "active",
+        "subscription_plan": "free"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -33,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -32,
+          "properties": {
+            "source": "organic"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -31,
+          "properties": {
+            "plan": "free_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -23,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -22,
+          "properties": {
+            "course_title": "Untitled Course"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -13,
+          "properties": {
+            "platform": "mobile"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "low_005",
+      "label": "Brigitte Moreau",
+      "badge": "churned",
+      "attributes": {
+        "first_name": "Brigitte",
+        "last_name": "Moreau",
+        "email": "brigitte.moreau@ademo.example.com",
+        "role": "Course Creator",
+        "demo_cohort": "low",
+        "email_engagement_tier": "low",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 2,
+        "content_items_consumed": 1,
+        "subscription_status": "active",
+        "subscription_plan": "free"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -34,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -33,
+          "properties": {
+            "source": "referral"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -32,
+          "properties": {
+            "plan": "free_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -24,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -23,
+          "properties": {
+            "course_title": "Untitled Course"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -14,
+          "properties": {
+            "platform": "mobile"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "low_006",
+      "label": "Samuel Okonkwo",
+      "badge": "churned",
+      "attributes": {
+        "first_name": "Samuel",
+        "last_name": "Okonkwo",
+        "email": "samuel.okonkwo@ademo.example.com",
+        "role": "Course Creator",
+        "demo_cohort": "low",
+        "email_engagement_tier": "low",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 2,
+        "content_items_consumed": 1,
+        "subscription_status": "active",
+        "subscription_plan": "free"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -35,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -34,
+          "properties": {
+            "source": "ad"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -33,
+          "properties": {
+            "plan": "free_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -25,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -24,
+          "properties": {
+            "course_title": "Untitled Course"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -15,
+          "properties": {
+            "platform": "mobile"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "low_007",
+      "label": "Layla Hassan",
+      "badge": "churned",
+      "attributes": {
+        "first_name": "Layla",
+        "last_name": "Hassan",
+        "email": "layla.hassan@ademo.example.com",
+        "role": "Course Creator",
+        "demo_cohort": "low",
+        "email_engagement_tier": "low",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 2,
+        "content_items_consumed": 1,
+        "subscription_status": "active",
+        "subscription_plan": "free"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -36,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -35,
+          "properties": {
+            "source": "organic"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -34,
+          "properties": {
+            "plan": "free_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -26,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -25,
+          "properties": {
+            "course_title": "Untitled Course"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -16,
+          "properties": {
+            "platform": "mobile"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "low_008",
+      "label": "Viktor Petrov",
+      "badge": "churned",
+      "attributes": {
+        "first_name": "Viktor",
+        "last_name": "Petrov",
+        "email": "viktor.petrov@ademo.example.com",
+        "role": "Course Creator",
+        "demo_cohort": "low",
+        "email_engagement_tier": "low",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 2,
+        "content_items_consumed": 1,
+        "subscription_status": "active",
+        "subscription_plan": "free"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -37,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -36,
+          "properties": {
+            "source": "referral"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -35,
+          "properties": {
+            "plan": "free_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -27,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -26,
+          "properties": {
+            "course_title": "Untitled Course"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -17,
+          "properties": {
+            "platform": "mobile"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "low_009",
+      "label": "Isabel Carvalho",
+      "badge": "churned",
+      "attributes": {
+        "first_name": "Isabel",
+        "last_name": "Carvalho",
+        "email": "isabel.carvalho@ademo.example.com",
+        "role": "Course Creator",
+        "demo_cohort": "low",
+        "email_engagement_tier": "low",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 2,
+        "content_items_consumed": 1,
+        "subscription_status": "active",
+        "subscription_plan": "free"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -38,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -37,
+          "properties": {
+            "source": "ad"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -36,
+          "properties": {
+            "plan": "free_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -28,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -27,
+          "properties": {
+            "course_title": "Untitled Course"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -18,
+          "properties": {
+            "platform": "mobile"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "low_010",
+      "label": "Kenji Watanabe",
+      "badge": "churned",
+      "attributes": {
+        "first_name": "Kenji",
+        "last_name": "Watanabe",
+        "email": "kenji.watanabe@ademo.example.com",
+        "role": "Course Creator",
+        "demo_cohort": "low",
+        "email_engagement_tier": "low",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 2,
+        "content_items_consumed": 1,
+        "subscription_status": "active",
+        "subscription_plan": "free"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -39,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -38,
+          "properties": {
+            "source": "organic"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -37,
+          "properties": {
+            "plan": "free_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -29,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -28,
+          "properties": {
+            "course_title": "Untitled Course"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -19,
+          "properties": {
+            "platform": "mobile"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "low_011",
+      "label": "Adaeze Obi",
+      "badge": "churned",
+      "attributes": {
+        "first_name": "Adaeze",
+        "last_name": "Obi",
+        "email": "adaeze.obi@ademo.example.com",
+        "role": "Course Creator",
+        "demo_cohort": "low",
+        "email_engagement_tier": "low",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 2,
+        "content_items_consumed": 1,
+        "subscription_status": "active",
+        "subscription_plan": "free"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -40,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -39,
+          "properties": {
+            "source": "referral"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -38,
+          "properties": {
+            "plan": "free_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -30,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -29,
+          "properties": {
+            "course_title": "Untitled Course"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -20,
+          "properties": {
+            "platform": "mobile"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "low_012",
+      "label": "Finn McCarthy",
+      "badge": "churned",
+      "attributes": {
+        "first_name": "Finn",
+        "last_name": "McCarthy",
+        "email": "finn.mccarthy@ademo.example.com",
+        "role": "Course Creator",
+        "demo_cohort": "low",
+        "email_engagement_tier": "low",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 2,
+        "content_items_consumed": 1,
+        "subscription_status": "active",
+        "subscription_plan": "free"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -41,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -40,
+          "properties": {
+            "source": "ad"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -39,
+          "properties": {
+            "plan": "free_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -31,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -30,
+          "properties": {
+            "course_title": "Untitled Course"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -21,
+          "properties": {
+            "platform": "mobile"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "low_013",
+      "label": "Leila Nazari",
+      "badge": "churned",
+      "attributes": {
+        "first_name": "Leila",
+        "last_name": "Nazari",
+        "email": "leila.nazari@ademo.example.com",
+        "role": "Course Creator",
+        "demo_cohort": "low",
+        "email_engagement_tier": "low",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 2,
+        "content_items_consumed": 1,
+        "subscription_status": "active",
+        "subscription_plan": "free"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -42,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -41,
+          "properties": {
+            "source": "organic"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -40,
+          "properties": {
+            "plan": "free_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -32,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -31,
+          "properties": {
+            "course_title": "Untitled Course"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -22,
+          "properties": {
+            "platform": "mobile"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "low_014",
+      "label": "Andres Fuentes",
+      "badge": "churned",
+      "attributes": {
+        "first_name": "Andres",
+        "last_name": "Fuentes",
+        "email": "andres.fuentes@ademo.example.com",
+        "role": "Course Creator",
+        "demo_cohort": "low",
+        "email_engagement_tier": "low",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 2,
+        "content_items_consumed": 1,
+        "subscription_status": "active",
+        "subscription_plan": "free"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -43,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -42,
+          "properties": {
+            "source": "referral"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -41,
+          "properties": {
+            "plan": "free_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -33,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -32,
+          "properties": {
+            "course_title": "Untitled Course"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -23,
+          "properties": {
+            "platform": "mobile"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "low_015",
+      "label": "Cecilia Magnusson",
+      "badge": "churned",
+      "attributes": {
+        "first_name": "Cecilia",
+        "last_name": "Magnusson",
+        "email": "cecilia.magnusson@ademo.example.com",
+        "role": "Course Creator",
+        "demo_cohort": "low",
+        "email_engagement_tier": "low",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 2,
+        "content_items_consumed": 1,
+        "subscription_status": "active",
+        "subscription_plan": "free"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -44,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -43,
+          "properties": {
+            "source": "ad"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -42,
+          "properties": {
+            "plan": "free_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -34,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -33,
+          "properties": {
+            "course_title": "Untitled Course"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -24,
+          "properties": {
+            "platform": "mobile"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "low_016",
+      "label": "Joon-Ho Bae",
+      "badge": "churned",
+      "attributes": {
+        "first_name": "Joon-Ho",
+        "last_name": "Bae",
+        "email": "joonho.bae@ademo.example.com",
+        "role": "Course Creator",
+        "demo_cohort": "low",
+        "email_engagement_tier": "low",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "sessions_last_30_days": 2,
+        "content_items_consumed": 1,
+        "subscription_status": "active",
+        "subscription_plan": "free"
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -45,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -44,
+          "properties": {
+            "source": "organic"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -43,
+          "properties": {
+            "plan": "free_trial"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -35,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -34,
+          "properties": {
+            "course_title": "Untitled Course"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -25,
+          "properties": {
+            "platform": "mobile"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "andre_delivered",
+      "label": "Andre — Email Delivered (no open)",
+      "badge": "test",
+      "attributes": {
+        "first_name": "Andre",
+        "last_name": "Pereira",
+        "email": "andre.pereira+delivered@telusdigital.com",
+        "role": "Admin",
+        "demo_cohort": "low",
+        "email_engagement_tier": "low",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "subscription_status": "active",
+        "subscription_plan": "free",
+        "sessions_last_30_days": 1
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -20,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -19,
+          "properties": {
+            "source": "organic"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -18,
+          "properties": {
+            "plan": "free_trial"
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "andre_open",
+      "label": "Andre — Email Open (no click)",
+      "badge": "test",
+      "attributes": {
+        "first_name": "Andre",
+        "last_name": "Pereira",
+        "email": "andre.pereira+open@telusdigital.com",
+        "role": "Admin",
+        "demo_cohort": "medium",
+        "email_engagement_tier": "medium",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "subscription_status": "active",
+        "subscription_plan": "starter",
+        "sessions_last_30_days": 5
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -30,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -29,
+          "properties": {
+            "source": "organic"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -28,
+          "properties": {
+            "plan": "starter_trial"
+          }
+        },
+        {
+          "name": "onboarding_completed",
+          "time_offset_days": -28,
+          "properties": {
+            "steps_completed": 2
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -27,
+          "properties": {
+            "course_title": "Getting Started"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -26,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -25,
+          "properties": {
+            "block_type": "text"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -14,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -13,
+          "properties": {
+            "content_type": "article",
+            "duration_minutes": 5
+          }
+        }
+      ],
+      "purchases": []
+    },
+    {
+      "id": "andre_click",
+      "label": "Andre — Email Open + Click",
+      "badge": "test",
+      "attributes": {
+        "first_name": "Andre",
+        "last_name": "Pereira",
+        "email": "andre.pereira+click@telusdigital.com",
+        "role": "Admin",
+        "demo_cohort": "high",
+        "email_engagement_tier": "high",
+        "demo_scenario": "analytics-demo",
+        "country": "US",
+        "subscription_status": "active",
+        "subscription_plan": "pro",
+        "sessions_last_30_days": 15
+      },
+      "events": [
+        {
+          "name": "app_session_started",
+          "time_offset_days": -60,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "account_created",
+          "time_offset_days": -59,
+          "properties": {
+            "source": "organic"
+          }
+        },
+        {
+          "name": "started_trial",
+          "time_offset_days": -58,
+          "properties": {
+            "plan": "pro_trial"
+          }
+        },
+        {
+          "name": "onboarding_completed",
+          "time_offset_days": -58,
+          "properties": {
+            "steps_completed": 4
+          }
+        },
+        {
+          "name": "created_course",
+          "time_offset_days": -57,
+          "properties": {
+            "course_title": "Advanced Training"
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -56,
+          "properties": {
+            "lesson_index": 1
+          }
+        },
+        {
+          "name": "created_lesson",
+          "time_offset_days": -55,
+          "properties": {
+            "lesson_index": 2
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -54,
+          "properties": {
+            "block_type": "quiz"
+          }
+        },
+        {
+          "name": "created_block",
+          "time_offset_days": -53,
+          "properties": {
+            "block_type": "video"
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -42,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "content_consumed",
+          "time_offset_days": -41,
+          "properties": {
+            "content_type": "course",
+            "duration_minutes": 30
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -21,
+          "properties": {
+            "platform": "web"
+          }
+        },
+        {
+          "name": "premium_upgrade_clicked",
+          "time_offset_days": -20,
+          "properties": {
+            "plan": "pro",
+            "trigger": "paywall"
+          }
+        },
+        {
+          "name": "subscription_purchased",
+          "time_offset_days": -20,
+          "properties": {
+            "plan": "pro",
+            "amount": 49
+          }
+        },
+        {
+          "name": "app_session_started",
+          "time_offset_days": -7,
+          "properties": {
+            "platform": "web"
+          }
+        }
+      ],
+      "purchases": [
+        {
+          "product_id": "plan_pro_monthly",
+          "currency": "USD",
+          "price": 49,
+          "quantity": 1,
+          "time_offset_days": -20
+        }
+      ]
+    }
+  ]
+}
